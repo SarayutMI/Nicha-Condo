@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว | NICHA CONDO</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"><\/script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT:'#001830', 700:'#002344', 600:'#0d2f5e', 500:'#1a3f7a' },
+            gold: { DEFAULT:'#c9a84c', light:'#e0c070', dark:'#a87c2a', pale:'#f5ecd7', faint:'#fdf8ee' },
+          },
+          fontFamily: { sans: ['"IBM Plex Sans Thai"','"IBM Plex Sans"','sans-serif'] },
+        }
+      }
+    }
+  <\/script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"><\/script>
+
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif; background:#fff; color:#001830; overflow-x:hidden; }
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-track { background:#f0f4f8; }
+    ::-webkit-scrollbar-thumb { background:#c9a84c; border-radius:99px; }
+    :root { --navy:#001830; --navy-700:#002344; --gold:#c9a84c; --gold-lt:#e0c070; --gold-pale:#f5ecd7; --gray-soft:#f4f6f9; }
+    .glass { background:rgba(255,255,255,0.72); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.45); box-shadow:0 24px 60px -12px rgba(0,24,48,0.12); }
+    .gold-line { display:inline-block; width:48px; height:2px; background:linear-gradient(90deg,var(--gold),var(--gold-lt)); border-radius:99px; }
+    .text-shimmer { background:linear-gradient(120deg,#c9a84c 0%,#f5ecd7 40%,#c9a84c 60%,#a87c2a 100%); background-size:250% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:shimmerMove 3s linear infinite; }
+    @keyframes shimmerMove { 0%{background-position:200% center} 100%{background-position:-200% center} }
+    #mainNav { transition:background 0.4s, box-shadow 0.4s, padding 0.4s; }
+    #mainNav.scrolled { background:rgba(255,255,255,0.96) !important; box-shadow:0 4px 32px rgba(0,24,48,0.10); padding-top:0.6rem !important; padding-bottom:0.6rem !important; }
+    .btn-primary-gold { background:linear-gradient(135deg,#c9a84c,#e0c070); color:#001830; font-weight:600; letter-spacing:0.12em; font-size:0.78rem; text-transform:uppercase; border:none; transition:transform 0.25s, box-shadow 0.25s; }
+    .btn-primary-gold:hover { transform:translateY(-3px) scale(1.03); box-shadow:0 12px 40px rgba(201,168,76,0.5); color:#001830; }
+    .btn-outline-glass { background:rgba(255,255,255,0.1); color:#fff; border:1.5px solid rgba(255,255,255,0.45); font-weight:500; letter-spacing:0.12em; font-size:0.78rem; text-transform:uppercase; backdrop-filter:blur(8px); transition:background 0.25s, transform 0.25s; }
+    .btn-outline-glass:hover { background:rgba(255,255,255,0.22); transform:translateY(-3px); color:#fff; }
+    .sec-label { font-size:0.7rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); }
+    .sec-title { font-size:clamp(1.6rem,3.5vw,2.8rem); font-weight:700; color:var(--navy-700); line-height:1.2; }
+    .detail-card { border:1px solid rgba(201,168,76,0.25); border-radius:1rem; padding:1.5rem; background:#fff; transition:box-shadow 0.3s; }
+    .detail-card:hover { box-shadow:0 12px 40px rgba(0,24,48,0.08); }
+    #mobileMenu { transition:transform 0.4s cubic-bezier(.77,0,.175,1), opacity 0.35s; }
+    #mobileMenu.hidden-menu { transform:translateX(100%); opacity:0; pointer-events:none; }
+    footer a:hover { color:var(--gold-lt) !important; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="mainNav" class="fixed top-0 left-0 w-full z-[999] py-4 transition-all duration-400" style="background:rgba(0,24,48,0.15); backdrop-filter:blur(12px);">
+  <div class="container-fluid px-4 px-md-5">
+    <div class="flex items-center justify-between max-w-[1440px] mx-auto">
+      <a href="index.html" class="flex items-center gap-3 text-decoration-none">
+        <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#c9a84c,#e0c070);">
+          <i class="bi bi-building" style="font-size:1.05rem;color:#001830;"></i>
+        </div>
+        <span class="font-bold tracking-tight text-white" style="font-size:1.15rem;letter-spacing:-0.01em;">NICHA<span style="color:#c9a84c;"> CONDO</span></span>
+      </a>
+      <ul class="hidden md:flex items-center gap-1 list-none mb-0">
+        <li><a href="index.html" class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium">หน้าแรก</a></li>
+        <li><a href="index.html#mapSection" class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium">แผนที่โครงการ</a></li>
+        <li><a href="index.html#properties" class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium">โครงการ</a></li>
+      </ul>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#ctaBanner" class="btn btn-primary-gold px-5 py-2 rounded-full text-sm" style="text-decoration:none;">ติดต่อสอบถาม</a>
+      </div>
+      <button id="hamburgerBtn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg gap-[5px] hover:bg-white/10 transition-all" aria-label="เมนู" aria-expanded="false">
+        <span id="hb1" class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        <span id="hb2" class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        <span id="hb3" class="block w-5 h-0.5 bg-white transition-all duration-300"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden-menu fixed inset-0 z-[998] flex flex-col" style="background:rgba(0,24,48,0.97);">
+  <div id="menuOverlay" class="absolute inset-0"></div>
+  <div class="relative flex flex-col h-full px-8 py-24 z-10">
+    <ul class="list-none flex flex-col gap-2 mb-auto">
+      <li><a href="index.html" class="mobile-nav-link block text-white text-2xl font-semibold py-3 border-b border-white/10" style="text-decoration:none;">หน้าแรก</a></li>
+      <li><a href="index.html#mapSection" class="mobile-nav-link block text-white/80 text-2xl font-medium py-3 border-b border-white/10" style="text-decoration:none;">แผนที่โครงการ</a></li>
+      <li><a href="index.html#properties" class="mobile-nav-link block text-white/80 text-2xl font-medium py-3 border-b border-white/10" style="text-decoration:none;">โครงการ</a></li>
+    </ul>
+    <div class="mt-8">
+      <a href="#ctaBanner" class="btn btn-primary-gold w-full py-3 rounded-full text-sm text-center mobile-nav-link" style="text-decoration:none;">ติดต่อสอบถาม</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="relative flex items-center justify-center text-white overflow-hidden" style="min-height:70vh; background:linear-gradient(160deg,rgba(0,24,48,0.82) 0%,rgba(0,35,68,0.65) 60%,rgba(0,24,48,0.88) 100%), url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&q=85') center/cover no-repeat;">
+  <div class="relative z-10 container px-4 px-md-5 text-center" style="max-width:900px;">
+    <div class="inline-flex items-center gap-3 mb-6" data-aos="fade-down" data-aos-delay="100">
+      <span class="gold-line"></span>
+      <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:#c9a84c;">นนทบุรี</span>
+      <span class="gold-line"></span>
+    </div>
+    <h1 class="text-white mb-4 font-bold" style="font-size:clamp(1.8rem,4.5vw,3.5rem);line-height:1.15;" data-aos="fade-up" data-aos-delay="200">
+      ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว
+    </h1>
+    <p class="text-white/75 mb-8 mx-auto flex items-center justify-center gap-2" style="font-size:1rem;" data-aos="fade-up" data-aos-delay="300">
+      <i class="bi bi-geo-alt" style="color:#c9a84c;"></i> พระนั่งเกล้า, นนทบุรี
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
+      <a href="#details" class="btn btn-primary-gold px-8 py-3 rounded-full flex items-center gap-2" style="text-decoration:none;">
+        <i class="bi bi-info-circle"></i> ดูข้อมูลเพิ่มเติม
+      </a>
+      <a href="index.html#properties" class="btn btn-outline-glass px-8 py-3 rounded-full flex items-center gap-2" style="text-decoration:none;">
+        <i class="bi bi-arrow-left"></i> กลับหน้าหลัก
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div style="background:var(--gray-soft);" class="py-3">
+  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
+    <nav aria-label="breadcrumb">
+      <ol class="flex flex-wrap items-center gap-2 text-sm" style="color:#6b7280; list-style:none; margin:0; padding:0;">
+        <li><a href="index.html" style="color:var(--gold); text-decoration:none;">หน้าแรก</a></li>
+        <li><i class="bi bi-chevron-right" style="font-size:0.7rem;"></i></li>
+        <li><a href="index.html#properties" style="color:var(--gold); text-decoration:none;">โครงการ</a></li>
+        <li><i class="bi bi-chevron-right" style="font-size:0.7rem;"></i></li>
+        <li style="color:#001830; font-weight:500;">ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- DETAILS -->
+<section id="details" class="py-20 bg-white">
+  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
+    <div class="row g-5">
+
+      <!-- Left: Info -->
+      <div class="col-12 col-lg-8">
+        <div data-aos="fade-right">
+          <span class="sec-label">รายละเอียดโครงการ</span>
+          <div class="gold-line d-block my-3"></div>
+          <h2 class="sec-title mb-4">ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว</h2>
+          <p class="text-gray-500 leading-relaxed mb-6" style="font-size:0.97rem;">
+            คอนโดมิเนียมคุณภาพสูงในทำเลที่ตั้งดีเยี่ยม พร้อมสิ่งอำนวยความสะดวกครบครัน
+            เหมาะสำหรับการพักอาศัยและการลงทุนระยะยาว สภาพแวดล้อมดี ใกล้สิ่งอำนวยความสะดวก
+            ทั้งห้างสรรพสินค้า โรงพยาบาล โรงเรียน และระบบขนส่งสาธารณะ
+          </p>
+
+          <!-- Feature Grid -->
+          <div class="row g-3 mb-8">
+            <div class="col-6 col-md-3">
+              <div class="detail-card text-center">
+                <i class="bi bi-geo-alt mb-2 d-block" style="font-size:1.5rem;color:var(--gold);"></i>
+                <div class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:var(--gold);">ที่ตั้ง</div>
+                <div class="text-sm font-bold" style="color:var(--navy-700);">นนทบุรี</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="detail-card text-center">
+                <i class="bi bi-building mb-2 d-block" style="font-size:1.5rem;color:var(--gold);"></i>
+                <div class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:var(--gold);">ประเภท</div>
+                <div class="text-sm font-bold" style="color:var(--navy-700);">คอนโดมิเนียม</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="detail-card text-center">
+                <i class="bi bi-calendar-check mb-2 d-block" style="font-size:1.5rem;color:var(--gold);"></i>
+                <div class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:var(--gold);">เช่าขั้นต่ำ</div>
+                <div class="text-sm font-bold" style="color:var(--navy-700);">1 เดือน</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="detail-card text-center">
+                <i class="bi bi-house-check mb-2 d-block" style="font-size:1.5rem;color:var(--gold);"></i>
+                <div class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:var(--gold);">สถานะ</div>
+                <div class="text-sm font-bold" style="color:var(--navy-700);">พร้อมเข้าพัก</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location Detail -->
+          <div class="detail-card mb-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background:var(--gold-pale);">
+                <i class="bi bi-geo-alt" style="color:var(--gold);font-size:1.1rem;"></i>
+              </div>
+              <div>
+                <div class="text-xs font-semibold tracking-widest uppercase" style="color:var(--gold);">ที่ตั้ง</div>
+                <div class="font-bold" style="color:var(--navy-700);">พระนั่งเกล้า, นนทบุรี</div>
+              </div>
+            </div>
+            <p class="text-sm text-gray-500 leading-relaxed mb-0">
+              ตั้งอยู่ในทำเลศักยภาพ สะดวกสบายในการเดินทาง ใกล้ระบบขนส่งสาธารณะ
+              ห้างสรรพสินค้า โรงพยาบาล และสิ่งอำนวยความสะดวกต่างๆ
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Sidebar -->
+      <div class="col-12 col-lg-4" data-aos="fade-left">
+        <!-- Contact Card -->
+        <div class="rounded-2xl p-6 mb-4 text-white" style="background:linear-gradient(135deg,var(--navy-700),#0d2f5e);">
+          <div class="text-xs font-semibold tracking-widest uppercase mb-2" style="color:var(--gold);">สนใจโครงการนี้?</div>
+          <h3 class="font-bold text-xl mb-3 leading-snug">ติดต่อสอบถาม<br>ข้อมูลเพิ่มเติม</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-5">ทีมงานพร้อมให้คำปรึกษาและนัดชมห้องพัก ตลอด 7 วัน</p>
+          <a href="#ctaBanner" class="btn btn-primary-gold w-100 py-3 rounded-full text-sm text-center d-block mb-3" style="text-decoration:none;">
+            <i class="bi bi-chat-dots me-2"></i>ติดต่อสอบถาม
+          </a>
+          <a href="tel:+66800000000" class="btn w-100 py-2 rounded-full text-sm text-center d-block" style="background:rgba(255,255,255,0.1);color:#fff;border:1.5px solid rgba(255,255,255,0.3);text-decoration:none;">
+            <i class="bi bi-telephone me-2"></i>080-000-0000
+          </a>
+        </div>
+
+        <!-- Amenities -->
+        <div class="detail-card">
+          <div class="text-xs font-semibold tracking-widest uppercase mb-4" style="color:var(--gold);">สิ่งอำนวยความสะดวก</div>
+          <ul class="list-none flex flex-col gap-3">
+            <li class="flex items-center gap-3 text-sm" style="color:#374151;">
+              <i class="bi bi-water" style="color:var(--gold);font-size:1rem;"></i> สระว่ายน้ำ
+            </li>
+            <li class="flex items-center gap-3 text-sm" style="color:#374151;">
+              <i class="bi bi-bicycle" style="color:var(--gold);font-size:1rem;"></i> ห้องออกกำลังกาย
+            </li>
+            <li class="flex items-center gap-3 text-sm" style="color:#374151;">
+              <i class="bi bi-shield-check" style="color:var(--gold);font-size:1rem;"></i> ระบบรักษาความปลอดภัย 24 ชั่วโมง
+            </li>
+            <li class="flex items-center gap-3 text-sm" style="color:#374151;">
+              <i class="bi bi-p-square" style="color:var(--gold);font-size:1rem;"></i> ที่จอดรถ
+            </li>
+            <li class="flex items-center gap-3 text-sm" style="color:#374151;">
+              <i class="bi bi-wifi" style="color:var(--gold);font-size:1rem;"></i> อินเทอร์เน็ตความเร็วสูง
+            </li>
+            <li class="flex items-center gap-3 text-sm" style="color:#374151;">
+              <i class="bi bi-tree" style="color:var(--gold);font-size:1rem;"></i> พื้นที่สวนและพักผ่อน
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="ctaBanner" class="py-24 text-white text-center" style="position:relative;overflow:hidden;">
+  <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(0,24,48,0.95) 0%,rgba(0,35,68,0.90) 100%), url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80') center/cover no-repeat;"></div>
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full opacity-10" style="background:radial-gradient(ellipse,#c9a84c,transparent 70%);"></div>
+  </div>
+  <div class="container px-4 px-md-5 relative z-10" style="max-width:700px;">
+    <div data-aos="fade-up">
+      <span class="sec-label block mb-3">ติดต่อเรา</span>
+      <div class="gold-line d-block mx-auto mb-5"></div>
+      <h2 class="text-white font-bold mb-4" style="font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.2;">
+        สนใจห้องพักที่<br><span class="text-shimmer">ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว?</span>
+      </h2>
+      <p class="text-white/65 mb-8" style="font-size:1rem;">ทีมงานมืออาชีพพร้อมให้คำปรึกษาและนัดชมห้องพักทุกวัน</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="tel:+66800000000" class="btn btn-primary-gold px-8 py-3 rounded-full text-sm flex items-center justify-center gap-2" style="text-decoration:none;">
+          <i class="bi bi-telephone-fill"></i> 080-000-0000
+        </a>
+        <a href="mailto:hello@nichacondo.th" class="btn btn-outline-glass px-8 py-3 rounded-full text-sm flex items-center justify-center gap-2" style="text-decoration:none;">
+          <i class="bi bi-envelope"></i> ส่งอีเมลสอบถาม
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--navy);color:rgba(255,255,255,0.6);">
+  <div class="container px-4 px-md-5 py-12 mx-auto" style="max-width:1320px;">
+    <div class="row g-6 mb-8">
+      <div class="col-12 col-md-5">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#c9a84c,#e0c070);">
+            <i class="bi bi-building" style="font-size:1rem;color:#001830;"></i>
+          </div>
+          <span class="font-bold text-white text-lg tracking-tight">NICHA<span style="color:#c9a84c;"> CONDO</span></span>
+        </div>
+        <p class="text-sm leading-relaxed mb-0" style="color:rgba(255,255,255,0.5);">พอร์ตโฟลิโอคอนโดมิเนียมระดับพรีเมียมทั่วประเทศไทย</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h5 class="text-white font-semibold text-sm tracking-widest uppercase mb-4">เมนูหลัก</h5>
+        <ul class="list-none flex flex-col gap-2">
+          <li><a href="index.html" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">หน้าแรก</a></li>
+          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">แผนที่โครงการ</a></li>
+          <li><a href="index.html#properties" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">โครงการทั้งหมด</a></li>
+          <li><a href="index.html#contract" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">สัญญาเช่า</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-4">
+        <h5 class="text-white font-semibold text-sm tracking-widest uppercase mb-4">ติดต่อ</h5>
+        <ul class="list-none flex flex-col gap-3">
+          <li class="flex items-center gap-3 text-sm" style="color:rgba(255,255,255,0.5);">
+            <i class="bi bi-telephone" style="color:#c9a84c;"></i> 080-000-0000
+          </li>
+          <li class="flex items-center gap-3 text-sm" style="color:rgba(255,255,255,0.5);">
+            <i class="bi bi-envelope" style="color:#c9a84c;"></i> hello@nichacondo.th
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6" style="border-top:1px solid rgba(255,255,255,0.08);">
+      <p class="text-xs text-center" style="color:rgba(255,255,255,0.3);">© 2024 NICHA CONDO. สงวนลิขสิทธิ์ทุกประการ</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"><\/script>
+<script>
+AOS.init({ duration:700, easing:'ease-out-cubic', once:true, offset:60 });
+const mainNav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) { mainNav.classList.add('scrolled'); mainNav.style.background = ''; }
+  else { mainNav.classList.remove('scrolled'); mainNav.style.background = 'rgba(0,24,48,0.15)'; }
+}, { passive:true });
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu   = document.getElementById('mobileMenu');
+const hb1 = document.getElementById('hb1'), hb2 = document.getElementById('hb2'), hb3 = document.getElementById('hb3');
+let menuOpen = false;
+function openMenu() {
+  menuOpen = true; mobileMenu.classList.remove('hidden-menu'); document.body.style.overflow = 'hidden';
+  hamburgerBtn.setAttribute('aria-expanded', 'true');
+  hb1.style.transform = 'rotate(45deg) translate(5px,5px)'; hb2.style.opacity = '0'; hb3.style.transform = 'rotate(-45deg) translate(5px,-5px)'; hb3.style.width = '24px';
+}
+function closeMenu() {
+  menuOpen = false; mobileMenu.classList.add('hidden-menu'); document.body.style.overflow = '';
+  hamburgerBtn.setAttribute('aria-expanded', 'false');
+  hb1.style.transform = ''; hb2.style.opacity = '1'; hb3.style.transform = ''; hb3.style.width = '20px';
+}
+hamburgerBtn.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+document.getElementById('menuOverlay').addEventListener('click', closeMenu);
+document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeMenu));
+<\/script>
+</body>
+</html>
