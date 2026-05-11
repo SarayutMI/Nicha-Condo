@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NICHA CONDO | พอร์ตโฟลิโอคอนโดมิเนียมระดับพรีเมียมทั่วไทย</title>
+  <title>NICHA CONDO | คอนโดให้เช่ารายเดือน พร้อมอยู่ทั่วประเทศไทย – กรุงเทพ นนทบุรี พัทยา</title>
+  <meta name="description" content="NICHA CONDO คอนโดให้เช่ารายเดือน พร้อมเฟอร์นิเจอร์ครบ เข้าอยู่ได้เลย ครอบคลุมกรุงเทพฯ นนทบุรี พัทยา นครปฐม เพชรบุรี กว่า 18 โครงการ เริ่มต้น ฿8,000/เดือน" />
+  <meta name="keywords" content="คอนโดให้เช่า,คอนโดเช่ารายเดือน,คอนโดพร้อมอยู่,คอนโดใกล้รถไฟฟ้า,คอนโดกรุงเทพ,คอนโดพัทยา,ห้องพักพร้อมเฟอร์นิเจอร์,คอนโดปล่อยเช่า" />
+  <meta property="og:title" content="NICHA CONDO | คอนโดให้เช่ารายเดือน พร้อมอยู่ทั่วประเทศไทย" />
+  <meta property="og:description" content="คอนโดให้เช่ารายเดือน พร้อมเฟอร์นิเจอร์ครบ เข้าอยู่ได้เลย ครอบคลุม 5 จังหวัด กว่า 18 โครงการ เริ่มต้น ฿8,000/เดือน" />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
 
   <!-- ═══ Google Fonts: IBM Plex Sans Thai ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -349,6 +355,118 @@
 
     /* ── Leaflet overrides ──────────────────────────────────── */
     .leaflet-control-attribution { font-size:10px; }
+
+    /* ── Intro / Feature Grid ───────────────────────────────── */
+    .feature-icon-wrap {
+      width:60px; height:60px;
+      background:var(--gold-pale);
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+    .feature-card {
+      border:1px solid rgba(201,168,76,0.18);
+      transition:transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .feature-card:hover {
+      transform:translateY(-5px);
+      border-color:var(--gold);
+      box-shadow:0 16px 48px rgba(0,24,48,0.09);
+    }
+
+    /* ── Location Pills ─────────────────────────────────────── */
+    .location-card {
+      position:relative; overflow:hidden; border-radius:0.75rem;
+      cursor:pointer;
+    }
+    .location-card img {
+      width:100%; height:200px; object-fit:cover;
+      transition:transform 0.55s cubic-bezier(.25,.46,.45,.94);
+    }
+    .location-card:hover img { transform:scale(1.08); }
+    .location-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(0,24,48,0.82) 0%, rgba(0,24,48,0.2) 60%, transparent 100%);
+      display:flex; flex-direction:column; justify-content:flex-end;
+      padding:1.25rem;
+    }
+
+    /* ── Persona Cards ──────────────────────────────────────── */
+    .persona-card {
+      border-radius:0.75rem;
+      border:1px solid rgba(201,168,76,0.2);
+      transition:transform 0.3s, box-shadow 0.3s;
+    }
+    .persona-card:hover {
+      transform:translateY(-4px);
+      box-shadow:0 16px 40px rgba(0,24,48,0.10);
+    }
+    .persona-icon {
+      width:56px; height:56px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 1rem;
+    }
+
+    /* ── FAQ Accordion ──────────────────────────────────────── */
+    .faq-item {
+      border:1px solid rgba(201,168,76,0.2);
+      border-radius:0.6rem;
+      overflow:hidden;
+      transition:border-color 0.25s;
+    }
+    .faq-item.open { border-color:var(--gold); }
+    .faq-question {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1.1rem 1.4rem;
+      cursor:pointer;
+      background:#fff;
+      transition:background 0.2s;
+    }
+    .faq-question:hover { background:var(--gold-pale); }
+    .faq-question h3 {
+      font-size:0.95rem; font-weight:600;
+      color:var(--navy-700); line-height:1.4;
+      margin:0;
+    }
+    .faq-icon {
+      flex-shrink:0;
+      width:28px; height:28px;
+      background:var(--gold-pale);
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      transition:transform 0.3s, background 0.25s;
+      margin-left:1rem;
+    }
+    .faq-item.open .faq-icon { transform:rotate(45deg); background:var(--gold); }
+    .faq-item.open .faq-icon i { color:#fff; }
+    .faq-answer {
+      max-height:0; overflow:hidden;
+      transition:max-height 0.4s ease, padding 0.3s;
+      padding:0 1.4rem;
+      background:#fafafa;
+    }
+    .faq-answer p {
+      padding:1rem 0;
+      font-size:0.88rem; color:#4b5563; line-height:1.8;
+      margin:0;
+    }
+    .faq-item.open .faq-answer { max-height:400px; }
+
+    /* ── Rental Steps ───────────────────────────────────────── */
+    .step-number {
+      width:40px; height:40px; flex-shrink:0;
+      background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700; font-size:0.9rem; color:var(--navy);
+    }
+    .step-line {
+      width:2px; height:36px;
+      background:linear-gradient(to bottom,var(--gold),transparent);
+      margin:4px auto;
+    }
   </style>
 </head>
 
@@ -378,9 +496,10 @@
       <ul class="hidden md:flex items-center gap-1 list-none mb-0">
         <li><a href="#hero"       class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium tracking-wide">หน้าแรก</a></li>
         <li><a href="#mapSection" class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium tracking-wide">แผนที่โครงการ</a></li>
-        <li><a href="#stats"      class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium tracking-wide">ภาพรวม</a></li>
-        <li><a href="#contract"   class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium tracking-wide">สัญญาเช่า</a></li>
+        <li><a href="#whyus"      class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium tracking-wide">ทำไมเลือกเรา</a></li>
+        <li><a href="#contract"   class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium tracking-wide">ขั้นตอนเช่า</a></li>
         <li><a href="#properties" class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium tracking-wide">โครงการ</a></li>
+        <li><a href="#faq"        class="nav-link text-white/80 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all text-sm font-medium tracking-wide">FAQ</a></li>
       </ul>
 
       <!-- Desktop CTA -->
@@ -426,16 +545,20 @@
            style="text-decoration:none; --tw-text-opacity:1; color:rgba(255,255,255,0.8);">แผนที่โครงการ</a>
       </li>
       <li data-aos="fade-right" data-aos-delay="150">
-        <a href="#stats" class="mobile-nav-link block text-white/80 text-2xl font-medium py-3 border-b border-white/10 hover:text-gold transition-colors"
-           style="text-decoration:none;">ภาพรวมพอร์ตโฟลิโอ</a>
+        <a href="#whyus" class="mobile-nav-link block text-white/80 text-2xl font-medium py-3 border-b border-white/10 hover:text-gold transition-colors"
+           style="text-decoration:none;">ทำไมต้องเลือกเรา</a>
       </li>
       <li data-aos="fade-right" data-aos-delay="200">
         <a href="#contract" class="mobile-nav-link block text-white/80 text-2xl font-medium py-3 border-b border-white/10 hover:text-gold transition-colors"
-           style="text-decoration:none;">เงื่อนไขสัญญา</a>
+           style="text-decoration:none;">ขั้นตอนการเช่า</a>
       </li>
       <li data-aos="fade-right" data-aos-delay="250">
         <a href="#properties" class="mobile-nav-link block text-white/80 text-2xl font-medium py-3 border-b border-white/10 hover:text-gold transition-colors"
-           style="text-decoration:none;">โครงการเด่น</a>
+           style="text-decoration:none;">โครงการทั้งหมด</a>
+      </li>
+      <li data-aos="fade-right" data-aos-delay="300">
+        <a href="#faq" class="mobile-nav-link block text-white/80 text-2xl font-medium py-3 border-b border-white/10 hover:text-gold transition-colors"
+           style="text-decoration:none;">FAQ</a>
       </li>
     </ul>
     <div class="mt-8 flex flex-col gap-4">
@@ -467,30 +590,51 @@
          style="background:radial-gradient(circle,#c9a84c,transparent 70%);"></div>
   </div>
 
-  <div class="relative z-10 container px-4 px-md-5 text-center" style="max-width:900px;">
+  <div class="relative z-10 container px-4 px-md-5 text-center" style="max-width:960px;">
 
     <!-- Badge -->
     <div class="inline-flex items-center gap-3 mb-6" data-aos="fade-down" data-aos-delay="100">
       <span class="gold-line"></span>
       <span class="hero-badge tracking-widest uppercase" style="color:#c9a84c;">
-        Premium Condominium Portfolio
+        คอนโดให้เช่ารายเดือน · พร้อมอยู่ทั่วไทย
       </span>
       <span class="gold-line"></span>
     </div>
 
     <!-- Title -->
     <h1 class="hero-title text-white mb-5" data-aos="fade-up" data-aos-delay="200">
-      พอร์ตโฟลิโอคอนโดมิเนียม<br>
-      <span class="text-shimmer">ระดับพรีเมียมทั่วไทย</span>
+      คอนโดพร้อมอยู่ ใกล้รถไฟฟ้า<br>
+      <span class="text-shimmer">เช่ารายเดือน เริ่มต้น ฿8,000</span>
     </h1>
 
     <!-- Sub -->
     <p class="text-white/75 mb-8 mx-auto"
-       style="font-size:1.05rem; max-width:600px; line-height:1.75;"
+       style="font-size:1.05rem; max-width:640px; line-height:1.8;"
        data-aos="fade-up" data-aos-delay="300">
-      คัดสรรการลงทุนที่ให้ผลตอบแทนสูงและที่พักอาศัยสุดหรู
-      เพื่อมอบผลกำไรที่มั่นคงและประสบการณ์การเช่ารายเดือนที่เหนือระดับ
+      ห้องพร้อมเฟอร์นิเจอร์ครบ เข้าอยู่ได้เลย ไม่ต้องตกแต่งเพิ่ม<br>
+      18 โครงการ ใน 5 จังหวัด ครอบคลุมกรุงเทพฯ นนทบุรี พัทยา นครปฐม และเพชรบุรี
     </p>
+
+    <!-- Trust chips -->
+    <div class="flex flex-wrap justify-center gap-3 mb-8"
+         data-aos="fade-up" data-aos-delay="350">
+      <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold"
+            style="background:rgba(201,168,76,0.18);color:#f5ecd7;border:1px solid rgba(201,168,76,0.35);">
+        <i class="bi bi-check2-circle"></i> สัญญาเช่า 1 เดือนขึ้นไป
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold"
+            style="background:rgba(201,168,76,0.18);color:#f5ecd7;border:1px solid rgba(201,168,76,0.35);">
+        <i class="bi bi-furniture"></i> พร้อมเฟอร์นิเจอร์ครบ
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold"
+            style="background:rgba(201,168,76,0.18);color:#f5ecd7;border:1px solid rgba(201,168,76,0.35);">
+        <i class="bi bi-star-fill" style="color:#c9a84c;"></i> 4.8/5 ความพึงพอใจ
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold"
+            style="background:rgba(201,168,76,0.18);color:#f5ecd7;border:1px solid rgba(201,168,76,0.35);">
+        <i class="bi bi-headset"></i> บริการ 7 วัน/สัปดาห์
+      </span>
+    </div>
 
     <!-- CTAs -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4"
@@ -498,12 +642,12 @@
       <a href="#properties"
          class="btn btn-primary-gold px-8 py-3 rounded-full flex items-center gap-2"
          style="text-decoration:none;">
-        <i class="bi bi-building"></i> สำรวจโครงการ
+        <i class="bi bi-building"></i> ดูโครงการทั้งหมด
       </a>
       <a href="#mapSection"
          class="btn btn-outline-glass px-8 py-3 rounded-full flex items-center gap-2"
          style="text-decoration:none;">
-        <i class="bi bi-geo-alt"></i> ดูบนแผนที่
+        <i class="bi bi-geo-alt"></i> ดูทำเลบนแผนที่
       </a>
     </div>
 
@@ -512,6 +656,93 @@
          data-aos="fade-up" data-aos-delay="600">
       <span style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase;">SCROLL</span>
       <i class="bi bi-chevron-double-down" style="font-size:1.2rem;"></i>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION: INTRO — คอนโดให้เช่ารายเดือน
+═══════════════════════════════════════════════════════════════ -->
+<section id="intro" class="py-20 bg-white">
+  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
+
+    <div class="row align-items-center g-5">
+
+      <!-- Left: Text -->
+      <div class="col-12 col-lg-6" data-aos="fade-right">
+        <span class="sec-label">เกี่ยวกับ NICHA CONDO</span>
+        <div class="gold-line d-block my-3"></div>
+        <h2 class="sec-title mb-4">
+          คอนโดให้เช่ารายเดือน<br>ที่คุณเชื่อใจได้
+        </h2>
+        <p class="text-gray-500 mb-4" style="font-size:0.97rem; line-height:1.85;">
+          NICHA CONDO คัดสรรคอนโดมิเนียมคุณภาพ ในทำเลศักยภาพทั่วประเทศไทย ให้เช่าแบบรายเดือน
+          ทุกห้องพร้อมเฟอร์นิเจอร์ครบครัน สะอาด และตรวจสอบสภาพก่อนเข้าพักทุกครั้ง
+          เหมาะสำหรับทั้งนักศึกษา มนุษย์เงินเดือน ครอบครัว และผู้ที่ต้องการพักอาศัยในต่างจังหวัด
+        </p>
+        <p class="text-gray-500 mb-6" style="font-size:0.97rem; line-height:1.85;">
+          ไม่ว่าจะใกล้รถไฟฟ้า BTS / MRT ในกรุงเทพ ริมทะเลพัทยา หรือใกล้มหาวิทยาลัยในนครปฐม
+          เรามีตัวเลือกที่ตอบโจทย์ไลฟ์สไตล์ของคุณ พร้อมทีมงานดูแลตลอด 7 วัน
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#properties" class="btn btn-primary-gold px-6 py-2.5 rounded-full text-sm flex items-center gap-2"
+             style="text-decoration:none;">
+            <i class="bi bi-building"></i> ดูโครงการ
+          </a>
+          <a href="#whyus" class="btn rounded-full px-6 py-2.5 text-sm flex items-center gap-2"
+             style="background:var(--gold-pale);color:var(--navy-700);text-decoration:none;border:1px solid rgba(201,168,76,0.3);">
+            <i class="bi bi-info-circle"></i> ทำไมต้องเลือกเรา
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Feature Highlights -->
+      <div class="col-12 col-lg-6" data-aos="fade-left">
+        <div class="row g-3">
+
+          <div class="col-6">
+            <div class="feature-card rounded-2xl p-5 bg-white h-100">
+              <div class="feature-icon-wrap mb-3">
+                <i class="bi bi-house-heart" style="font-size:1.5rem;color:var(--navy-700);"></i>
+              </div>
+              <h3 class="font-bold text-sm mb-1" style="color:var(--navy-700);">พร้อมอยู่ทันที</h3>
+              <p class="text-xs text-gray-400 leading-relaxed">ห้องตกแต่งครบ ไม่ต้องซื้อเฟอร์นิเจอร์เพิ่ม เข้าพักได้ในวันเดียวกัน</p>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="feature-card rounded-2xl p-5 bg-white h-100">
+              <div class="feature-icon-wrap mb-3">
+                <i class="bi bi-train-front" style="font-size:1.5rem;color:var(--navy-700);"></i>
+              </div>
+              <h3 class="font-bold text-sm mb-1" style="color:var(--navy-700);">ทำเลดี ใกล้รถไฟฟ้า</h3>
+              <p class="text-xs text-gray-400 leading-relaxed">คอนโดหลายโครงการอยู่ใกล้ BTS MRT และเส้นทางหลัก เดินทางสะดวก</p>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="feature-card rounded-2xl p-5 bg-white h-100">
+              <div class="feature-icon-wrap mb-3">
+                <i class="bi bi-shield-check" style="font-size:1.5rem;color:var(--navy-700);"></i>
+              </div>
+              <h3 class="font-bold text-sm mb-1" style="color:var(--navy-700);">สัญญายืดหยุ่น</h3>
+              <p class="text-xs text-gray-400 leading-relaxed">เช่าได้ตั้งแต่ 1 เดือน ไม่มีข้อผูกมัดระยะยาว ต่อสัญญาได้ทุกเดือน</p>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="feature-card rounded-2xl p-5 bg-white h-100">
+              <div class="feature-icon-wrap mb-3">
+                <i class="bi bi-headset" style="font-size:1.5rem;color:var(--navy-700);"></i>
+              </div>
+              <h3 class="font-bold text-sm mb-1" style="color:var(--navy-700);">ทีมงานพร้อมดูแล</h3>
+              <p class="text-xs text-gray-400 leading-relaxed">ติดต่อได้ตลอด 7 วัน ทีมงานตอบกลับภายใน 24 ชั่วโมง</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -580,9 +811,13 @@
 
     <!-- Header -->
     <div class="text-center mb-14" data-aos="fade-up">
-      <span class="sec-label">ภาพรวมพอร์ตโฟลิโอ</span>
+      <span class="sec-label">ตัวเลขจริง · น่าเชื่อถือ</span>
       <div class="gold-line d-block mx-auto my-3"></div>
-      <h2 class="sec-title">ตัวเลขที่บอกเล่าความสำเร็จ</h2>
+      <h2 class="sec-title">ข้อมูลที่คุณมั่นใจได้</h2>
+      <p class="text-gray-500 mt-3 mx-auto" style="max-width:480px; font-size:0.95rem;">
+        NICHA CONDO บริหารจัดการห้องพักด้วยมาตรฐานที่โปร่งใส
+        ตัวเลขเหล่านี้สะท้อนคุณภาพที่ผู้เช่าไว้วางใจ
+      </p>
     </div>
 
     <div class="row g-4">
@@ -595,7 +830,7 @@
             <i class="bi bi-buildings" style="font-size:1.4rem;color:var(--navy-700);"></i>
           </div>
           <div class="stat-number" data-target="18">0</div>
-          <div class="text-xs font-semibold mt-1 tracking-widest uppercase text-gray-400">คอนโดมิเนียม</div>
+          <div class="text-xs font-semibold mt-1 tracking-widest uppercase text-gray-400">โครงการทั่วไทย</div>
         </div>
       </div>
 
@@ -607,7 +842,7 @@
             <i class="bi bi-door-open" style="font-size:1.4rem;color:var(--navy-700);"></i>
           </div>
           <div class="stat-number" data-target="1240" data-suffix="">0</div>
-          <div class="text-xs font-semibold mt-1 tracking-widest uppercase text-gray-400">ห้องพัก</div>
+          <div class="text-xs font-semibold mt-1 tracking-widest uppercase text-gray-400">ห้องให้เลือก</div>
         </div>
       </div>
 
@@ -674,6 +909,303 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════
+     SECTION: WHY CHOOSE NICHA CONDO
+═══════════════════════════════════════════════════════════════ -->
+<section id="whyus" class="py-20 bg-white">
+  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
+
+    <!-- Header -->
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="sec-label">จุดเด่นของเรา</span>
+      <div class="gold-line d-block mx-auto my-3"></div>
+      <h2 class="sec-title">ทำไมต้องเลือก NICHA CONDO?</h2>
+      <p class="text-gray-500 mt-3 mx-auto" style="max-width:520px; font-size:0.95rem;">
+        มากกว่าแค่ห้องพัก เราดูแลทุกขั้นตอนเพื่อให้คุณได้รับประสบการณ์การเช่าที่ดีที่สุด
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="feature-card rounded-2xl p-6 bg-white h-100">
+          <div class="feature-icon-wrap mb-4">
+            <i class="bi bi-house-heart" style="font-size:1.6rem;color:var(--navy-700);"></i>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="color:var(--navy-700);">ห้องพร้อมเข้าอยู่</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            ทุกห้องมาพร้อมเฟอร์นิเจอร์ครบชุด เครื่องปรับอากาศ ตู้เย็น เตียง และเครื่องใช้ไฟฟ้าพื้นฐาน
+            ไม่ต้องลงทุนซื้อของเพิ่ม ย้ายเข้าได้เลยในวันเดียวกัน
+          </p>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+        <div class="feature-card rounded-2xl p-6 bg-white h-100">
+          <div class="feature-icon-wrap mb-4">
+            <i class="bi bi-geo-alt-fill" style="font-size:1.6rem;color:var(--navy-700);"></i>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="color:var(--navy-700);">ทำเลครอบคลุมทั่วไทย</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            กรุงเทพฯ นนทบุรี พัทยา นครปฐม และเพชรบุรี ไม่ว่าคุณทำงาน เรียน หรือพักผ่อน
+            เรามีตัวเลือกใกล้ชีวิตประจำวันของคุณ
+          </p>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+        <div class="feature-card rounded-2xl p-6 bg-white h-100">
+          <div class="feature-icon-wrap mb-4">
+            <i class="bi bi-train-front" style="font-size:1.6rem;color:var(--navy-700);"></i>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="color:var(--navy-700);">ใกล้รถไฟฟ้า BTS / MRT</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            โครงการในกรุงเทพฯ และนนทบุรีหลายแห่งอยู่ในระยะเดินจากสถานีรถไฟฟ้า
+            ประหยัดเวลาเดินทาง ลดค่าใช้จ่ายรายวัน
+          </p>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="240">
+        <div class="feature-card rounded-2xl p-6 bg-white h-100">
+          <div class="feature-icon-wrap mb-4">
+            <i class="bi bi-file-earmark-check" style="font-size:1.6rem;color:var(--navy-700);"></i>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="color:var(--navy-700);">สัญญาชัดเจน โปร่งใส</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            เงื่อนไขสัญญาเข้าใจง่าย ไม่มีค่าใช้จ่ายซ่อนเร้น เงินประกัน 2 เดือน
+            คืนครบตามกำหนดภายใน 30 วันหลังออก
+          </p>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="320">
+        <div class="feature-card rounded-2xl p-6 bg-white h-100">
+          <div class="feature-icon-wrap mb-4">
+            <i class="bi bi-headset" style="font-size:1.6rem;color:var(--navy-700);"></i>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="color:var(--navy-700);">ทีมงานดูแลตลอด 7 วัน</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            มีปัญหาอะไรติดต่อได้เสมอ ทีมงานตอบกลับรวดเร็ว ดูแลการซ่อมบำรุง
+            และช่วยแก้ไขปัญหาอย่างมืออาชีพ
+          </p>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="feature-card rounded-2xl p-6 bg-white h-100">
+          <div class="feature-icon-wrap mb-4">
+            <i class="bi bi-star-fill" style="font-size:1.6rem;color:var(--navy-700);"></i>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="color:var(--navy-700);">คัดสรรเฉพาะคุณภาพ</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            ทุกโครงการผ่านการคัดเลือกจากแบรนด์ชั้นนำ Noble, CIELA, Sansiri และอื่นๆ
+            คะแนนความพึงพอใจเฉลี่ย 4.8/5 จากผู้เช่าจริง
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION: FEATURED LOCATIONS
+═══════════════════════════════════════════════════════════════ -->
+<section id="locations" class="py-20" style="background:var(--gray-soft);">
+  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
+
+    <!-- Header -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="sec-label">ทำเลคอนโดให้เช่า</span>
+      <div class="gold-line d-block mx-auto my-3"></div>
+      <h2 class="sec-title">เลือกทำเลที่ใช่ สำหรับคุณ</h2>
+      <p class="text-gray-500 mt-3 mx-auto" style="max-width:520px; font-size:0.95rem;">
+        คอนโดให้เช่ารายเดือน ครอบคลุม 5 จังหวัด ในทำเลศักยภาพที่ตอบทุกความต้องการ
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Bangkok -->
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <a href="#mapSection" style="text-decoration:none;">
+          <div class="location-card shadow-sm">
+            <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=600&q=80"
+                 alt="คอนโดให้เช่า กรุงเทพฯ" loading="lazy" />
+            <div class="location-overlay">
+              <div class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#c9a84c;">กรุงเทพมหานคร</div>
+              <h3 class="text-white font-bold text-base mb-0.5">คอนโดให้เช่า กรุงเทพฯ</h3>
+              <p class="text-white/70 text-xs">รัชดา · ลาดพร้าว · สุขุมวิท · พระราม 9 · ศรีปทุม</p>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(201,168,76,0.25);color:#e0c070;">9 โครงการ</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Nonthaburi -->
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+        <a href="#mapSection" style="text-decoration:none;">
+          <div class="location-card shadow-sm">
+            <img src="https://images.unsplash.com/photo-1555636222-cae831e670b3?w=600&q=80"
+                 alt="คอนโดให้เช่า นนทบุรี" loading="lazy" />
+            <div class="location-overlay">
+              <div class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#c9a84c;">นนทบุรี</div>
+              <h3 class="text-white font-bold text-base mb-0.5">คอนโดให้เช่า นนทบุรี</h3>
+              <p class="text-white/70 text-xs">งามวงศ์วาน · พระนั่งเกล้า · เมืองนนทบุรี</p>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(201,168,76,0.25);color:#e0c070;">3 โครงการ</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Pattaya -->
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+        <a href="#mapSection" style="text-decoration:none;">
+          <div class="location-card shadow-sm">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+                 alt="คอนโดให้เช่า พัทยา" loading="lazy" />
+            <div class="location-overlay">
+              <div class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#c9a84c;">พัทยา · ชลบุรี</div>
+              <h3 class="text-white font-bold text-base mb-0.5">คอนโดให้เช่า พัทยา</h3>
+              <p class="text-white/70 text-xs">จอมเทียน · พัทยาเหนือ · พัทยาสาย 2</p>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(201,168,76,0.25);color:#e0c070;">5 โครงการ</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Nakhon Pathom -->
+      <div class="col-12 col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="240">
+        <a href="#mapSection" style="text-decoration:none;">
+          <div class="location-card shadow-sm">
+            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80"
+                 alt="คอนโดให้เช่า นครปฐม" loading="lazy" />
+            <div class="location-overlay">
+              <div class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#c9a84c;">นครปฐม</div>
+              <h3 class="text-white font-bold text-base mb-0.5">คอนโดให้เช่า นครปฐม</h3>
+              <p class="text-white/70 text-xs">กำแพงแสน · ใกล้ม.เกษตรศาสตร์</p>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(201,168,76,0.25);color:#e0c070;">2 โครงการ</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Petchaburi -->
+      <div class="col-12 col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="320">
+        <a href="#mapSection" style="text-decoration:none;">
+          <div class="location-card shadow-sm">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80"
+                 alt="คอนโดให้เช่า เพชรบุรี" loading="lazy" />
+            <div class="location-overlay">
+              <div class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#c9a84c;">เพชรบุรี</div>
+              <h3 class="text-white font-bold text-base mb-0.5">คอนโดให้เช่า เพชรบุรี</h3>
+              <p class="text-white/70 text-xs">ปึกเตียน · ชายทะเลเพชรบุรี</p>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(201,168,76,0.25);color:#e0c070;">1 โครงการ</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION: WHO IS THIS FOR — ผู้เช่าที่เหมาะกับเรา
+═══════════════════════════════════════════════════════════════ -->
+<section id="suitable" class="py-20 bg-white">
+  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
+
+    <!-- Header -->
+    <div class="text-center mb-14" data-aos="fade-up">
+      <span class="sec-label">เหมาะกับใคร?</span>
+      <div class="gold-line d-block mx-auto my-3"></div>
+      <h2 class="sec-title">คอนโด NICHA เหมาะกับทุกไลฟ์สไตล์</h2>
+      <p class="text-gray-500 mt-3 mx-auto" style="max-width:520px; font-size:0.95rem;">
+        ไม่ว่าคุณจะเป็นใคร มีความต้องการแบบไหน เรามีตัวเลือกที่ตอบโจทย์
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="0">
+        <div class="persona-card p-5 text-center bg-white h-100">
+          <div class="persona-icon">
+            <i class="bi bi-mortarboard-fill" style="font-size:1.4rem;color:#001830;"></i>
+          </div>
+          <h3 class="font-bold text-sm mb-1" style="color:var(--navy-700);">นักศึกษา</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">ใกล้มหาวิทยาลัย สัญญาสั้น ราคาเริ่มต้นที่จับต้องได้</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="80">
+        <div class="persona-card p-5 text-center bg-white h-100">
+          <div class="persona-icon">
+            <i class="bi bi-briefcase-fill" style="font-size:1.4rem;color:#001830;"></i>
+          </div>
+          <h3 class="font-bold text-sm mb-1" style="color:var(--navy-700);">มนุษย์เงินเดือน</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">ใกล้รถไฟฟ้า ย่านธุรกิจ เดินทางสะดวก ชีวิตไม่สะดุด</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="160">
+        <div class="persona-card p-5 text-center bg-white h-100">
+          <div class="persona-icon">
+            <i class="bi bi-people-fill" style="font-size:1.4rem;color:#001830;"></i>
+          </div>
+          <h3 class="font-bold text-sm mb-1" style="color:var(--navy-700);">ครอบครัวเล็ก</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">ห้องกว้าง อยู่สบาย บรรยากาศปลอดภัย ใกล้สิ่งอำนวยความสะดวก</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="240">
+        <div class="persona-card p-5 text-center bg-white h-100">
+          <div class="persona-icon">
+            <i class="bi bi-arrow-right-circle-fill" style="font-size:1.4rem;color:#001830;"></i>
+          </div>
+          <h3 class="font-bold text-sm mb-1" style="color:var(--navy-700);">ย้ายถิ่นฐาน</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">ย้ายมาทำงานต่างจังหวัด หาที่พักชั่วคราวก่อนซื้อ ไม่ต้องผูกมัด</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="320">
+        <div class="persona-card p-5 text-center bg-white h-100">
+          <div class="persona-icon">
+            <i class="bi bi-sun-fill" style="font-size:1.4rem;color:#001830;"></i>
+          </div>
+          <h3 class="font-bold text-sm mb-1" style="color:var(--navy-700);">พักผ่อนระยะยาว</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">คอนโดริมทะเลพัทยา วิวสวย อากาศดี เช่าแบบรายเดือนในราคาที่คุ้ม</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="400">
+        <div class="persona-card p-5 text-center bg-white h-100">
+          <div class="persona-icon">
+            <i class="bi bi-laptop-fill" style="font-size:1.4rem;color:#001830;"></i>
+          </div>
+          <h3 class="font-bold text-sm mb-1" style="color:var(--navy-700);">ฟรีแลนซ์ / WFH</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">บรรยากาศเงียบสงบ เน็ตเร็ว มีพื้นที่ทำงาน ชีวิตดีขึ้นได้</p>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
      SECTION 4 — RENTAL CONTRACT INFORMATION
 ═══════════════════════════════════════════════════════════════ -->
 <section id="contract" class="py-20 bg-white">
@@ -681,11 +1213,11 @@
 
     <!-- Header -->
     <div class="text-center mb-14" data-aos="fade-up">
-      <span class="sec-label">เงื่อนไขการเช่า</span>
+      <span class="sec-label">ขั้นตอนการเช่า</span>
       <div class="gold-line d-block mx-auto my-3"></div>
-      <h2 class="sec-title">ข้อมูลสัญญาเช่าที่พัก</h2>
+      <h2 class="sec-title">เช่าคอนโดง่ายๆ ใน 5 ขั้นตอน</h2>
       <p class="text-gray-500 mt-3 mx-auto" style="max-width:480px; font-size:0.95rem;">
-        ขั้นตอนและเงื่อนไขที่ชัดเจน เพื่อการเช่าที่สะดวกและมั่นใจ
+        เงื่อนไขที่ชัดเจน ขั้นตอนไม่ยุ่งยาก ให้คุณเริ่มต้นใช้ชีวิตในที่พักใหม่ได้อย่างมั่นใจ
       </p>
     </div>
 
@@ -695,15 +1227,15 @@
       <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
         <div class="contract-card rounded-2xl p-6 h-100 bg-white">
           <div class="contract-icon-wrap mb-4">
-            <i class="bi bi-calendar-check" style="font-size:1.4rem; color:var(--gold);"></i>
+            <i class="bi bi-search" style="font-size:1.4rem; color:var(--gold);"></i>
           </div>
           <div class="text-xs font-semibold tracking-widest uppercase mb-2" style="color:var(--gold);">
-            ระยะเวลาเช่าขั้นต่ำ
+            ขั้นตอนที่ 1
           </div>
-          <h3 class="font-bold text-lg mb-2" style="color:var(--navy-700);">1 เดือนขึ้นไป</h3>
+          <h3 class="font-bold text-lg mb-2" style="color:var(--navy-700);">เลือกห้องที่ชอบ</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
-            ไม่มีข้อผูกมัดระยะยาว เหมาะสำหรับทั้งการพักระยะสั้นและสัญญาระยะยาว
-            สามารถต่อสัญญาได้อย่างยืดหยุ่น
+            เลือกดูโครงการและห้องพักที่ถูกใจ จากพอร์ตโฟลิโอ 18 โครงการทั่วไทย
+            กรองตามทำเล ราคา หรือสิ่งอำนวยความสะดวกที่ต้องการ
           </p>
         </div>
       </div>
@@ -712,15 +1244,15 @@
       <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
         <div class="contract-card rounded-2xl p-6 h-100 bg-white">
           <div class="contract-icon-wrap mb-4">
-            <i class="bi bi-shield-check" style="font-size:1.4rem; color:var(--gold);"></i>
+            <i class="bi bi-calendar-check" style="font-size:1.4rem; color:var(--gold);"></i>
           </div>
           <div class="text-xs font-semibold tracking-widest uppercase mb-2" style="color:var(--gold);">
-            เงินประกัน
+            ขั้นตอนที่ 2
           </div>
-          <h3 class="font-bold text-lg mb-2" style="color:var(--navy-700);">2 เดือน + ล่วงหน้า 1 เดือน</h3>
+          <h3 class="font-bold text-lg mb-2" style="color:var(--navy-700);">นัดชมห้องจริง</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
-            ชำระเงินประกัน 2 เดือน และค่าเช่าล่วงหน้า 1 เดือน
-            คืนเงินประกันภายใน 30 วันหลังออก
+            ติดต่อทีมงาน นัดวันเวลาชมห้องที่สะดวก บริการนำชมโดยเจ้าหน้าที่ผู้เชี่ยวชาญ
+            ทุกวัน ไม่มีวันหยุด
           </p>
         </div>
       </div>
@@ -729,15 +1261,15 @@
       <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
         <div class="contract-card rounded-2xl p-6 h-100 bg-white">
           <div class="contract-icon-wrap mb-4">
-            <i class="bi bi-lightning-charge" style="font-size:1.4rem; color:var(--gold);"></i>
+            <i class="bi bi-file-earmark-text" style="font-size:1.4rem; color:var(--gold);"></i>
           </div>
           <div class="text-xs font-semibold tracking-widest uppercase mb-2" style="color:var(--gold);">
-            ค่าสาธารณูปโภค
+            ขั้นตอนที่ 3
           </div>
-          <h3 class="font-bold text-lg mb-2" style="color:var(--navy-700);">ตามมิเตอร์จริง</h3>
+          <h3 class="font-bold text-lg mb-2" style="color:var(--navy-700);">ทำสัญญาเช่า</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
-            ไฟฟ้าและน้ำประปาคิดตามการใช้งานจริง
-            อินเทอร์เน็ตความเร็วสูงรวมอยู่ในบางโครงการ
+            ลงนามสัญญาชัดเจน เงื่อนไขโปร่งใส ชำระเงินประกัน 2 เดือน
+            และค่าเช่าล่วงหน้า 1 เดือน ไม่มีค่าธรรมเนียมแอบแฝง
           </p>
         </div>
       </div>
@@ -749,12 +1281,12 @@
             <i class="bi bi-house-door" style="font-size:1.4rem; color:var(--gold);"></i>
           </div>
           <div class="text-xs font-semibold tracking-widest uppercase mb-2" style="color:var(--gold);">
-            เงื่อนไขเข้าพัก
+            ขั้นตอนที่ 4
           </div>
-          <h3 class="font-bold text-lg mb-2" style="color:var(--navy-700);">เข้าพักได้ทันที</h3>
+          <h3 class="font-bold text-lg mb-2" style="color:var(--navy-700);">รับกุญแจ เข้าพัก</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
-            ห้องพร้อมเข้าพักพร้อมเฟอร์นิเจอร์ครบครัน
-            ตรวจสอบสภาพห้องก่อนเข้าพักทุกครั้ง
+            ตรวจรับห้องร่วมกับเจ้าหน้าที่ รับกุญแจและบัตรเข้าออก
+            ห้องพร้อมเฟอร์นิเจอร์ครบ เข้าพักได้เลยในวันเดียวกัน
           </p>
         </div>
       </div>
@@ -766,12 +1298,12 @@
             <i class="bi bi-arrow-repeat" style="font-size:1.4rem; color:var(--gold);"></i>
           </div>
           <div class="text-xs font-semibold tracking-widest uppercase mb-2" style="color:var(--gold);">
-            การต่อสัญญา
+            ขั้นตอนที่ 5
           </div>
-          <h3 class="font-bold text-lg mb-2" style="color:var(--navy-700);">ต่อได้ทุกเดือน</h3>
+          <h3 class="font-bold text-lg mb-2" style="color:var(--navy-700);">อยู่ต่อ หรือย้ายออก</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
-            แจ้งล่วงหน้า 30 วันก่อนหมดสัญญา
-            สิทธิ์ต่อสัญญาก่อนใครสำหรับผู้เช่าปัจจุบัน
+            ต้องการอยู่ต่อ แจ้งล่วงหน้า 30 วัน ต่อสัญญาได้ทันที
+            ย้ายออก คืนเงินประกันครบภายใน 30 วัน ไม่มีค่าปรับเพิ่มเติม
           </p>
         </div>
       </div>
@@ -782,19 +1314,19 @@
              style="background:linear-gradient(135deg,var(--navy-700),#0d2f5e);">
           <div>
             <div class="text-xs font-semibold tracking-widest uppercase mb-3" style="color:var(--gold);">
-              พร้อมจองแล้ว?
+              เริ่มต้นง่ายๆ
             </div>
             <h3 class="font-bold text-xl mb-3 text-white leading-snug">
-              ติดต่อเจ้าหน้าที่<br>เพื่อนัดชมห้องได้เลย
+              สนใจเช่า?<br>ติดต่อเราได้เลย
             </h3>
             <p class="text-sm text-white/60 leading-relaxed">
-              ทีมงานผู้เชี่ยวชาญพร้อมให้คำปรึกษา ตลอด 7 วัน
+              ทีมงานพร้อมตอบคำถาม นัดชมห้อง และช่วยเลือกโครงการที่เหมาะกับคุณ ทุกวัน ไม่มีวันหยุด
             </p>
           </div>
           <a href="#ctaBanner"
              class="btn btn-primary-gold w-full mt-5 py-3 rounded-full text-sm"
              style="text-decoration:none; display:block; text-align:center;">
-            <i class="bi bi-chat-dots me-2"></i>ติดต่อสอบถาม
+            <i class="bi bi-chat-dots me-2"></i>ติดต่อสอบถามฟรี
           </a>
         </div>
       </div>
@@ -813,14 +1345,14 @@
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
       <div data-aos="fade-right">
-        <span class="sec-label">โครงการเด่น</span>
+        <span class="sec-label">คอนโดให้เช่า ทั่วไทย</span>
         <div class="gold-line d-block my-3"></div>
-        <h2 class="sec-title">คอนโดมิเนียมที่คัดสรรมาแล้ว</h2>
+        <h2 class="sec-title">โครงการที่น่าสนใจ</h2>
       </div>
-      <a href="#" class="text-sm font-semibold flex items-center gap-2 transition-colors"
+      <a href="#mapSection" class="text-sm font-semibold flex items-center gap-2 transition-colors"
          style="color:var(--navy-700); text-decoration:none; white-space:nowrap;"
          data-aos="fade-left">
-        ดูทั้งหมด <i class="bi bi-arrow-right"></i>
+        ดูทั้งหมดบนแผนที่ <i class="bi bi-arrow-right"></i>
       </a>
     </div>
 
@@ -1200,6 +1732,110 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════
+     SECTION: FAQ — คำถามที่พบบ่อย
+═══════════════════════════════════════════════════════════════ -->
+<section id="faq" class="py-20 bg-white">
+  <div class="container px-4 px-md-5 mx-auto" style="max-width:860px;">
+
+    <!-- Header -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="sec-label">FAQ</span>
+      <div class="gold-line d-block mx-auto my-3"></div>
+      <h2 class="sec-title">คำถามที่พบบ่อย</h2>
+      <p class="text-gray-500 mt-3 mx-auto" style="max-width:480px; font-size:0.95rem;">
+        รวบรวมคำถามที่ผู้เช่าถามบ่อย เพื่อให้คุณตัดสินใจได้ง่ายขึ้น
+      </p>
+    </div>
+
+    <!-- FAQ Items -->
+    <div class="flex flex-col gap-3" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>คอนโดเช่ารายเดือน มีสัญญาขั้นต่ำนานเท่าไหร่?</h3>
+          <div class="faq-icon"><i class="bi bi-plus" style="font-size:1rem;color:var(--navy-700);"></i></div>
+        </div>
+        <div class="faq-answer">
+          <p>ขั้นต่ำ 1 เดือน โดยไม่มีข้อผูกมัดระยะยาว คุณสามารถเลือกเช่าตั้งแต่ 1 เดือนขึ้นไปได้ตามต้องการ หากต้องการต่อสัญญาแจ้งล่วงหน้า 30 วันก่อนวันหมดสัญญา ผู้เช่าปัจจุบันมีสิทธิ์ต่อสัญญาก่อนบุคคลอื่น</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>ต้องเตรียมเงินเท่าไหร่ในการเช่าครั้งแรก?</h3>
+          <div class="faq-icon"><i class="bi bi-plus" style="font-size:1rem;color:var(--navy-700);"></i></div>
+        </div>
+        <div class="faq-answer">
+          <p>ต้องเตรียมเงินประกัน 2 เดือน + ค่าเช่าล่วงหน้า 1 เดือน รวมเป็น 3 เดือน เช่น ถ้าค่าเช่า ฿10,000/เดือน คุณต้องเตรียม ฿30,000 ในครั้งแรก เงินประกันจะถูกคืนเต็มจำนวนภายใน 30 วันหลังออกจากห้อง (ในกรณีที่ไม่มีความเสียหาย)</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>ห้องพร้อมเฟอร์นิเจอร์ไหม? มีอะไรบ้าง?</h3>
+          <div class="faq-icon"><i class="bi bi-plus" style="font-size:1rem;color:var(--navy-700);"></i></div>
+        </div>
+        <div class="faq-answer">
+          <p>ทุกห้องพร้อมเฟอร์นิเจอร์ครบชุด ประกอบด้วย เตียง ตู้เสื้อผ้า โต๊ะ เก้าอี้ เครื่องปรับอากาศ ตู้เย็น และเครื่องทำน้ำอุ่น บางโครงการมีเครื่องซักผ้า ไมโครเวฟ และเฟอร์นิเจอร์เพิ่มเติมตามแต่ละห้อง ไม่ต้องซื้อสิ่งของใดๆ เพิ่ม สามารถย้ายเข้าได้ทันที</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>มีคอนโดใกล้รถไฟฟ้า BTS / MRT ไหม?</h3>
+          <div class="faq-icon"><i class="bi bi-plus" style="font-size:1rem;color:var(--navy-700);"></i></div>
+        </div>
+        <div class="faq-answer">
+          <p>ใช่ครับ/ค่ะ หลายโครงการในกรุงเทพฯ และนนทบุรีอยู่ในระยะ 500 เมตร - 1 กิโลเมตรจากสถานีรถไฟฟ้า เช่น โนเบิ้ลรัชดา (ใกล้ MRT ลาดพร้าว) เดอะทรี สุขุมวิท 71 (ใกล้ BTS อ่อนนุช) เซียล่า ศรีปทุม (ใกล้สถานีชุมทางรถไฟ) เป็นต้น ดูรายละเอียดได้ในหน้าแต่ละโครงการ</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>ค่าไฟฟ้าและน้ำประปาคิดยังไง?</h3>
+          <div class="faq-icon"><i class="bi bi-plus" style="font-size:1rem;color:var(--navy-700);"></i></div>
+        </div>
+        <div class="faq-answer">
+          <p>ค่าไฟฟ้าและน้ำประปาคิดตามมิเตอร์จริง ตามอัตราที่การไฟฟ้าและการประปากำหนด บางโครงการรวมอินเทอร์เน็ตในค่าส่วนกลางแล้ว สามารถตรวจสอบได้ในรายละเอียดแต่ละโครงการ ไม่มีการบวกเพิ่มจากเจ้าของห้อง</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>สามารถเลี้ยงสัตว์เลี้ยงในห้องได้ไหม?</h3>
+          <div class="faq-icon"><i class="bi bi-plus" style="font-size:1rem;color:var(--navy-700);"></i></div>
+        </div>
+        <div class="faq-answer">
+          <p>ขึ้นอยู่กับนโยบายของแต่ละโครงการ บางโครงการอนุญาตให้เลี้ยงสัตว์ได้ แนะนำให้สอบถามทีมงานโดยตรงก่อนสมัครเช่า เพื่อให้ได้ข้อมูลที่ถูกต้องและตรงกับความต้องการของคุณ</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>มีโครงการในพัทยาหรือต่างจังหวัดไหม?</h3>
+          <div class="faq-icon"><i class="bi bi-plus" style="font-size:1rem;color:var(--navy-700);"></i></div>
+        </div>
+        <div class="faq-answer">
+          <p>มีครับ/ค่ะ NICHA CONDO มีโครงการในพัทยาถึง 5 โครงการ ครอบคลุมทั้งจอมเทียน พัทยาเหนือ และพัทยาสาย 2 นอกจากนั้นยังมีในนครปฐม (กำแพงแสน) และเพชรบุรี (ปึกเตียน) ด้วย เหมาะสำหรับผู้ที่ต้องการพักริมทะเลหรืออยู่ในจังหวัดใกล้กรุงเทพฯ</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>ติดต่อสอบถามหรือนัดชมห้องได้อย่างไร?</h3>
+          <div class="faq-icon"><i class="bi bi-plus" style="font-size:1rem;color:var(--navy-700);"></i></div>
+        </div>
+        <div class="faq-answer">
+          <p>ติดต่อได้หลายช่องทาง โทรศัพท์ที่ 080-000-0000 อีเมล hello@nichacondo.th หรือ Line ของเรา ทีมงานพร้อมตอบกลับและนัดชมห้องทุกวัน ไม่มีวันหยุด ตั้งแต่ 9.00 - 20.00 น.</p>
+        </div>
+      </div>
+
+    </div><!-- /faq items -->
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
      CTA BANNER
 ═══════════════════════════════════════════════════════════════ -->
 <section id="ctaBanner" class="py-24 text-white text-center" style="position:relative;overflow:hidden;">
@@ -1217,14 +1853,14 @@
 
   <div class="container px-4 px-md-5 relative z-10" style="max-width:700px;">
     <div data-aos="fade-up">
-      <span class="sec-label block mb-3">ติดต่อเรา</span>
+      <span class="sec-label block mb-3">ติดต่อเรา · ฟรี ไม่มีค่าใช้จ่าย</span>
       <div class="gold-line d-block mx-auto mb-5"></div>
       <h2 class="text-white font-bold mb-4" style="font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.2;">
-        พร้อมสัมผัสประสบการณ์<br>
-        <span class="text-shimmer">ที่พักระดับลักชัวรี?</span>
+        พร้อมหาห้องพักในฝัน?<br>
+        <span class="text-shimmer">ปรึกษาเราได้เลย ฟรี!</span>
       </h2>
       <p class="text-white/65 mb-8" style="font-size:1rem;">
-        ทีมงานมืออาชีพพร้อมให้คำปรึกษาและนัดชมห้องพักทุกวัน
+        ทีมงานผู้เชี่ยวชาญด้านคอนโดให้เช่าพร้อมช่วยคุณค้นหาห้องที่ใช่ นัดชมห้องฟรี ไม่มีค่าธรรมเนียม
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="tel:+66800000000"
@@ -1262,8 +1898,8 @@
           </span>
         </div>
         <p class="text-sm leading-relaxed mb-4" style="color:rgba(255,255,255,0.5);">
-          พอร์ตโฟลิโอคอนโดมิเนียมระดับพรีเมียมทั่วประเทศไทย
-          การลงทุนที่มั่นคงและที่พักอาศัยสุดหรูในทำเลทอง
+          คอนโดให้เช่ารายเดือน พร้อมเฟอร์นิเจอร์ครบ ทั่วประเทศไทย
+          18 โครงการ ใน 5 จังหวัด เริ่มต้น ฿8,000/เดือน
         </p>
         <div class="flex gap-3">
           <a href="#" class="w-9 h-9 rounded-full flex items-center justify-center hover:opacity-100 transition-opacity"
@@ -1285,22 +1921,22 @@
       <div class="col-6 col-md-2">
         <h5 class="text-white font-semibold text-sm tracking-widest uppercase mb-4">โครงการ</h5>
         <ul class="list-none flex flex-col gap-2">
-          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">กรุงเทพฯ</a></li>
-          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">นนทบุรี</a></li>
-          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">พัทยา</a></li>
-          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">นครปฐม</a></li>
-          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">เพชรบุรี</a></li>
+          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">คอนโด กรุงเทพฯ</a></li>
+          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">คอนโด นนทบุรี</a></li>
+          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">คอนโด พัทยา</a></li>
+          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">คอนโด นครปฐม</a></li>
+          <li><a href="index.html#mapSection" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">คอนโด เพชรบุรี</a></li>
         </ul>
       </div>
 
       <!-- Company -->
       <div class="col-6 col-md-2">
-        <h5 class="text-white font-semibold text-sm tracking-widest uppercase mb-4">บริษัท</h5>
+        <h5 class="text-white font-semibold text-sm tracking-widest uppercase mb-4">ข้อมูล</h5>
         <ul class="list-none flex flex-col gap-2">
-          <li><a href="#" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">เกี่ยวกับเรา</a></li>
-          <li><a href="#" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">การลงทุน</a></li>
-          <li><a href="#" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">ข่าวสาร</a></li>
-          <li><a href="#" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">ร่วมงานกับเรา</a></li>
+          <li><a href="#whyus" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">ทำไมต้องเลือกเรา</a></li>
+          <li><a href="#contract" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">ขั้นตอนการเช่า</a></li>
+          <li><a href="#suitable" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">เหมาะกับใคร</a></li>
+          <li><a href="#faq" class="text-sm hover:text-gold transition-colors" style="color:rgba(255,255,255,0.5);text-decoration:none;">คำถามที่พบบ่อย</a></li>
         </ul>
       </div>
 
@@ -1329,7 +1965,7 @@
     <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4"
          style="border-top:1px solid rgba(255,255,255,0.08);">
       <p class="text-xs" style="color:rgba(255,255,255,0.3);">
-        © 2024 NICHA CONDO. สงวนลิขสิทธิ์ทุกประการ
+        © 2025 NICHA CONDO. สงวนลิขสิทธิ์ทุกประการ · คอนโดให้เช่ารายเดือนทั่วไทย
       </p>
       <div class="flex gap-6">
         <a href="#" class="text-xs hover:text-gold transition-colors" style="color:rgba(255,255,255,0.3);text-decoration:none;">นโยบายความเป็นส่วนตัว</a>
@@ -1566,6 +2202,24 @@ window.addEventListener('scroll', () => {
     hero.style.backgroundPositionY = `${scrolled * 0.4}px`;
   }
 }, { passive: true });
+
+/* ── FAQ Accordion ───────────────────────────────────────── */
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    const isOpen = item.classList.contains('open');
+
+    // Close all open items
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+    });
+
+    // Open clicked item if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+    }
+  });
+});
 </script>
 
 </body>
