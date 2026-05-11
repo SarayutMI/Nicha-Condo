@@ -43,8 +43,8 @@
     ::-webkit-scrollbar-track { background:#f0ece0; }
     ::-webkit-scrollbar-thumb { background:linear-gradient(180deg,#c9a84c,#a87c2a); border-radius:99px; }
     :root {
-      --navy:#0a1628; --navy-700:#0d1f3c; --gold:#c9a84c; --gold-lt:#e0c070;
-      --gold-pale:#f5ecd7; --cream:#faf8f3; --cream-100:#f5f2ea;
+      --navy:#203428; --navy-700:#2d4736; --gold:#97b07e; --gold-lt:#b9cf9f;
+      --gold-pale:#e6f0dc; --cream:#f6fbf2; --cream-100:#eaf4e2;
     }
 
     /* ── Display / Headings ── */
@@ -170,9 +170,22 @@
     }
     .amenity-item:last-child { border-bottom:none; }
     .amenity-item i { color:var(--gold); font-size:1rem; width:20px; text-align:center; flex-shrink:0; }
+
+    .theme-strip .mood-chip {
+      display:inline-flex; align-items:center; gap:.35rem;
+      border:1px solid rgba(10,22,40,.12); border-radius:999px;
+      padding:.3rem .8rem; font-size:.72rem; font-weight:600;
+      letter-spacing:.08em; color:var(--navy-700); background:rgba(255,255,255,.8);
+    }
+    .lifestyle-list li { position:relative; padding-left:1.1rem; margin-bottom:.35rem; }
+    .lifestyle-list li::before {
+      content:""; position:absolute; left:0; top:.62rem; width:6px; height:6px;
+      border-radius:50%; background:var(--gold);
+    }
+    .lifestyle-list li:last-child { margin-bottom:0; }
   </style>
 </head>
-<body>
+<body class="tropical-garden-retreat">
 
 <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
 <nav id="mainNav" class="fixed top-0 left-0 w-full z-[999] py-4 transition-all"
@@ -248,7 +261,7 @@
 
 <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
 <section class="relative flex items-center justify-center text-white overflow-hidden"
-  style="min-height:88vh; background:linear-gradient(165deg,rgba(10,22,40,0.88) 0%,rgba(13,31,60,0.72) 50%,rgba(10,22,40,0.92) 100%), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1400&q=90') center/cover no-repeat;">
+  style="min-height:88vh; background:linear-gradient(160deg,rgba(32,52,40,0.82),rgba(62,97,72,0.64) 54%,rgba(32,52,40,0.88)), url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=90') center/cover no-repeat;">
 
   <!-- Subtle vignette overlay -->
   <div class="absolute inset-0 pointer-events-none"
@@ -317,6 +330,19 @@
   </div>
 </div>
 
+<section class="theme-strip py-4" style="background:linear-gradient(90deg,var(--cream-100),#fff,var(--cream-100));border-bottom:1px solid rgba(10,22,40,0.08);">
+  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
+    <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
+      <div>
+        <div class="sec-label mb-1">Tropical Garden Retreat</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--navy-700);margin:0;">สวนเขตร้อนในจังหวะเมืองพัทยา</h3>
+        <p style="margin:.45rem 0 0;color:#4b5563;font-size:.9rem;">พักผ่อนในพื้นที่สีเขียวที่ให้ความรู้สึกเหมือนรีสอร์ตส่วนตัว</p>
+      </div>
+      <div class="d-flex flex-wrap gap-2"><span class="mood-chip">Green Retreat</span><span class="mood-chip">Quiet Privacy</span><span class="mood-chip">North Pattaya</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════════════ DETAILS ═══════════════════════════════ -->
 <section id="details" style="background:var(--cream);padding:6rem 0 7rem;">
   <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
@@ -327,14 +353,12 @@
         <div data-aos="fade-right">
 
           <!-- Section heading -->
-          <span class="sec-label">รายละเอียดโครงการ</span>
+          <span class="sec-label">Tropical Garden Retreat</span>
           <div style="width:40px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:0.9rem 0 1.4rem;"></div>
           <h2 class="sec-title mb-5">ซีเคร็ด กาเด้น พัทยาเหนือ</h2>
 
           <p style="color:#4b5563;line-height:1.85;font-size:0.95rem;max-width:600px;" class="mb-8">
-            คอนโดมิเนียมคุณภาพสูงในทำเลที่ตั้งดีเยี่ยม พร้อมสิ่งอำนวยความสะดวกครบครัน
-            เหมาะสำหรับการพักอาศัยและการลงทุนระยะยาว สภาพแวดล้อมดี ใกล้สิ่งอำนวยความสะดวก
-            ทั้งห้างสรรพสินค้า โรงพยาบาล โรงเรียน และระบบขนส่งสาธารณะ
+            ซีเคร็ด กาเด้น พัทยาเหนือ ถ่ายทอดอารมณ์พักผ่อนท่ามกลางธรรมชาติในเมืองท่องเที่ยว โครงการเน้นความร่มรื่นและความเป็นส่วนตัว เหมาะกับผู้ที่อยากพักใกล้ทะเลแต่ยังได้ความสงบแบบรีทรีต.
           </p>
 
           <!-- Stat cards -->
@@ -397,6 +421,14 @@
             </p>
           </div>
 
+          <div class="detail-card mt-4" style="background:var(--cream-100);">
+            <div class="sec-label mb-3">Garden Retreat Mood</div>
+            <ul class="lifestyle-list m-0 p-0" style="list-style:none;color:#4b5563;font-size:0.9rem;line-height:1.85;">
+                <li>พื้นที่สวนและทางเดินธรรมชาติรอบโครงการ</li>
+                <li>โทนสถาปัตยกรรมที่ผ่อนคลายสายตา</li>
+                <li>เหมาะกับการพักผ่อนระยะยาวและ workation</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -408,10 +440,10 @@
              style="background:linear-gradient(155deg,var(--navy-700) 0%,#152848 100%);">
           <div class="sec-label mb-2" style="color:var(--gold);">สนใจโครงการนี้?</div>
           <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;line-height:1.2;margin-bottom:0.75rem;">
-            ติดต่อสอบถาม<br>ข้อมูลเพิ่มเติม
+            จองชมบรรยากาศ<br>Garden Retreat
           </h3>
           <p style="color:rgba(255,255,255,0.55);font-size:0.86rem;line-height:1.7;margin-bottom:1.75rem;">
-            ทีมงานพร้อมให้คำปรึกษาและนัดชมห้องพัก ตลอด 7 วัน
+            ให้เราช่วยคัดยูนิตที่ได้วิวสวนและความเป็นส่วนตัวตามที่คุณต้องการ
           </p>
           <a href="#ctaBanner"
              class="btn btn-primary-gold w-100 py-3 rounded-full text-sm text-center d-block mb-3"
@@ -428,12 +460,12 @@
         <!-- Amenities card -->
         <div class="detail-card">
           <div class="sec-label mb-4">สิ่งอำนวยความสะดวก</div>
-          <div class="amenity-item"><i class="bi bi-water"></i> สระว่ายน้ำ</div>
-          <div class="amenity-item"><i class="bi bi-bicycle"></i> ห้องออกกำลังกาย</div>
-          <div class="amenity-item"><i class="bi bi-shield-check"></i> ระบบรักษาความปลอดภัย 24 ชั่วโมง</div>
-          <div class="amenity-item"><i class="bi bi-p-square"></i> ที่จอดรถ</div>
-          <div class="amenity-item"><i class="bi bi-wifi"></i> อินเทอร์เน็ตความเร็วสูง</div>
-          <div class="amenity-item"><i class="bi bi-tree"></i> พื้นที่สวนและพักผ่อน</div>
+          <div class="amenity-item"><i class='bi bi-tree-fill'></i> Tropical Garden</div>
+          <div class="amenity-item"><i class='bi bi-droplet-half'></i> Lagoon Pool</div>
+          <div class="amenity-item"><i class='bi bi-flower2'></i> Meditation Deck</div>
+          <div class="amenity-item"><i class='bi bi-cup-hot'></i> Garden Café Nook</div>
+          <div class="amenity-item"><i class='bi bi-shield-check'></i> Security Monitoring</div>
+          <div class="amenity-item"><i class='bi bi-wind'></i> Breezy Courtyard</div>
         </div>
 
       </div>
@@ -459,11 +491,10 @@
       <div class="gold-rule mb-6" style="opacity:0.6;"></div>
       <h2 class="text-white mb-5 font-display"
           style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:600;line-height:1.15;">
-        สนใจห้องพักที่<br>
-        <span class="text-shimmer">ซีเคร็ด กาเด้น พัทยาเหนือ?</span>
+        พักใจในสไตล์ Tropical Garden Retreat ที่<br>        <span class="text-shimmer">ซีเคร็ด กาเด้น พัทยาเหนือ?</span>
       </h2>
       <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;margin-bottom:2.5rem;line-height:1.7;">
-        ทีมงานมืออาชีพพร้อมให้คำปรึกษาและนัดชมห้องพักทุกวัน
+ติดต่อทีมงานเพื่อรับข้อมูลห้องวิวสวนและข้อเสนอพิเศษล่าสุด
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="tel:+66800000000"
