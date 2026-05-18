@@ -1,623 +1,725 @@
 <!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>คอนโดอารมณ์ พัทยา 808 | NICHA CONDO</title>
+<html class="light" lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>อาร์อม จอมเทียน พัทยา — ที่พักสุดหรูริมทะเล</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-  <!-- Libs -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy:  { DEFAULT:'#0a1628', 700:'#0d1f3c', 600:'#152848', 500:'#1e3a5f' },
-            gold:  { DEFAULT:'#c9a84c', light:'#e0c070', dark:'#a87c2a', pale:'#f5ecd7', faint:'#fdf8ee' },
-            cream: { DEFAULT:'#faf8f3', 100:'#f5f2ea' },
-          },
-          fontFamily: {
-            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans:    ['"IBM Plex Sans Thai"', '"IBM Plex Sans"', 'sans-serif'],
-          },
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ Material Symbols with full axis range -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ── Icon Font (force correct font) ── */
+      .material-symbols-outlined {
+        font-family: "Material Symbols Outlined" !important;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+        font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+      }
+
+      body,
+      :lang(th) {
+        font-family: "IBM Plex Sans Thai", ui-sans-serif, system-ui, sans-serif;
+      }
+
+      .font-display,
+      h1,
+      h2,
+      h3 {
+        font-family: "Noto Serif Thai", "Noto Serif", Georgia, serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .text-gold-gradient {
+        background: linear-gradient(135deg, #c9a84c 0%, #f0d080 50%, #c9a84c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .luxury-divider {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .luxury-divider::before,
+      .luxury-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+      }
+
+      .nav-scrolled {
+        box-shadow: 0 4px 32px rgba(0, 24, 50, 0.18);
+      }
+
+      .hero-bg {
+        background-attachment: fixed;
+      }
+      @media (max-width: 768px) {
+        .hero-bg {
+          background-attachment: scroll;
         }
       }
-    }
-  </script>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+      .gallery-item::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 24, 50, 0.6) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .gallery-item:hover::after {
+        opacity: 1;
+      }
 
-  <style>
-    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
-    body { font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif; background:#faf8f3; color:#0a1628; overflow-x:hidden; }
-    ::-webkit-scrollbar { width:5px; }
-    ::-webkit-scrollbar-track { background:#f0ece0; }
-    ::-webkit-scrollbar-thumb { background:linear-gradient(180deg,#c9a84c,#a87c2a); border-radius:99px; }
-    :root {
-      --navy:#102338; --navy-700:#1a3b59; --gold:#e1a66a; --gold-lt:#ffc998;
-      --gold-pale:#fdebdc; --cream:#fff8f2; --cream-100:#fceee3;
-    }
+      .amenity-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .amenity-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 24, 50, 0.18);
+      }
 
-    /* ── Display / Headings ── */
-    .font-display { font-family:'Cormorant Garamond',Georgia,serif; }
-    .sec-label {
-      font-size:0.65rem; font-weight:600; letter-spacing:0.35em;
-      text-transform:uppercase; color:var(--gold);
-    }
-    .sec-title {
-      font-family:'Cormorant Garamond',Georgia,serif;
-      font-size:clamp(1.9rem,3.8vw,3.2rem); font-weight:600;
-      color:var(--navy-700); line-height:1.15;
-    }
-    .display-hero {
-      font-family:'Cormorant Garamond',Georgia,serif;
-      font-size:clamp(2.2rem,5.5vw,4.5rem); font-weight:600;
-      line-height:1.1; letter-spacing:-0.01em;
-    }
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(24px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .fade-up { animation: fadeUp 0.7s ease both; }
 
-    /* ── Gold ornaments ── */
-    .gold-rule {
-      display:block; width:40px; height:1px;
-      background:linear-gradient(90deg,transparent,var(--gold),transparent);
-      margin:0 auto;
-    }
-    .gold-line-h {
-      display:inline-block; width:56px; height:1px;
-      background:linear-gradient(90deg,var(--gold),var(--gold-lt));
-    }
-    .ornament-diamond {
-      display:inline-block; width:6px; height:6px;
-      background:var(--gold); transform:rotate(45deg); flex-shrink:0;
-    }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #fbf9f4; }
+      ::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 3px; }
+    </style>
 
-    /* ── Shimmer text ── */
-    .text-shimmer {
-      background:linear-gradient(120deg,#c9a84c 0%,#f5ecd7 38%,#c9a84c 55%,#a87c2a 100%);
-      background-size:280% 100%; -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent; background-clip:text;
-      animation:shimmerMove 3.5s linear infinite;
-    }
-    @keyframes shimmerMove { 0%{background-position:200% center} 100%{background-position:-200% center} }
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              navy:  { DEFAULT: "#001832", light: "#0f2d4e", deep: "#000f1e" },
+              gold:  { DEFAULT: "#c9a84c", light: "#f0d080", dim: "#9c7d30" },
+              cream: { DEFAULT: "#fbf9f4", warm: "#f5f0e8" },
+              sand:  { DEFAULT: "#e8e0d0", light: "#f5f3ee" },
+            },
+            fontFamily: {
+              serif: ['"Noto Serif Thai"', '"Noto Serif"', "Georgia", "serif"],
+              sans:  ['"IBM Plex Sans Thai"', "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            spacing: {
+              "container-max": "1400px",
+              "section-y":     "7rem",
+              gutter:          "2rem",
+              "margin-desktop":"5rem",
+              "margin-mobile": "1.5rem",
+            },
+            borderRadius: {
+              DEFAULT: "2px",
+              card:    "4px",
+              pill:    "999px",
+            },
+            boxShadow: {
+              luxury:      "0 8px 48px rgba(0,24,50,0.10), 0 2px 8px rgba(201,168,76,0.08)",
+              card:        "0 4px 24px rgba(0,24,50,0.07)",
+              "card-hover":"0 16px 48px rgba(0,24,50,0.14)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
 
-    /* ── Glass / Cards ── */
-    .glass {
-      background:rgba(255,255,255,0.72); backdrop-filter:blur(20px);
-      -webkit-backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.45);
-      box-shadow:0 24px 60px -12px rgba(10,22,40,0.10);
-    }
-    .detail-card {
-      background:#fff; border-radius:0.75rem; padding:1.6rem;
-      border:1px solid rgba(201,168,76,0.18);
-      border-top:2px solid rgba(201,168,76,0.55);
-      transition:box-shadow 0.3s, transform 0.3s;
-    }
-    .detail-card:hover {
-      box-shadow:0 16px 48px rgba(10,22,40,0.09);
-      transform:translateY(-2px);
-    }
-    .stat-card {
-      background:#fff; border-radius:0.75rem; padding:1.5rem 1rem;
-      border:1px solid rgba(201,168,76,0.18);
-      text-align:center; transition:box-shadow 0.3s, transform 0.3s;
-    }
-    .stat-card:hover {
-      box-shadow:0 12px 40px rgba(10,22,40,0.08);
-      transform:translateY(-2px);
-    }
+  <body class="bg-cream text-navy font-sans antialiased">
 
-    /* ── Navbar ── */
-    #mainNav { transition:background 0.45s, box-shadow 0.45s, padding 0.45s; }
-    #mainNav.scrolled {
-      background:rgba(250,248,243,0.97) !important;
-      box-shadow:0 2px 24px rgba(10,22,40,0.08);
-      padding-top:0.55rem !important; padding-bottom:0.55rem !important;
-    }
-    #mainNav.scrolled .nav-logo-text { color:#0a1628 !important; }
-    #mainNav.scrolled .nav-link { color:rgba(10,22,40,0.7) !important; }
-    #mainNav.scrolled .nav-link:hover { color:#0a1628 !important; }
+    <!-- TOP NAV -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500" style="background: rgba(0,24,50,0.0);">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-20 py-5 flex justify-between items-center">
+        <a href="#home" class="font-serif text-xl tracking-[0.22em] text-white drop-shadow font-semibold">AROM JOMTIEN</a>
 
-    /* ── Buttons ── */
-    .btn-primary-gold {
-      background:linear-gradient(135deg,#c9a84c,#e0c070); color:#0a1628;
-      font-weight:600; letter-spacing:0.14em; font-size:0.76rem;
-      text-transform:uppercase; border:none;
-      transition:transform 0.25s, box-shadow 0.25s, filter 0.25s;
-    }
-    .btn-primary-gold:hover {
-      transform:translateY(-3px) scale(1.02);
-      box-shadow:0 14px 40px rgba(201,168,76,0.45); color:#0a1628;
-      filter:brightness(1.06);
-    }
-    .btn-outline-glass {
-      background:rgba(255,255,255,0.08); color:#fff;
-      border:1px solid rgba(255,255,255,0.38); font-weight:500;
-      letter-spacing:0.14em; font-size:0.76rem; text-transform:uppercase;
-      backdrop-filter:blur(8px); transition:background 0.25s, transform 0.25s;
-    }
-    .btn-outline-glass:hover {
-      background:rgba(255,255,255,0.18); transform:translateY(-3px); color:#fff;
-    }
-    .btn-outline-navy {
-      background:transparent; color:var(--navy-700);
-      border:1px solid rgba(10,22,40,0.25); font-weight:500;
-      letter-spacing:0.1em; font-size:0.76rem; text-transform:uppercase;
-      transition:background 0.25s, transform 0.25s;
-    }
-    .btn-outline-navy:hover {
-      background:var(--cream-100); transform:translateY(-2px); color:var(--navy-700);
-    }
-
-    /* ── Mobile menu ── */
-    #mobileMenu { transition:transform 0.4s cubic-bezier(.77,0,.175,1), opacity 0.35s; }
-    #mobileMenu.hidden-menu { transform:translateX(100%); opacity:0; pointer-events:none; }
-
-    /* ── Footer ── */
-    footer a:hover { color:var(--gold-lt) !important; }
-
-    /* ── Amenity items ── */
-    .amenity-item {
-      display:flex; align-items:center; gap:0.9rem; padding:0.6rem 0;
-      border-bottom:1px solid rgba(201,168,76,0.1); font-size:0.88rem; color:#374151;
-    }
-    .amenity-item:last-child { border-bottom:none; }
-    .amenity-item i { color:var(--gold); font-size:1rem; width:20px; text-align:center; flex-shrink:0; }
-
-    .theme-strip .mood-chip {
-      display:inline-flex; align-items:center; gap:.35rem;
-      border:1px solid rgba(10,22,40,.12); border-radius:999px;
-      padding:.3rem .8rem; font-size:.72rem; font-weight:600;
-      letter-spacing:.08em; color:var(--navy-700); background:rgba(255,255,255,.8);
-    }
-    .lifestyle-list li { position:relative; padding-left:1.1rem; margin-bottom:.35rem; }
-    .lifestyle-list li::before {
-      content:""; position:absolute; left:0; top:.62rem; width:6px; height:6px;
-      border-radius:50%; background:var(--gold);
-    }
-    .lifestyle-list li:last-child { margin-bottom:0; }
-  </style>
-</head>
-<body class="ocean-glam">
-
-<!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
-<nav id="mainNav" class="fixed top-0 left-0 w-full z-[999] py-4 transition-all"
-     style="background:rgba(10,22,40,0.12); backdrop-filter:blur(16px);">
-  <div class="container-fluid px-4 px-md-5">
-    <div class="flex items-center justify-between max-w-[1440px] mx-auto">
-
-      <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-3 text-decoration-none">
-        <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-             style="background:linear-gradient(135deg,#c9a84c,#e0c070);">
-          <i class="bi bi-building" style="font-size:1rem;color:#0a1628;"></i>
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#home" class="text-white/90 hover:text-yellow-300 text-xs tracking-[0.18em] font-medium uppercase transition-colors duration-200">หน้าหลัก</a>
+          <a href="#details" class="text-white/90 hover:text-yellow-300 text-xs tracking-[0.18em] font-medium uppercase transition-colors duration-200">รายละเอียด</a>
+          <a href="#amenities" class="text-white/90 hover:text-yellow-300 text-xs tracking-[0.18em] font-medium uppercase transition-colors duration-200">สิ่งอำนวยความสะดวก</a>
+          <a href="#gallery" class="text-white/90 hover:text-yellow-300 text-xs tracking-[0.18em] font-medium uppercase transition-colors duration-200">แกลเลอรี</a>
+          <a href="#location" class="text-white/90 hover:text-yellow-300 text-xs tracking-[0.18em] font-medium uppercase transition-colors duration-200">ที่ตั้ง</a>
+          <a href="#contact" class="text-white/90 hover:text-yellow-300 text-xs tracking-[0.18em] font-medium uppercase transition-colors duration-200">ติดต่อ</a>
         </div>
-        <span class="nav-logo-text font-bold tracking-tight text-white transition-colors"
-              style="font-size:1.1rem;letter-spacing:0.02em;">
-          NICHA<span style="color:#c9a84c;"> CONDO</span>
-        </span>
-      </a>
 
-      <!-- Desktop links -->
-      <ul class="hidden md:flex items-center gap-1 list-none mb-0">
-        <li><a href="index.html"
-               class="nav-link text-white/75 hover:text-white px-4 py-2 rounded-lg hover:bg-white/8 transition-all text-sm font-medium tracking-wide">
-          หน้าแรก</a></li>
-        <li><a href="index.html#mapSection"
-               class="nav-link text-white/75 hover:text-white px-4 py-2 rounded-lg hover:bg-white/8 transition-all text-sm font-medium tracking-wide">
-          แผนที่โครงการ</a></li>
-        <li><a href="index.html#properties"
-               class="nav-link text-white/75 hover:text-white px-4 py-2 rounded-lg hover:bg-white/8 transition-all text-sm font-medium tracking-wide">
-          โครงการ</a></li>
-      </ul>
-
-      <!-- CTA + Hamburger -->
-      <div class="hidden md:flex items-center gap-3">
-        <a href="#ctaBanner" class="btn btn-primary-gold px-5 py-2 rounded-full text-sm" style="text-decoration:none;">
-          ติดต่อสอบถาม
+        <a href="#contact" class="hidden lg:inline-flex items-center gap-2 border border-gold text-gold px-6 py-2.5 text-xs tracking-[0.18em] uppercase font-medium hover:bg-gold hover:text-navy transition-all duration-300">
+          <span class="material-symbols-outlined" style="font-size:15px">mail</span>
+          สอบถามข้อมูล
         </a>
+
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-1" aria-label="เมนู">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
       </div>
-      <button id="hamburgerBtn"
-              class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg gap-[5px] hover:bg-white/10 transition-all"
-              aria-label="เมนู" aria-expanded="false">
-        <span id="hb1" class="block w-6 h-px bg-white transition-all duration-300"></span>
-        <span id="hb2" class="block w-6 h-px bg-white transition-all duration-300"></span>
-        <span id="hb3" class="block w-5 h-px bg-white transition-all duration-300"></span>
-      </button>
-    </div>
-  </div>
-</nav>
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="hidden-menu fixed inset-0 z-[998] flex flex-col"
-     style="background:rgba(10,22,40,0.98);">
-  <div id="menuOverlay" class="absolute inset-0"></div>
-  <div class="relative flex flex-col h-full px-8 py-24 z-10">
-    <ul class="list-none flex flex-col gap-2 mb-auto">
-      <li><a href="index.html"
-             class="mobile-nav-link block text-white text-2xl font-semibold py-3 border-b border-white/10"
-             style="text-decoration:none;font-family:'Cormorant Garamond',serif;letter-spacing:0.02em;">หน้าแรก</a></li>
-      <li><a href="index.html#mapSection"
-             class="mobile-nav-link block text-white/75 text-2xl font-medium py-3 border-b border-white/10"
-             style="text-decoration:none;font-family:'Cormorant Garamond',serif;">แผนที่โครงการ</a></li>
-      <li><a href="index.html#properties"
-             class="mobile-nav-link block text-white/75 text-2xl font-medium py-3 border-b border-white/10"
-             style="text-decoration:none;font-family:'Cormorant Garamond',serif;">โครงการ</a></li>
-    </ul>
-    <div class="mt-8">
-      <a href="#ctaBanner"
-         class="btn btn-primary-gold w-full py-3 rounded-full text-sm text-center mobile-nav-link d-block"
-         style="text-decoration:none;">ติดต่อสอบถาม</a>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
-<section class="relative flex items-center justify-center text-white overflow-hidden"
-  style="min-height:88vh; background:linear-gradient(160deg,rgba(16,35,56,0.86),rgba(34,93,136,0.66) 54%,rgba(16,35,56,0.9)), url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=1600&q=90') center/cover no-repeat;">
-
-  <!-- Subtle vignette overlay -->
-  <div class="absolute inset-0 pointer-events-none"
-       style="background:radial-gradient(ellipse at center,transparent 40%,rgba(10,22,40,0.45) 100%);"></div>
-
-  <!-- Thin gold frame corners (top-left / bottom-right) -->
-  <div class="absolute pointer-events-none" style="top:2.5rem;left:2.5rem;width:60px;height:60px;
-       border-top:1px solid rgba(201,168,76,0.5);border-left:1px solid rgba(201,168,76,0.5);"></div>
-  <div class="absolute pointer-events-none" style="bottom:2.5rem;right:2.5rem;width:60px;height:60px;
-       border-bottom:1px solid rgba(201,168,76,0.5);border-right:1px solid rgba(201,168,76,0.5);"></div>
-
-  <div class="relative z-10 container px-4 px-md-5 text-center" style="max-width:860px;">
-
-    <!-- Location badge -->
-    <div class="inline-flex items-center gap-4 mb-8" data-aos="fade-down" data-aos-delay="100">
-      <span class="gold-line-h"></span>
-      <span class="ornament-diamond"></span>
-      <span style="font-size:0.65rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:#c9a84c;">
-        พัทยา
-      </span>
-      <span class="ornament-diamond"></span>
-      <span class="gold-line-h"></span>
-    </div>
-
-    <!-- Property name -->
-    <h1 class="display-hero text-white mb-5" data-aos="fade-up" data-aos-delay="180">
-      คอนโดอารมณ์ พัทยา 808
-    </h1>
-
-    <!-- Address -->
-    <p class="flex items-center justify-center gap-2 mb-10 text-white/70"
-       style="font-size:0.95rem;letter-spacing:0.04em;" data-aos="fade-up" data-aos-delay="260">
-      <i class="bi bi-geo-alt" style="color:#c9a84c;"></i>
-      พัทยา, ชลบุรี
-    </p>
-
-    <!-- CTA row -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4"
-         data-aos="fade-up" data-aos-delay="340">
-      <a href="#details"
-         class="btn btn-primary-gold px-9 py-3 rounded-full flex items-center gap-2"
-         style="text-decoration:none;">
-        <i class="bi bi-info-circle"></i> ดูข้อมูลเพิ่มเติม
-      </a>
-      <a href="index.html#properties"
-         class="btn btn-outline-glass px-9 py-3 rounded-full flex items-center gap-2"
-         style="text-decoration:none;">
-        <i class="bi bi-arrow-left"></i> กลับหน้าหลัก
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ BREADCRUMB ═══════════════════════════════ -->
-<div style="background:var(--cream-100);border-bottom:1px solid rgba(201,168,76,0.12);" class="py-3">
-  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
-    <nav aria-label="breadcrumb">
-      <ol class="flex flex-wrap items-center gap-2 text-sm list-none m-0 p-0" style="color:#6b7280;">
-        <li><a href="index.html" style="color:var(--gold);text-decoration:none;">หน้าแรก</a></li>
-        <li><i class="bi bi-chevron-right" style="font-size:0.65rem;color:#c9a84c;"></i></li>
-        <li><a href="index.html#properties" style="color:var(--gold);text-decoration:none;">โครงการ</a></li>
-        <li><i class="bi bi-chevron-right" style="font-size:0.65rem;color:#c9a84c;"></i></li>
-        <li style="color:var(--navy-700);font-weight:500;">คอนโดอารมณ์ พัทยา 808</li>
-      </ol>
+      <div id="mobile-menu" class="hidden lg:hidden px-6 py-6 space-y-4 border-t border-gold/20" style="background: rgba(0,24,50,0.97); backdrop-filter: blur(16px);">
+        <a href="#home" class="block text-white/80 hover:text-gold text-sm tracking-widest uppercase py-2 transition-colors">หน้าหลัก</a>
+        <a href="#details" class="block text-white/80 hover:text-gold text-sm tracking-widest uppercase py-2 transition-colors">รายละเอียด</a>
+        <a href="#amenities" class="block text-white/80 hover:text-gold text-sm tracking-widest uppercase py-2 transition-colors">สิ่งอำนวยความสะดวก</a>
+        <a href="#gallery" class="block text-white/80 hover:text-gold text-sm tracking-widest uppercase py-2 transition-colors">แกลเลอรี</a>
+        <a href="#location" class="block text-white/80 hover:text-gold text-sm tracking-widest uppercase py-2 transition-colors">ที่ตั้ง</a>
+        <a href="#contact" class="block text-white/80 hover:text-gold text-sm tracking-widest uppercase py-2 transition-colors">ติดต่อ</a>
+        <a href="./index.html" class="inline-block mt-2 border border-gold text-gold px-6 py-2.5 text-xs tracking-widest uppercase hover:bg-gold hover:text-navy transition-all">Natcha Condo</a>
+      </div>
     </nav>
-  </div>
-</div>
 
-<section class="theme-strip py-4" style="background:linear-gradient(90deg,var(--cream-100),#fff,var(--cream-100));border-bottom:1px solid rgba(10,22,40,0.08);">
-  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
-    <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
-      <div>
-        <div class="sec-label mb-1">Ocean Glam</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--navy-700);margin:0;">Glamorous Coastal Vibe</h3>
-        <p style="margin:.45rem 0 0;color:#4b5563;font-size:.9rem;">พักผ่อนแบบมีสไตล์ ใกล้ทะเลและแหล่งไลฟ์สไตล์ของพัทยา</p>
-      </div>
-      <div class="d-flex flex-wrap gap-2"><span class="mood-chip">Ocean Chic</span><span class="mood-chip">Photo Spot</span><span class="mood-chip">Vibrant Night</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ DETAILS ═══════════════════════════════ -->
-<section id="details" style="background:var(--cream);padding:6rem 0 7rem;">
-  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
-    <div class="row g-5">
-
-      <!-- ── Left: Info ── -->
-      <div class="col-12 col-lg-8">
-        <div data-aos="fade-right">
-
-          <!-- Section heading -->
-          <span class="sec-label">Ocean Glam Collection</span>
-          <div style="width:40px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:0.9rem 0 1.4rem;"></div>
-          <h2 class="sec-title mb-5">คอนโดอารมณ์ พัทยา 808</h2>
-
-          <p style="color:#4b5563;line-height:1.85;font-size:0.95rem;max-width:600px;" class="mb-8">
-            คอนโดอารมณ์ พัทยา 808 โดดเด่นด้วยเสน่ห์ coastal ที่หรูและสนุกในเวลาเดียวกัน เหมาะกับคนที่ชอบบรรยากาศริมทะเลแบบมีสไตล์ พร้อมโซนพักผ่อนที่ถ่ายภาพสวยและรองรับไลฟ์สไตล์เมืองท่องเที่ยว.
-          </p>
-
-          <!-- Stat cards -->
-          <div class="row g-3 mb-8">
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-geo-alt mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">ที่ตั้ง</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  พัทยา
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-building mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">ประเภท</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  คอนโดมิเนียม
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-calendar-check mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">เช่าขั้นต่ำ</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  1 เดือน
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-house-check mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">สถานะ</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  พร้อมเข้าพัก
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Location card -->
-          <div class="detail-card">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                   style="background:var(--gold-pale);">
-                <i class="bi bi-geo-alt-fill" style="color:var(--gold);font-size:1.1rem;"></i>
-              </div>
-              <div>
-                <div class="sec-label mb-1">ที่ตั้ง</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--navy-700);">
-                  พัทยา, ชลบุรี
-                </div>
-              </div>
-            </div>
-            <p style="font-size:0.88rem;color:#6b7280;line-height:1.8;margin:0;">
-              ตั้งอยู่ในทำเลศักยภาพ สะดวกสบายในการเดินทาง ใกล้ระบบขนส่งสาธารณะ
-              ห้างสรรพสินค้า โรงพยาบาล และสิ่งอำนวยความสะดวกต่างๆ
-            </p>
-          </div>
-
-          <div class="detail-card mt-4" style="background:var(--cream-100);">
-            <div class="sec-label mb-3">Ocean Glam Highlights</div>
-            <ul class="lifestyle-list m-0 p-0" style="list-style:none;color:#4b5563;font-size:0.9rem;line-height:1.85;">
-                <li>ดีไซน์ร่วมสมัยพร้อม mood แฟชั่น</li>
-                <li>พื้นที่ส่วนกลางเน้นประสบการณ์และบรรยากาศ</li>
-                <li>เหมาะกับผู้ชอบชีวิตริมทะเลที่มีสีสัน</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── Right: Sidebar ── -->
-      <div class="col-12 col-lg-4" data-aos="fade-left">
-
-        <!-- Contact card -->
-        <div class="rounded-2xl p-7 mb-5 text-white"
-             style="background:linear-gradient(155deg,var(--navy-700) 0%,#152848 100%);">
-          <div class="sec-label mb-2" style="color:var(--gold);">สนใจโครงการนี้?</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;line-height:1.2;margin-bottom:0.75rem;">
-            ห้องสไตล์ Ocean Glam<br>รอคุณอยู่
-          </h3>
-          <p style="color:rgba(255,255,255,0.55);font-size:0.86rem;line-height:1.7;margin-bottom:1.75rem;">
-            ทีมงานพร้อมแนะนำยูนิตที่โดดเด่นทั้งดีไซน์และศักยภาพการปล่อยเช่า
-          </p>
-          <a href="#ctaBanner"
-             class="btn btn-primary-gold w-100 py-3 rounded-full text-sm text-center d-block mb-3"
-             style="text-decoration:none;">
-            <i class="bi bi-chat-dots me-2"></i>ติดต่อสอบถาม
-          </a>
-          <a href="tel:+66800000000"
-             class="btn w-100 py-2 rounded-full text-sm text-center d-block"
-             style="background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.25);text-decoration:none;">
-            <i class="bi bi-telephone me-2"></i>080-000-0000
-          </a>
-        </div>
-
-        <!-- Amenities card -->
-        <div class="detail-card">
-          <div class="sec-label mb-4">สิ่งอำนวยความสะดวก</div>
-          <div class="amenity-item"><i class='bi bi-stars'></i> Glam Lobby</div>
-          <div class="amenity-item"><i class='bi bi-camera-fill'></i> Signature Photo Corner</div>
-          <div class="amenity-item"><i class='bi bi-water'></i> Ocean-view Pool</div>
-          <div class="amenity-item"><i class='bi bi-music-note'></i> Sunset Lounge</div>
-          <div class="amenity-item"><i class='bi bi-shield-lock'></i> Premium Security</div>
-          <div class="amenity-item"><i class='bi bi-car-front'></i> Valet-ready Dropoff</div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ CTA BANNER ═══════════════════════════════ -->
-<section id="ctaBanner" class="text-white text-center" style="position:relative;overflow:hidden;padding:7rem 0;">
-  <div class="absolute inset-0"
-       style="background:linear-gradient(155deg,rgba(10,22,40,0.96) 0%,rgba(13,31,60,0.92) 100%),
-              url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80') center/cover no-repeat;">
-  </div>
-  <!-- Gold glow -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] rounded-full"
-         style="background:radial-gradient(ellipse,rgba(201,168,76,0.12),transparent 68%);"></div>
-  </div>
-
-  <div class="container px-4 px-md-5 relative z-10" style="max-width:680px;">
-    <div data-aos="fade-up">
-      <span class="sec-label d-block mb-4" style="color:var(--gold);">ติดต่อเรา</span>
-      <div class="gold-rule mb-6" style="opacity:0.6;"></div>
-      <h2 class="text-white mb-5 font-display"
-          style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:600;line-height:1.15;">
-        สัมผัสความหรูริมทะเลแบบ Ocean Glam ที่<br>        <span class="text-shimmer">คอนโดอารมณ์ พัทยา 808?</span>
-      </h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;margin-bottom:2.5rem;line-height:1.7;">
-นัดชมโครงการและรับคำแนะนำห้องที่เหมาะกับสไตล์การใช้ชีวิตของคุณ
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="tel:+66800000000"
-           class="btn btn-primary-gold px-9 py-3 rounded-full text-sm flex items-center justify-center gap-2"
-           style="text-decoration:none;">
-          <i class="bi bi-telephone-fill"></i> 080-000-0000
-        </a>
-        <a href="mailto:hello@nichacondo.th"
-           class="btn btn-outline-glass px-9 py-3 rounded-full text-sm flex items-center justify-center gap-2"
-           style="text-decoration:none;">
-          <i class="bi bi-envelope"></i> ส่งอีเมลสอบถาม
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
-<footer style="background:var(--navy);color:rgba(255,255,255,0.55);">
-  <div class="container px-4 px-md-5 py-14 mx-auto" style="max-width:1320px;">
-    <div class="row g-6 mb-10">
-
-      <!-- Brand -->
-      <div class="col-12 col-md-5">
-        <div class="flex items-center gap-3 mb-5">
-          <div class="w-9 h-9 rounded-full flex items-center justify-center"
-               style="background:linear-gradient(135deg,#c9a84c,#e0c070);">
-            <i class="bi bi-building" style="font-size:1rem;color:#0a1628;"></i>
-          </div>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:#fff;letter-spacing:0.04em;">
-            NICHA<span style="color:#c9a84c;"> CONDO</span>
+    <!-- HERO -->
+    <header id="home" class="hero-bg relative w-full h-screen min-h-[640px] flex items-center justify-center"
+      style="background-image: url('./AROM_JOMTIEN/AROM-JOMTIEN_Home.jpg'); background-size: cover; background-position: center 40%;">
+      <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(0,15,30,0.55) 0%, rgba(0,24,50,0.30) 40%, rgba(0,15,30,0.72) 100%);"></div>
+      <div class="relative z-10 text-center px-6 max-w-4xl mx-auto fade-up">
+        <div class="luxury-divider mb-8 px-8">
+          <span class="text-gold text-[11px] tracking-[0.35em] uppercase font-medium whitespace-nowrap">
+            ที่พักสุดหรู · จอมเทียน พัทยา
           </span>
         </div>
-        <p style="font-size:0.86rem;line-height:1.75;color:rgba(255,255,255,0.45);">
-          พอร์ตโฟลิโอคอนโดมิเนียมระดับพรีเมียมทั่วประเทศไทย
+        <h1 class="font-serif text-5xl md:text-7xl text-white font-light leading-tight mb-6" style="text-shadow: 0 4px 32px rgba(0,0,0,0.4);">
+          AROM JOMTIEN <br /><span class="text-gold-gradient font-normal">พัทยา</span>
+        </h1>
+        <p class="text-white/80 text-lg md:text-xl font-light tracking-wide mb-10 max-w-xl mx-auto leading-relaxed">
+          สัมผัสประสบการณ์การพักอาศัยระดับพรีเมียม<br class="hidden md:block" />
+          ท่ามกลางบรรยากาศริมทะเลที่สงบและเป็นส่วนตัว
         </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#gallery" class="inline-flex items-center gap-2 bg-gold text-navy px-8 py-3.5 text-sm tracking-[0.15em] uppercase font-semibold hover:bg-gold-light transition-all duration-300 shadow-lg">
+            <span class="material-symbols-outlined" style="font-size:18px">photo_library</span>
+            ชมแกลเลอรี
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 bg-transparent border border-white/60 text-white px-8 py-3.5 text-sm tracking-[0.15em] uppercase font-medium hover:border-gold hover:text-gold transition-all duration-300">
+            <span class="material-symbols-outlined" style="font-size:18px">call</span>
+            ติดต่อเราวันนี้
+          </a>
+        </div>
       </div>
-
-      <!-- Menu -->
-      <div class="col-6 col-md-3">
-        <h5 class="text-white font-semibold mb-5"
-            style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;">เมนูหลัก</h5>
-        <ul class="list-none flex flex-col gap-3">
-          <li><a href="index.html" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">หน้าแรก</a></li>
-          <li><a href="index.html#mapSection" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">แผนที่โครงการ</a></li>
-          <li><a href="index.html#properties" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">โครงการทั้งหมด</a></li>
-          <li><a href="index.html#contract" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">สัญญาเช่า</a></li>
-        </ul>
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50">
+        <span class="text-[10px] tracking-[0.25em] uppercase">เลื่อนดูข้อมูล</span>
+        <span class="material-symbols-outlined animate-bounce" style="font-size:20px">keyboard_arrow_down</span>
       </div>
+    </header>
 
-      <!-- Contact -->
-      <div class="col-6 col-md-4">
-        <h5 class="text-white font-semibold mb-5"
-            style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;">ติดต่อ</h5>
-        <ul class="list-none flex flex-col gap-3">
-          <li class="flex items-center gap-3" style="color:rgba(255,255,255,0.45);font-size:0.88rem;">
-            <i class="bi bi-telephone flex-shrink-0" style="color:#c9a84c;"></i> 080-000-0000
-          </li>
-          <li class="flex items-center gap-3" style="color:rgba(255,255,255,0.45);font-size:0.88rem;">
-            <i class="bi bi-envelope flex-shrink-0" style="color:#c9a84c;"></i> hello@nichacondo.th
-          </li>
-        </ul>
+    <!-- HIGHLIGHT STRIP -->
+    <div class="bg-navy py-6 px-6 md:px-20">
+      <div class="max-w-[1400px] mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-gold/20">
+          <div class="text-center px-4 py-2">
+            <p class="font-serif text-2xl text-gold font-light">33.27</p>
+            <p class="text-white/50 text-xs tracking-widest uppercase mt-1">ตร.ม.</p>
+          </div>
+          <div class="text-center px-4 py-2">
+            <p class="font-serif text-2xl text-gold font-light">ชั้น 8</p>
+            <p class="text-white/50 text-xs tracking-widest uppercase mt-1">ระดับชั้น</p>
+          </div>
+          <div class="text-center px-4 py-2">
+            <p class="font-serif text-2xl text-gold font-light">1 ปี</p>
+            <p class="text-white/50 text-xs tracking-widest uppercase mt-1">สัญญาเช่า</p>
+          </div>
+          <div class="text-center px-4 py-2">
+            <p class="font-serif text-2xl text-gold font-light">พร้อมอยู่</p>
+            <p class="text-white/50 text-xs tracking-widest uppercase mt-1">เฟอร์นิเจอร์ครบ</p>
+          </div>
+        </div>
       </div>
-
     </div>
 
-    <!-- Divider + copyright -->
-    <div class="pt-6" style="border-top:1px solid rgba(255,255,255,0.07);">
-      <p class="text-center" style="font-size:0.72rem;color:rgba(255,255,255,0.28);letter-spacing:0.08em;">
-        © 2024 NICHA CONDO · สงวนลิขสิทธิ์ทุกประการ
-      </p>
-    </div>
-  </div>
-</footer>
+    <!-- DETAILS SECTION -->
+    <section id="details" class="py-24 px-6 md:px-20">
+      <div class="max-w-[1400px] mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-gold text-[11px] tracking-[0.35em] uppercase font-medium mb-3">ข้อมูลโครงการ</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-navy font-light">รายละเอียดห้องพัก</h2>
+        </div>
 
-<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-AOS.init({ duration:750, easing:'ease-out-cubic', once:true, offset:55 });
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="relative bg-white rounded-card shadow-luxury overflow-hidden hover:shadow-card-hover transition-shadow duration-500">
+            <div class="h-1 bg-gradient-to-r from-gold-dim via-gold to-gold-dim"></div>
+            <div class="p-10">
+              <div class="flex items-center gap-4 mb-8">
+                <div class="w-14 h-14 bg-navy/5 rounded-card flex items-center justify-center border border-gold/20">
+                  <span class="material-symbols-outlined text-gold" style="font-size:28px">home</span>
+                </div>
+                <div>
+                  <h3 class="font-serif text-2xl text-navy font-medium">รายละเอียดห้อง</h3>
+                  <p class="text-navy/50 text-sm mt-0.5">Room Details</p>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex items-center gap-4 py-4 border-b border-sand">
+                  <span class="material-symbols-outlined text-gold" style="font-size:22px">bed</span>
+                  <div>
+                    <p class="text-navy/50 text-xs tracking-widest uppercase mb-0.5">ประเภทห้อง</p>
+                    <p class="text-navy font-medium">สตูดิโอ / 1 ห้องนอน</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 py-4 border-b border-sand">
+                  <span class="material-symbols-outlined text-gold" style="font-size:22px">aspect_ratio</span>
+                  <div>
+                    <p class="text-navy/50 text-xs tracking-widest uppercase mb-0.5">พื้นที่ใช้สอย</p>
+                    <p class="text-navy font-medium">33.27 ตารางเมตร</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 py-4 border-b border-sand">
+                  <span class="material-symbols-outlined text-gold" style="font-size:22px">layers</span>
+                  <div>
+                    <p class="text-navy/50 text-xs tracking-widest uppercase mb-0.5">ระดับชั้น</p>
+                    <p class="text-navy font-medium">ชั้น 8</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 py-4">
+                  <span class="material-symbols-outlined text-gold" style="font-size:22px">chair</span>
+                  <div>
+                    <p class="text-navy/50 text-xs tracking-widest uppercase mb-0.5">การตกแต่ง</p>
+                    <p class="text-navy font-medium">เฟอร์นิเจอร์ครบ พร้อมเครื่องใช้ไฟฟ้า พร้อมเข้าอยู่ได้ทันที</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-/* Navbar scroll effect */
-const mainNav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 55) {
-    mainNav.classList.add('scrolled');
-    mainNav.style.background = '';
-  } else {
-    mainNav.classList.remove('scrolled');
-    mainNav.style.background = 'rgba(10,22,40,0.12)';
-  }
-}, { passive:true });
+          <div class="relative bg-white rounded-card shadow-luxury overflow-hidden hover:shadow-card-hover transition-shadow duration-500">
+            <div class="h-1 bg-gradient-to-r from-gold-dim via-gold to-gold-dim"></div>
+            <div class="p-10">
+              <div class="flex items-center gap-4 mb-8">
+                <div class="w-14 h-14 bg-navy/5 rounded-card flex items-center justify-center border border-gold/20">
+                  <span class="material-symbols-outlined text-gold" style="font-size:28px">contract</span>
+                </div>
+                <div>
+                  <h3 class="font-serif text-2xl text-navy font-medium">เงื่อนไขการเช่า</h3>
+                  <p class="text-navy/50 text-sm mt-0.5">Rental Terms</p>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex items-center gap-4 py-4 border-b border-sand">
+                  <span class="material-symbols-outlined text-gold" style="font-size:22px">calendar_month</span>
+                  <div>
+                    <p class="text-navy/50 text-xs tracking-widest uppercase mb-0.5">ระยะสัญญา</p>
+                    <p class="text-navy font-medium">สัญญาเช่า 1 ปี</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 py-4 border-b border-sand">
+                  <span class="material-symbols-outlined text-gold" style="font-size:22px">water_drop</span>
+                  <div>
+                    <p class="text-navy/50 text-xs tracking-widest uppercase mb-0.5">ค่าสาธารณูปโภค</p>
+                    <p class="text-navy font-medium">ค่าน้ำและค่าไฟ ตามอัตรารัฐบาล</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 py-4 border-b border-sand">
+                  <span class="material-symbols-outlined text-gold" style="font-size:22px">security</span>
+                  <div>
+                    <p class="text-navy/50 text-xs tracking-widest uppercase mb-0.5">เงินมัดจำ</p>
+                    <p class="text-navy font-medium">เงินประกัน 2 เดือน + ค่าเช่าล่วงหน้า 1 เดือน</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 py-4">
+                  <span class="material-symbols-outlined text-gold" style="font-size:22px">pets</span>
+                  <div>
+                    <p class="text-navy/50 text-xs tracking-widest uppercase mb-0.5">สัตว์เลี้ยง</p>
+                    <p class="text-navy font-medium">กรุณาสอบถามเพิ่มเติม</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-/* Mobile menu */
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileMenu   = document.getElementById('mobileMenu');
-const hb1 = document.getElementById('hb1');
-const hb2 = document.getElementById('hb2');
-const hb3 = document.getElementById('hb3');
-let menuOpen = false;
+        </div>
+      </div>
+    </section>
 
-function openMenu() {
-  menuOpen = true;
-  mobileMenu.classList.remove('hidden-menu');
-  document.body.style.overflow = 'hidden';
-  hamburgerBtn.setAttribute('aria-expanded', 'true');
-  hb1.style.transform = 'rotate(45deg) translate(5px,5px)';
-  hb2.style.opacity   = '0';
-  hb3.style.transform = 'rotate(-45deg) translate(5px,-5px)';
-  hb3.style.width     = '24px';
-}
-function closeMenu() {
-  menuOpen = false;
-  mobileMenu.classList.add('hidden-menu');
-  document.body.style.overflow = '';
-  hamburgerBtn.setAttribute('aria-expanded', 'false');
-  hb1.style.transform = '';
-  hb2.style.opacity   = '1';
-  hb3.style.transform = '';
-  hb3.style.width     = '20px';
-}
-hamburgerBtn.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
-document.getElementById('menuOverlay').addEventListener('click', closeMenu);
-document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeMenu));
-</script>
-</body>
+    <!-- AMENITIES SECTION -->
+    <section id="amenities" class="py-24 px-6 md:px-20" style="background: linear-gradient(135deg, #001832 0%, #0f2d4e 100%);">
+      <div class="max-w-[1400px] mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-gold text-[11px] tracking-[0.35em] uppercase font-medium mb-3">สิ่งอำนวยความสะดวก</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-white font-light">ครบครันทุกความต้องการ</h2>
+          <div class="luxury-divider mt-6 px-24">
+            <span class="text-gold/50 text-[10px] tracking-[0.2em] whitespace-nowrap">PREMIUM AMENITIES</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="amenity-card bg-white/5 border border-white/10 rounded-card p-8 text-center">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-gold" style="font-size:30px">fitness_center</span>
+            </div>
+            <h4 class="font-serif text-white text-lg font-light mb-1">ฟิตเนส</h4>
+            <p class="text-white/40 text-xs tracking-widest">FITNESS CENTER</p>
+          </div>
+          <div class="amenity-card bg-white/5 border border-white/10 rounded-card p-8 text-center">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-gold" style="font-size:30px">pool</span>
+            </div>
+            <h4 class="font-serif text-white text-lg font-light mb-1">สระว่ายน้ำ</h4>
+            <p class="text-white/40 text-xs tracking-widest">SWIMMING POOL</p>
+          </div>
+          <div class="amenity-card bg-white/5 border border-white/10 rounded-card p-8 text-center">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-gold" style="font-size:30px">local_parking</span>
+            </div>
+            <h4 class="font-serif text-white text-lg font-light mb-1">ที่จอดรถ</h4>
+            <p class="text-white/40 text-xs tracking-widest">PARKING</p>
+          </div>
+          <div class="amenity-card bg-white/5 border border-white/10 rounded-card p-8 text-center">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-gold" style="font-size:30px">vpn_key</span>
+            </div>
+            <h4 class="font-serif text-white text-lg font-light mb-1">คีย์การ์ด</h4>
+            <p class="text-white/40 text-xs tracking-widest">KEYCARD ACCESS</p>
+          </div>
+          <div class="amenity-card bg-white/5 border border-white/10 rounded-card p-8 text-center">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-gold" style="font-size:30px">security</span>
+            </div>
+            <h4 class="font-serif text-white text-lg font-light mb-1">รักษาความปลอดภัย</h4>
+            <p class="text-white/40 text-xs tracking-widest">24 HR SECURITY</p>
+          </div>
+          <div class="amenity-card bg-white/5 border border-white/10 rounded-card p-8 text-center">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-gold" style="font-size:30px">park</span>
+            </div>
+            <h4 class="font-serif text-white text-lg font-light mb-1">สวนพักผ่อน</h4>
+            <p class="text-white/40 text-xs tracking-widest">GARDEN</p>
+          </div>
+          <div class="amenity-card bg-white/5 border border-white/10 rounded-card p-8 text-center">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-gold" style="font-size:30px">elevator</span>
+            </div>
+            <h4 class="font-serif text-white text-lg font-light mb-1">ลิฟต์</h4>
+            <p class="text-white/40 text-xs tracking-widest">ELEVATOR</p>
+          </div>
+          <div class="amenity-card bg-white/5 border border-white/10 rounded-card p-8 text-center">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-gold" style="font-size:30px">beach_access</span>
+            </div>
+            <h4 class="font-serif text-white text-lg font-light mb-1">ใกล้หาดทราย</h4>
+            <p class="text-white/40 text-xs tracking-widest">NEAR BEACH</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-24 px-6 md:px-20">
+      <div class="max-w-[1400px] mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-gold text-[11px] tracking-[0.35em] uppercase font-medium mb-3">ภาพบรรยากาศ</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-navy font-light">แกลเลอรีโครงการ</h2>
+        </div>
+
+        <!-- Living Space -->
+        <div class="mb-6">
+          <div class="flex items-center gap-4 mb-5">
+            <span class="w-6 h-px bg-gold inline-block"></span>
+            <h3 class="font-serif text-xl text-navy font-light tracking-wide">พื้นที่นั่งเล่น</h3>
+            <span class="flex-grow h-px bg-navy/10 inline-block"></span>
+          </div>
+          <div class="gallery-item relative overflow-hidden rounded-card shadow-luxury h-[480px] md:h-[620px] cursor-zoom-in">
+            <img src="./AROM_JOMTIEN/AROM-JOMTIEN-Living_Room.jpg" alt="ห้องนั่งเล่น"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <div class="flex items-center gap-4 mb-5">
+              <span class="w-6 h-px bg-gold inline-block"></span>
+              <h3 class="font-serif text-xl text-navy font-light">ห้องนอน</h3>
+              <span class="flex-grow h-px bg-navy/10 inline-block"></span>
+            </div>
+            <div class="gallery-item relative overflow-hidden rounded-card shadow-card h-[360px] cursor-zoom-in">
+              <img src="./AROM_JOMTIEN/AROM-JOMTIEN_Bedroom.jpg" alt="ห้องนอน"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center gap-4 mb-5">
+              <span class="w-6 h-px bg-gold inline-block"></span>
+              <h3 class="font-serif text-xl text-navy font-light">ห้องพักนั่งเล่น</h3>
+              <span class="flex-grow h-px bg-navy/10 inline-block"></span>
+            </div>
+            <div class="gallery-item relative overflow-hidden rounded-card shadow-card h-[360px] cursor-zoom-in">
+              <img src="./AROM_JOMTIEN/AROM-JOMTIEN-Living_Room2.jpg" alt="ห้องพัก"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <div class="flex items-center gap-4 mb-5">
+            <span class="w-6 h-px bg-gold inline-block"></span>
+            <h3 class="font-serif text-xl text-navy font-light">ล็อบบี้โครงการ</h3>
+            <span class="flex-grow h-px bg-navy/10 inline-block"></span>
+          </div>
+          <div class="gallery-item relative overflow-hidden rounded-card shadow-luxury h-[400px] md:h-[540px] cursor-zoom-in">
+            <img src="./AROM_JOMTIEN/AROM-JOMTIEN_Facility2.jpg" alt="ล็อบบี้"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <div class="flex items-center gap-4 mb-5">
+            <span class="w-6 h-px bg-gold inline-block"></span>
+            <h3 class="font-serif text-xl text-navy font-light">สิ่งอำนวยความสะดวก</h3>
+            <span class="flex-grow h-px bg-navy/10 inline-block"></span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="gallery-item relative overflow-hidden rounded-card shadow-card h-[280px] cursor-zoom-in">
+              <img src="./AROM_JOMTIEN/AROM-JOMTIEN_Pool.jpg" alt="สระว่ายน้ำ"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+            </div>
+            <div class="gallery-item relative overflow-hidden rounded-card shadow-card h-[280px] cursor-zoom-in">
+              <img src="./AROM_JOMTIEN/AROM-JOMTIEN-Garden.jpg" alt="สวน"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+            </div>
+            <div class="gallery-item relative overflow-hidden rounded-card shadow-card h-[280px] cursor-zoom-in">
+              <img src="./AROM_JOMTIEN/AROM-JOMTIEN_Facility2.jpg" alt="ฟิตเนส"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="gallery-item relative overflow-hidden rounded-card shadow-card h-[200px] cursor-zoom-in">
+            <img src="./AROM_JOMTIEN/AROM-JOMTIEN_Pool2.jpg" alt="สระว่ายน้ำ 2"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+          </div>
+          <div class="gallery-item relative overflow-hidden rounded-card shadow-card h-[200px] cursor-zoom-in">
+            <img src="./AROM_JOMTIEN/AROM-JOMTIEN_Pool3.jpg" alt="สระว่ายน้ำ 3"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+          </div>
+          <div class="gallery-item relative overflow-hidden rounded-card shadow-card h-[200px] cursor-zoom-in">
+            <img src="./AROM_JOMTIEN/AROM-JOMTIEN_BathRoom.jpg" alt="ห้องน้ำ"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+          </div>
+          <div class="gallery-item relative overflow-hidden rounded-card shadow-card h-[200px] cursor-zoom-in">
+            <img src="./AROM_JOMTIEN/AROM-JOMTIEN-Topview.jpg" alt="มุมมองจากด้านบน"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION SECTION -->
+    <section id="location" class="py-24 px-6 md:px-20" style="background-color: #f5f0e8;">
+      <div class="max-w-[1400px] mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-gold text-[11px] tracking-[0.35em] uppercase font-medium mb-3">ที่ตั้งโครงการ</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-navy font-light">ทำเลทองริมทะเล</h2>
+          <p class="text-navy/60 mt-4 text-base max-w-xl mx-auto leading-relaxed">
+            โครงการตั้งอยู่บนถนนจอมเทียนสายหนึ่ง ใจกลางแหล่งท่องเที่ยวและสิ่งอำนวยความสะดวกครบครัน
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+          <div class="lg:col-span-3 rounded-card overflow-hidden shadow-luxury border border-gold/15">
+            <div class="w-full h-[460px]">
+              <iframe
+                title="แผนที่ AROM JOMTIEN"
+                class="w-full h-full border-0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=12.8915797,100.8736181&z=17&output=embed&hl=th"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="bg-navy px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <p class="font-serif text-white text-lg font-light">AROM JOMTIEN</p>
+                <p class="text-white/50 text-sm mt-0.5">ถ. จอมเทียนสายหนึ่ง · บางละมุง · ชลบุรี</p>
+              </div>
+              <a
+                href="https://www.google.com/maps/place/AROM+JOMTIEN/@12.8915849,100.8710378,1155m/data=!3m2!1e3!4b1!4m6!3m5!1s0x310297f68e314e9d:0x149d0ff075818574!8m2!3d12.8915797!4d100.8736181!16s%2Fg%2F11q3_w2wk8?entry=ttu"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 border border-gold text-gold px-5 py-2.5 text-xs tracking-[0.15em] uppercase font-medium hover:bg-gold hover:text-navy transition-all duration-300 whitespace-nowrap"
+              >
+                <span class="material-symbols-outlined" style="font-size:16px">open_in_new</span>
+                เปิดใน Google Maps
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-2 space-y-4">
+            <h3 class="font-serif text-2xl text-navy font-light mb-6">สถานที่ใกล้เคียง</h3>
+
+            <div class="bg-white rounded-card p-5 shadow-card border-l-2 border-gold flex gap-4">
+              <div class="w-10 h-10 bg-gold/10 rounded-card flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-gold" style="font-size:20px">restaurant</span>
+              </div>
+              <div>
+                <p class="font-medium text-navy text-sm">ร้านอาหาร</p>
+                <p class="text-navy/60 text-sm mt-1 leading-relaxed">ร้านอาหารปูเป็น, ลุงไสว และร้านอาหารทะเลอีกมากมาย</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-card p-5 shadow-card border-l-2 border-gold flex gap-4">
+              <div class="w-10 h-10 bg-gold/10 rounded-card flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-gold" style="font-size:20px">sailing</span>
+              </div>
+              <div>
+                <p class="font-medium text-navy text-sm">การท่องเที่ยวและพักผ่อน</p>
+                <p class="text-navy/60 text-sm mt-1 leading-relaxed">Ocean Marina Yacht Club, Columbia Pictures Aquaverse</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-card p-5 shadow-card border-l-2 border-gold flex gap-4">
+              <div class="w-10 h-10 bg-gold/10 rounded-card flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-gold" style="font-size:20px">school</span>
+              </div>
+              <div>
+                <p class="font-medium text-navy text-sm">โรงเรียนนานาชาติ</p>
+                <p class="text-navy/60 text-sm mt-1 leading-relaxed">Regents International School, Tara Pattana International School</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-card p-5 shadow-card border-l-2 border-gold flex gap-4">
+              <div class="w-10 h-10 bg-gold/10 rounded-card flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-gold" style="font-size:20px">shopping_bag</span>
+              </div>
+              <div>
+                <p class="font-medium text-navy text-sm">ช้อปปิ้ง</p>
+                <p class="text-navy/60 text-sm mt-1 leading-relaxed">Terminal 21 Pattaya, Central Marina, ตลาดจอมเทียน</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-card p-5 shadow-card border-l-2 border-gold flex gap-4">
+              <div class="w-10 h-10 bg-gold/10 rounded-card flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-gold" style="font-size:20px">beach_access</span>
+              </div>
+              <div>
+                <p class="font-medium text-navy text-sm">หาดจอมเทียน</p>
+                <p class="text-navy/60 text-sm mt-1 leading-relaxed">ห่างจากโครงการเพียงไม่กี่นาที เดินถึงได้</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-28 px-6 md:px-20 relative overflow-hidden" style="background: linear-gradient(135deg, #001832 0%, #0a2240 100%);">
+      <div class="absolute top-0 right-0 w-96 h-96 opacity-5 pointer-events-none"
+        style="background: radial-gradient(circle, #c9a84c 0%, transparent 70%);"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 opacity-5 pointer-events-none"
+        style="background: radial-gradient(circle, #c9a84c 0%, transparent 70%);"></div>
+
+      <div class="max-w-[1400px] mx-auto relative z-10">
+        <div class="text-center mb-16">
+          <p class="text-gold text-[11px] tracking-[0.35em] uppercase font-medium mb-3">ติดต่อเรา</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-white font-light mb-5">สนใจเช่าอยู่? เราพร้อมให้คำปรึกษา</h2>
+          <p class="text-white/60 text-base max-w-lg mx-auto leading-relaxed">
+            ติดต่อเราวันนี้เพื่อนัดชมห้องพักจริง หรือสอบถามรายละเอียดเพิ่มเติม ทีมงานของเราพร้อมให้บริการ
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <a href="tel:0863429855" class="group bg-white/5 border border-white/10 rounded-card p-8 text-center hover:border-gold/40 hover:bg-white/10 transition-all duration-300">
+            <div class="w-14 h-14 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+              <span class="material-symbols-outlined text-gold" style="font-size:26px">call</span>
+            </div>
+            <p class="text-white/50 text-xs tracking-[0.2em] uppercase mb-2">โทรศัพท์</p>
+            <p class="font-serif text-white text-xl font-light">086 342 9855</p>
+            <p class="text-gold/70 text-xs mt-3 tracking-wide">กดเพื่อโทรออก</p>
+          </a>
+
+          <a href="https://line.me/ti/p/~@779fsbjm" target="_blank" rel="noopener noreferrer" class="group bg-white/5 border border-white/10 rounded-card p-8 text-center hover:border-gold/40 hover:bg-white/10 transition-all duration-300">
+            <div class="w-14 h-14 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+              <span class="material-symbols-outlined text-gold" style="font-size:26px">chat</span>
+            </div>
+            <p class="text-white/50 text-xs tracking-[0.2em] uppercase mb-2">LINE</p>
+            <p class="font-serif text-white text-xl font-light">@779fsbjm</p>
+            <p class="text-gold/70 text-xs mt-3 tracking-wide">แอดไลน์เพื่อนัดชม</p>
+          </a>
+
+          <a href="mailto:jew.scb18@gmail.com" class="group bg-white/5 border border-white/10 rounded-card p-8 text-center hover:border-gold/40 hover:bg-white/10 transition-all duration-300">
+            <div class="w-14 h-14 mx-auto mb-5 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+              <span class="material-symbols-outlined text-gold" style="font-size:26px">mail</span>
+            </div>
+            <p class="text-white/50 text-xs tracking-[0.2em] uppercase mb-2">อีเมล</p>
+            <p class="font-serif text-white text-lg font-light">jew.scb18@gmail.com</p>
+            <p class="text-gold/70 text-xs mt-3 tracking-wide">ส่งอีเมลสอบถาม</p>
+          </a>
+        </div>
+
+        <div class="luxury-divider mt-16 px-8">
+          <span class="text-gold/30 text-[10px] tracking-[0.2em] whitespace-nowrap">AROM JOMTIEN PATTAYA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background:#000f1e;" class="border-t border-gold/10">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-20 py-10">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div class="text-center md:text-left">
+            <p class="font-serif text-white text-xl tracking-[0.2em] font-light">AROM JOMTIEN</p>
+            <p class="text-white/40 text-xs tracking-widest mt-1">PATTAYA · LUXURY CONDOMINIUM</p>
+          </div>
+          <div class="flex flex-wrap justify-center gap-8">
+            <a href="#" class="text-white/40 hover:text-gold text-xs tracking-widest uppercase transition-colors">นโยบายความเป็นส่วนตัว</a>
+            <a href="#" class="text-white/40 hover:text-gold text-xs tracking-widest uppercase transition-colors">ข้อกำหนดการใช้งาน</a>
+            <a href="#" class="text-white/40 hover:text-gold text-xs tracking-widest uppercase transition-colors">การบริหารทรัพย์สิน</a>
+          </div>
+          <div class="text-center md:text-right">
+            <p class="text-white/30 text-xs">© 2026 Natchacondo</p>
+            <p class="text-white/20 text-xs mt-1">อัปเดตเมื่อวันที่ 18 พฤษภาคม 2569</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 80) {
+          navbar.style.background = "rgba(0,24,50,0.97)";
+          navbar.style.backdropFilter = "blur(20px)";
+          navbar.classList.add("nav-scrolled");
+        } else {
+          navbar.style.background = "rgba(0,24,50,0.0)";
+          navbar.style.backdropFilter = "blur(0px)";
+          navbar.classList.remove("nav-scrolled");
+        }
+      });
+
+      const btn = document.getElementById("mobile-menu-btn");
+      const menu = document.getElementById("mobile-menu");
+      btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+      menu.querySelectorAll("a").forEach(a =>
+        a.addEventListener("click", () => menu.classList.add("hidden"))
+      );
+    </script>
+
+  </body>
 </html>

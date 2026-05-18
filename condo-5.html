@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
+<html lang="th">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,616 +8,653 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Libs -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy:  { DEFAULT:'#0a1628', 700:'#0d1f3c', 600:'#152848', 500:'#1e3a5f' },
-            gold:  { DEFAULT:'#c9a84c', light:'#e0c070', dark:'#a87c2a', pale:'#f5ecd7', faint:'#fdf8ee' },
-            cream: { DEFAULT:'#faf8f3', 100:'#f5f2ea' },
-          },
-          fontFamily: {
-            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans:    ['"IBM Plex Sans Thai"', '"IBM Plex Sans"', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
   <style>
-    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
-    body { font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif; background:#faf8f3; color:#0a1628; overflow-x:hidden; }
-    ::-webkit-scrollbar { width:5px; }
-    ::-webkit-scrollbar-track { background:#f0ece0; }
-    ::-webkit-scrollbar-thumb { background:linear-gradient(180deg,#c9a84c,#a87c2a); border-radius:99px; }
-    :root {
-      --navy:#16303a; --navy-700:#224653; --gold:#9eb8a4; --gold-lt:#c2d7c7;
-      --gold-pale:#eaf2ec; --cream:#f4f8f6; --cream-100:#eaf1ee;
+    :root{
+      --ink:#0f242a;
+      --deep:#16303a;
+      --sage:#9eb8a4;
+      --sage2:#c2d7c7;
+      --bg:#f4f8f6;
+      --bg2:#eaf1ee;
+      --line:rgba(15,36,42,.10);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'IBM Plex Sans Thai',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+    a{text-decoration:none}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+    /* ───────── NAV (different layout) ───────── */
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:999;
+      background:rgba(244,248,246,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{
+      display:flex;flex-direction:column;line-height:1.05;
+      font-family:'Cormorant Garamond',serif;color:var(--deep);
+    }
+    .brand b{font-size:1.1rem;letter-spacing:.03em}
+    .brand span{font-size:.78rem;color:rgba(15,36,42,.55);letter-spacing:.06em}
+    .nav-pill{
+      display:flex;gap:10px;align-items:center;
+      padding:6px;border:1px solid var(--line);
+      border-radius:999px;background:#fff;
+    }
+    .nav-pill a{
+      font-size:.78rem;font-weight:600;letter-spacing:.05em;
+      color:rgba(15,36,42,.70);
+      padding:.45rem .9rem;border-radius:999px;
+      transition:.2s;
+    }
+    .nav-pill a:hover{background:var(--bg2);color:var(--deep)}
+    .nav-cta{
+      display:flex;gap:10px;align-items:center;
+      font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      padding:.55rem 1rem;border-radius:999px;
+      background:linear-gradient(135deg,var(--sage),var(--sage2));
+      color:var(--deep);
+      border:0;
+    }
+    .nav-cta:hover{filter:brightness(1.04)}
+    @media (max-width: 992px){
+      .nav-pill{display:none}
+      .nav-cta{font-size:.72rem}
     }
 
-    /* ── Display / Headings ── */
-    .font-display { font-family:'Cormorant Garamond',Georgia,serif; }
-    .sec-label {
-      font-size:0.65rem; font-weight:600; letter-spacing:0.35em;
-      text-transform:uppercase; color:var(--gold);
+    /* ───────── HERO (different placement: split + vertical title) ───────── */
+    .hero{
+      padding-top:72px;
+      min-height:92vh;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      background:var(--bg);
     }
-    .sec-title {
-      font-family:'Cormorant Garamond',Georgia,serif;
-      font-size:clamp(1.9rem,3.8vw,3.2rem); font-weight:600;
-      color:var(--navy-700); line-height:1.15;
-    }
-    .display-hero {
-      font-family:'Cormorant Garamond',Georgia,serif;
-      font-size:clamp(2.2rem,5.5vw,4.5rem); font-weight:600;
-      line-height:1.1; letter-spacing:-0.01em;
+    @media (max-width: 992px){
+      .hero{grid-template-columns:1fr;min-height:auto}
     }
 
-    /* ── Gold ornaments ── */
-    .gold-rule {
-      display:block; width:40px; height:1px;
-      background:linear-gradient(90deg,transparent,var(--gold),transparent);
-      margin:0 auto;
+    /* SLOT: HERO IMAGE */
+    .hero-media{
+      position:relative;
+      min-height:92vh;
+      background:#cfdad4;
+      overflow:hidden;
     }
-    .gold-line-h {
-      display:inline-block; width:56px; height:1px;
-      background:linear-gradient(90deg,var(--gold),var(--gold-lt));
+    @media (max-width: 992px){
+      .hero-media{min-height:64vh}
     }
-    .ornament-diamond {
-      display:inline-block; width:6px; height:6px;
-      background:var(--gold); transform:rotate(45deg); flex-shrink:0;
+    .hero-media::before{
+      content:"";
+      position:absolute;inset:0;
+      background-image:url("assets/images/lumpini/hero.jpg"); /* <-- เปลี่ยนรูปได้ */
+      background-size:cover;background-position:center;
+      transform:scale(1.02);
     }
-
-    /* ── Shimmer text ── */
-    .text-shimmer {
-      background:linear-gradient(120deg,#c9a84c 0%,#f5ecd7 38%,#c9a84c 55%,#a87c2a 100%);
-      background-size:280% 100%; -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent; background-clip:text;
-      animation:shimmerMove 3.5s linear infinite;
+    .hero-media::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(90deg,rgba(15,36,42,.78) 0%, rgba(15,36,42,.20) 60%, rgba(15,36,42,.00) 100%);
     }
-    @keyframes shimmerMove { 0%{background-position:200% center} 100%{background-position:-200% center} }
-
-    /* ── Glass / Cards ── */
-    .glass {
-      background:rgba(255,255,255,0.72); backdrop-filter:blur(20px);
-      -webkit-backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.45);
-      box-shadow:0 24px 60px -12px rgba(10,22,40,0.10);
+    .hero-tag{
+      position:absolute;left:22px;top:24px;z-index:2;
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.20);
+      color:#fff;
+      font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+      backdrop-filter:blur(10px);
     }
-    .detail-card {
-      background:#fff; border-radius:0.75rem; padding:1.6rem;
-      border:1px solid rgba(201,168,76,0.18);
-      border-top:2px solid rgba(201,168,76,0.55);
-      transition:box-shadow 0.3s, transform 0.3s;
-    }
-    .detail-card:hover {
-      box-shadow:0 16px 48px rgba(10,22,40,0.09);
-      transform:translateY(-2px);
-    }
-    .stat-card {
-      background:#fff; border-radius:0.75rem; padding:1.5rem 1rem;
-      border:1px solid rgba(201,168,76,0.18);
-      text-align:center; transition:box-shadow 0.3s, transform 0.3s;
-    }
-    .stat-card:hover {
-      box-shadow:0 12px 40px rgba(10,22,40,0.08);
-      transform:translateY(-2px);
+    .hero-vertical{
+      position:absolute;right:14px;bottom:18px;z-index:2;
+      writing-mode:vertical-rl;
+      transform:rotate(180deg);
+      font-family:'Cormorant Garamond',serif;
+      font-weight:600;
+      color:rgba(255,255,255,.30);
+      letter-spacing:.12em;
+      font-size:clamp(18px,2vw,22px);
     }
 
-    /* ── Navbar ── */
-    #mainNav { transition:background 0.45s, box-shadow 0.45s, padding 0.45s; }
-    #mainNav.scrolled {
-      background:rgba(250,248,243,0.97) !important;
-      box-shadow:0 2px 24px rgba(10,22,40,0.08);
-      padding-top:0.55rem !important; padding-bottom:0.55rem !important;
+    .hero-content{
+      display:flex;align-items:center;
+      padding:56px 0;
+      position:relative;
     }
-    #mainNav.scrolled .nav-logo-text { color:#0a1628 !important; }
-    #mainNav.scrolled .nav-link { color:rgba(10,22,40,0.7) !important; }
-    #mainNav.scrolled .nav-link:hover { color:#0a1628 !important; }
+    .hero-card{
+      width:100%;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:28px 24px;
+      box-shadow:0 18px 50px rgba(15,36,42,.08);
+    }
+    .kicker{
+      font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+      color:rgba(15,36,42,.55);
+      display:flex;align-items:center;gap:10px;
+    }
+    .kicker::before{
+      content:"";
+      width:34px;height:1px;background:linear-gradient(90deg,var(--sage),transparent);
+      display:inline-block;
+    }
+    h1{
+      margin:14px 0 6px;
+      font-family:'Cormorant Garamond',serif;
+      font-weight:600;line-height:1.05;
+      font-size:clamp(2.1rem,3.6vw,3.2rem);
+      color:var(--deep);
+    }
+    .sub{
+      font-size:1rem;color:rgba(15,36,42,.62);line-height:1.8;margin:0 0 18px;
+    }
+    .meta{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin:18px 0 18px;
+    }
+    .meta .m{
+      border:1px dashed rgba(158,184,164,.55);
+      border-radius:14px;
+      padding:12px 12px;
+      background:linear-gradient(180deg,#fff,var(--bg2));
+    }
+    .meta .m b{display:block;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(15,36,42,.5)}
+    .meta .m span{display:block;margin-top:6px;font-weight:700;color:var(--deep)}
+    .actions{display:flex;flex-wrap:wrap;gap:10px}
+    .btn-main{
+      border:0;border-radius:999px;
+      padding:.85rem 1.15rem;
+      background:var(--deep);color:#fff;
+      font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+      display:inline-flex;align-items:center;gap:.5rem;
+    }
+    .btn-main:hover{background:#2b5b6b;color:#fff}
+    .btn-soft{
+      border:1px solid rgba(15,36,42,.18);
+      border-radius:999px;
+      padding:.85rem 1.15rem;
+      background:#fff;color:var(--deep);
+      font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+      display:inline-flex;align-items:center;gap:.5rem;
+    }
+    .btn-soft:hover{background:var(--bg2)}
 
-    /* ── Buttons ── */
-    .btn-primary-gold {
-      background:linear-gradient(135deg,#c9a84c,#e0c070); color:#0a1628;
-      font-weight:600; letter-spacing:0.14em; font-size:0.76rem;
-      text-transform:uppercase; border:none;
-      transition:transform 0.25s, box-shadow 0.25s, filter 0.25s;
+    /* ───────── SECTION TITLES ───────── */
+    .sec{padding:72px 0}
+    .sec-head{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
+      margin-bottom:22px;
     }
-    .btn-primary-gold:hover {
-      transform:translateY(-3px) scale(1.02);
-      box-shadow:0 14px 40px rgba(201,168,76,0.45); color:#0a1628;
-      filter:brightness(1.06);
+    @media (max-width: 768px){ .sec-head{flex-direction:column;align-items:flex-start} }
+    .sec-head h2{
+      margin:0;
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(1.9rem,3.2vw,2.6rem);
+      font-weight:600;
+      color:var(--deep);
     }
-    .btn-outline-glass {
-      background:rgba(255,255,255,0.08); color:#fff;
-      border:1px solid rgba(255,255,255,0.38); font-weight:500;
-      letter-spacing:0.14em; font-size:0.76rem; text-transform:uppercase;
-      backdrop-filter:blur(8px); transition:background 0.25s, transform 0.25s;
+    .sec-head p{margin:0;color:rgba(15,36,42,.6);max-width:460px;line-height:1.8}
+
+    /* ───────── LOCATION (different layout: timeline left + cards right) ───────── */
+    .loc-wrap{
+      display:grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap:18px;
+      align-items:start;
     }
-    .btn-outline-glass:hover {
-      background:rgba(255,255,255,0.18); transform:translateY(-3px); color:#fff;
+    @media (max-width: 992px){ .loc-wrap{grid-template-columns:1fr} }
+    .loc-timeline{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:20px 18px;
     }
-    .btn-outline-navy {
-      background:transparent; color:var(--navy-700);
-      border:1px solid rgba(10,22,40,0.25); font-weight:500;
-      letter-spacing:0.1em; font-size:0.76rem; text-transform:uppercase;
-      transition:background 0.25s, transform 0.25s;
+    .tl-item{
+      display:grid;
+      grid-template-columns: 22px 1fr;
+      gap:12px;
+      padding:12px 0;
+      border-bottom:1px solid rgba(15,36,42,.06);
     }
-    .btn-outline-navy:hover {
-      background:var(--cream-100); transform:translateY(-2px); color:var(--navy-700);
+    .tl-item:last-child{border-bottom:0}
+    .dot{
+      width:12px;height:12px;border-radius:99px;
+      background:var(--sage);
+      margin-top:5px;
+      box-shadow:0 0 0 6px rgba(158,184,164,.18);
+    }
+    .tl-item b{display:block;color:var(--deep);font-size:.95rem}
+    .tl-item span{display:block;color:rgba(15,36,42,.6);font-size:.85rem;margin-top:4px;line-height:1.6}
+
+    .loc-cards{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 576px){ .loc-cards{grid-template-columns:1fr} }
+    .card{
+      background:#fff;border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px 14px;
+      display:flex;gap:12px;align-items:flex-start;
+      transition:.25s;
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(15,36,42,.08)}
+    .ico{
+      width:40px;height:40px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(158,184,164,.20);
+      color:#4d7b65;font-size:1.05rem;flex:0 0 auto;
+    }
+    .card small{
+      display:block;
+      font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+      color:rgba(15,36,42,.45);
+      font-size:.65rem;
+    }
+    .card strong{display:block;margin-top:6px;color:var(--deep);font-size:.95rem}
+    .card em{display:block;margin-top:3px;color:rgba(15,36,42,.55);font-style:normal;font-size:.8rem}
+
+    /* ───────── GALLERY (different: masonry-ish) ───────── */
+    .gallery{
+      background:var(--bg2);
+    }
+    .masonry{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+    }
+    @media (max-width: 992px){ .masonry{grid-template-columns:1fr} }
+    .stack{display:grid;gap:14px}
+    .tile{
+      position:relative;border-radius:22px;overflow:hidden;
+      background:#dbe5df;border:1px solid rgba(15,36,42,.08);
+      min-height:220px;
+    }
+    .tile.big{min-height:460px}
+    .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+    .tile:hover img{transform:scale(1.03)}
+    .cap{
+      position:absolute;left:0;right:0;bottom:0;
+      padding:16px 18px;
+      color:#fff;
+      background:linear-gradient(180deg,transparent,rgba(0,0,0,.70));
+    }
+    .cap b{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.35rem;display:block
+    }
+    .cap span{display:block;color:rgba(255,255,255,.72);font-size:.82rem;margin-top:4px;line-height:1.5}
+    .badge{
+      position:absolute;top:14px;right:14px;
+      background:rgba(15,36,42,.82);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      padding:.28rem .6rem;
+      border-radius:999px;
+      font-size:.72rem;font-weight:900;letter-spacing:.12em;
+    }
+    .slot-hint{
+      position:absolute;left:14px;top:14px;
+      padding:.35rem .65rem;
+      border-radius:999px;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.22);
+      color:#fff;
+      font-size:.7rem;font-weight:800;letter-spacing:.12em;
+      backdrop-filter:blur(8px);
     }
 
-    /* ── Mobile menu ── */
-    #mobileMenu { transition:transform 0.4s cubic-bezier(.77,0,.175,1), opacity 0.35s; }
-    #mobileMenu.hidden-menu { transform:translateX(100%); opacity:0; pointer-events:none; }
-
-    /* ── Footer ── */
-    footer a:hover { color:var(--gold-lt) !important; }
-
-    /* ── Amenity items ── */
-    .amenity-item {
-      display:flex; align-items:center; gap:0.9rem; padding:0.6rem 0;
-      border-bottom:1px solid rgba(201,168,76,0.1); font-size:0.88rem; color:#374151;
+    /* ───────── CTA (different: split card over bg) ───────── */
+    .cta{
+      position:relative;
+      padding:82px 0;
+      background:var(--deep);
+      overflow:hidden;
     }
-    .amenity-item:last-child { border-bottom:none; }
-    .amenity-item i { color:var(--gold); font-size:1rem; width:20px; text-align:center; flex-shrink:0; }
+    /* SLOT: CTA BG IMAGE */
+    .cta::before{
+      content:"";
+      position:absolute;inset:0;
+      background-image:url("assets/images/lumpini/cta.jpg"); /* <-- เปลี่ยนรูปได้ */
+      background-size:cover;background-position:center;
+      opacity:.35;
+      transform:scale(1.02);
+    }
+    .cta::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(90deg,rgba(22,48,58,.88),rgba(22,48,58,.55),rgba(22,48,58,.88));
+    }
+    .cta-grid{
+      position:relative;z-index:2;
+      display:grid;
+      grid-template-columns: 1fr .9fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 992px){ .cta-grid{grid-template-columns:1fr} }
+    .cta-left{
+      color:#fff;
+      padding:18px 6px;
+    }
+    .cta-left h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2rem,3.7vw,3.2rem);
+      margin:10px 0 12px;
+      font-weight:600;
+    }
+    .cta-left p{margin:0;color:rgba(255,255,255,.70);line-height:1.8;max-width:520px}
+    .contact-card{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.20);
+      border-radius:22px;
+      padding:18px 18px 16px;
+      backdrop-filter:blur(14px);
+    }
+    .form{
+      display:grid;gap:10px;margin-top:12px
+    }
+    .in{
+      width:100%;
+      padding:.9rem 1rem;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.20);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      outline:none;
+      font-size:.9rem;
+    }
+    .in::placeholder{color:rgba(255,255,255,.55)}
+    .send{
+      border:0;border-radius:14px;
+      padding:.9rem 1rem;
+      background:linear-gradient(135deg,var(--sage),var(--sage2));
+      color:var(--deep);
+      font-weight:900;
+      letter-spacing:.12em;text-transform:uppercase;
+      font-size:.78rem;
+    }
+    .send:hover{filter:brightness(1.04)}
+    .quick{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:12px
+    }
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:.55rem .8rem;border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      font-size:.82rem;
+    }
+    .chip i{color:var(--sage2)}
 
-    .theme-strip .mood-chip {
-      display:inline-flex; align-items:center; gap:.35rem;
-      border:1px solid rgba(10,22,40,.12); border-radius:999px;
-      padding:.3rem .8rem; font-size:.72rem; font-weight:600;
-      letter-spacing:.08em; color:var(--navy-700); background:rgba(255,255,255,.8);
-    }
-    .lifestyle-list li { position:relative; padding-left:1.1rem; margin-bottom:.35rem; }
-    .lifestyle-list li::before {
-      content:""; position:absolute; left:0; top:.62rem; width:6px; height:6px;
-      border-radius:50%; background:var(--gold);
-    }
-    .lifestyle-list li:last-child { margin-bottom:0; }
+    /* Footer */
+    footer{background:#fff;border-top:1px solid var(--line)}
+    .foot{padding:24px 0;color:rgba(15,36,42,.60);font-size:.82rem}
+    .foot-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .foot a{color:rgba(15,36,42,.60)}
+    .foot a:hover{color:var(--deep)}
   </style>
 </head>
-<body class="riverside-calm">
 
-<!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
-<nav id="mainNav" class="fixed top-0 left-0 w-full z-[999] py-4 transition-all"
-     style="background:rgba(10,22,40,0.12); backdrop-filter:blur(16px);">
-  <div class="container-fluid px-4 px-md-5">
-    <div class="flex items-center justify-between max-w-[1440px] mx-auto">
+<body>
 
-      <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-3 text-decoration-none">
-        <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-             style="background:linear-gradient(135deg,#c9a84c,#e0c070);">
-          <i class="bi bi-building" style="font-size:1rem;color:#0a1628;"></i>
-        </div>
-        <span class="nav-logo-text font-bold tracking-tight text-white transition-colors"
-              style="font-size:1.1rem;letter-spacing:0.02em;">
-          NICHA<span style="color:#c9a84c;"> CONDO</span>
-        </span>
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+        <b>ลุมพินี วิลล์</b>
+        <span>พระนั่งเกล้า-ริเวอร์วิว</span>
       </a>
 
-      <!-- Desktop links -->
-      <ul class="hidden md:flex items-center gap-1 list-none mb-0">
-        <li><a href="index.html"
-               class="nav-link text-white/75 hover:text-white px-4 py-2 rounded-lg hover:bg-white/8 transition-all text-sm font-medium tracking-wide">
-          หน้าแรก</a></li>
-        <li><a href="index.html#mapSection"
-               class="nav-link text-white/75 hover:text-white px-4 py-2 rounded-lg hover:bg-white/8 transition-all text-sm font-medium tracking-wide">
-          แผนที่โครงการ</a></li>
-        <li><a href="index.html#properties"
-               class="nav-link text-white/75 hover:text-white px-4 py-2 rounded-lg hover:bg-white/8 transition-all text-sm font-medium tracking-wide">
-          โครงการ</a></li>
-      </ul>
+      <nav class="nav-pill" aria-label="เมนูหลัก">
+        <a href="#hero">รู้จักเรา</a>
+        <a href="#location">ทำเล</a>
+        <a href="#gallery">แกลเลอรี</a>
+        <a href="index.html">หน้าหลัก</a>
+      </nav>
 
-      <!-- CTA + Hamburger -->
-      <div class="hidden md:flex items-center gap-3">
-        <a href="#ctaBanner" class="btn btn-primary-gold px-5 py-2 rounded-full text-sm" style="text-decoration:none;">
-          ติดต่อสอบถาม
-        </a>
-      </div>
-      <button id="hamburgerBtn"
-              class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg gap-[5px] hover:bg-white/10 transition-all"
-              aria-label="เมนู" aria-expanded="false">
-        <span id="hb1" class="block w-6 h-px bg-white transition-all duration-300"></span>
-        <span id="hb2" class="block w-6 h-px bg-white transition-all duration-300"></span>
-        <span id="hb3" class="block w-5 h-px bg-white transition-all duration-300"></span>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="hidden-menu fixed inset-0 z-[998] flex flex-col"
-     style="background:rgba(10,22,40,0.98);">
-  <div id="menuOverlay" class="absolute inset-0"></div>
-  <div class="relative flex flex-col h-full px-8 py-24 z-10">
-    <ul class="list-none flex flex-col gap-2 mb-auto">
-      <li><a href="index.html"
-             class="mobile-nav-link block text-white text-2xl font-semibold py-3 border-b border-white/10"
-             style="text-decoration:none;font-family:'Cormorant Garamond',serif;letter-spacing:0.02em;">หน้าแรก</a></li>
-      <li><a href="index.html#mapSection"
-             class="mobile-nav-link block text-white/75 text-2xl font-medium py-3 border-b border-white/10"
-             style="text-decoration:none;font-family:'Cormorant Garamond',serif;">แผนที่โครงการ</a></li>
-      <li><a href="index.html#properties"
-             class="mobile-nav-link block text-white/75 text-2xl font-medium py-3 border-b border-white/10"
-             style="text-decoration:none;font-family:'Cormorant Garamond',serif;">โครงการ</a></li>
-    </ul>
-    <div class="mt-8">
-      <a href="#ctaBanner"
-         class="btn btn-primary-gold w-full py-3 rounded-full text-sm text-center mobile-nav-link d-block"
-         style="text-decoration:none;">ติดต่อสอบถาม</a>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
-<section class="relative flex items-center justify-center text-white overflow-hidden"
-  style="min-height:88vh; background:linear-gradient(160deg,rgba(22,48,58,0.84),rgba(45,88,99,0.66) 56%,rgba(22,48,58,0.9)), url('https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1600&q=90') center/cover no-repeat;">
-
-  <!-- Subtle vignette overlay -->
-  <div class="absolute inset-0 pointer-events-none"
-       style="background:radial-gradient(ellipse at center,transparent 40%,rgba(10,22,40,0.45) 100%);"></div>
-
-  <!-- Thin gold frame corners (top-left / bottom-right) -->
-  <div class="absolute pointer-events-none" style="top:2.5rem;left:2.5rem;width:60px;height:60px;
-       border-top:1px solid rgba(201,168,76,0.5);border-left:1px solid rgba(201,168,76,0.5);"></div>
-  <div class="absolute pointer-events-none" style="bottom:2.5rem;right:2.5rem;width:60px;height:60px;
-       border-bottom:1px solid rgba(201,168,76,0.5);border-right:1px solid rgba(201,168,76,0.5);"></div>
-
-  <div class="relative z-10 container px-4 px-md-5 text-center" style="max-width:860px;">
-
-    <!-- Location badge -->
-    <div class="inline-flex items-center gap-4 mb-8" data-aos="fade-down" data-aos-delay="100">
-      <span class="gold-line-h"></span>
-      <span class="ornament-diamond"></span>
-      <span style="font-size:0.65rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:#c9a84c;">
-        นนทบุรี
-      </span>
-      <span class="ornament-diamond"></span>
-      <span class="gold-line-h"></span>
-    </div>
-
-    <!-- Property name -->
-    <h1 class="display-hero text-white mb-5" data-aos="fade-up" data-aos-delay="180">
-      ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว
-    </h1>
-
-    <!-- Address -->
-    <p class="flex items-center justify-center gap-2 mb-10 text-white/70"
-       style="font-size:0.95rem;letter-spacing:0.04em;" data-aos="fade-up" data-aos-delay="260">
-      <i class="bi bi-geo-alt" style="color:#c9a84c;"></i>
-      พระนั่งเกล้า, นนทบุรี
-    </p>
-
-    <!-- CTA row -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4"
-         data-aos="fade-up" data-aos-delay="340">
-      <a href="#details"
-         class="btn btn-primary-gold px-9 py-3 rounded-full flex items-center gap-2"
-         style="text-decoration:none;">
-        <i class="bi bi-info-circle"></i> ดูข้อมูลเพิ่มเติม
-      </a>
-      <a href="index.html#properties"
-         class="btn btn-outline-glass px-9 py-3 rounded-full flex items-center gap-2"
-         style="text-decoration:none;">
-        <i class="bi bi-arrow-left"></i> กลับหน้าหลัก
+      <a class="nav-cta" href="#contact">
+        <i class="bi bi-chat-dots"></i> ติดต่อเรา
       </a>
     </div>
   </div>
-</section>
+</header>
 
-<!-- ═══════════════════════════════ BREADCRUMB ═══════════════════════════════ -->
-<div style="background:var(--cream-100);border-bottom:1px solid rgba(201,168,76,0.12);" class="py-3">
-  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
-    <nav aria-label="breadcrumb">
-      <ol class="flex flex-wrap items-center gap-2 text-sm list-none m-0 p-0" style="color:#6b7280;">
-        <li><a href="index.html" style="color:var(--gold);text-decoration:none;">หน้าแรก</a></li>
-        <li><i class="bi bi-chevron-right" style="font-size:0.65rem;color:#c9a84c;"></i></li>
-        <li><a href="index.html#properties" style="color:var(--gold);text-decoration:none;">โครงการ</a></li>
-        <li><i class="bi bi-chevron-right" style="font-size:0.65rem;color:#c9a84c;"></i></li>
-        <li style="color:var(--navy-700);font-weight:500;">ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว</li>
-      </ol>
-    </nav>
-  </div>
-</div>
-
-<section class="theme-strip py-4" style="background:linear-gradient(90deg,var(--cream-100),#fff,var(--cream-100));border-bottom:1px solid rgba(10,22,40,0.08);">
-  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
-    <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
-      <div>
-        <div class="sec-label mb-1">Riverside Calm</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--navy-700);margin:0;">สงบ สบาย ใกล้ริมน้ำ</h3>
-        <p style="margin:.45rem 0 0;color:#4b5563;font-size:.9rem;">มุมมองแม่น้ำและพื้นที่สีเขียวช่วยเติมพลังทุกวันหลังเลิกงาน</p>
-      </div>
-      <div class="d-flex flex-wrap gap-2"><span class="mood-chip">River View</span><span class="mood-chip">Calm Everyday</span><span class="mood-chip">Soft Breeze</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ DETAILS ═══════════════════════════════ -->
-<section id="details" style="background:var(--cream);padding:6rem 0 7rem;">
-  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
-    <div class="row g-5">
-
-      <!-- ── Left: Info ── -->
-      <div class="col-12 col-lg-8">
-        <div data-aos="fade-right">
-
-          <!-- Section heading -->
-          <span class="sec-label">Riverside Calm Mood</span>
-          <div style="width:40px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:0.9rem 0 1.4rem;"></div>
-          <h2 class="sec-title mb-5">ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว</h2>
-
-          <p style="color:#4b5563;line-height:1.85;font-size:0.95rem;max-width:600px;" class="mb-8">
-            ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว สื่อบรรยากาศผ่อนคลายริมแม่น้ำ เหมาะกับผู้ที่ต้องการหลีกหนีความเร่งรีบ แต่ยังเดินทางเข้าสู่เมืองได้สะดวก โครงการให้ความสำคัญกับวิว ลมธรรมชาติ และพื้นที่พักผ่อนเงียบสงบ.
-          </p>
-
-          <!-- Stat cards -->
-          <div class="row g-3 mb-8">
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-geo-alt mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">ที่ตั้ง</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  นนทบุรี
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-building mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">ประเภท</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  คอนโดมิเนียม
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-calendar-check mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">เช่าขั้นต่ำ</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  1 เดือน
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-house-check mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">สถานะ</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  พร้อมเข้าพัก
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Location card -->
-          <div class="detail-card">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                   style="background:var(--gold-pale);">
-                <i class="bi bi-geo-alt-fill" style="color:var(--gold);font-size:1.1rem;"></i>
-              </div>
-              <div>
-                <div class="sec-label mb-1">ที่ตั้ง</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--navy-700);">
-                  พระนั่งเกล้า, นนทบุรี
-                </div>
-              </div>
-            </div>
-            <p style="font-size:0.88rem;color:#6b7280;line-height:1.8;margin:0;">
-              ตั้งอยู่ในทำเลศักยภาพ สะดวกสบายในการเดินทาง ใกล้ระบบขนส่งสาธารณะ
-              ห้างสรรพสินค้า โรงพยาบาล และสิ่งอำนวยความสะดวกต่างๆ
-            </p>
-          </div>
-
-          <div class="detail-card mt-4" style="background:var(--cream-100);">
-            <div class="sec-label mb-3">Riverside Living Touchpoints</div>
-            <ul class="lifestyle-list m-0 p-0" style="list-style:none;color:#4b5563;font-size:0.9rem;line-height:1.85;">
-                <li>มุมนั่งพักชมวิวแม่น้ำยามเย็น</li>
-                <li>บรรยากาศชุมชนสงบ เหมาะกับพักระยะยาว</li>
-                <li>พื้นที่ส่วนกลางเน้นการฟื้นฟูและผ่อนคลาย</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── Right: Sidebar ── -->
-      <div class="col-12 col-lg-4" data-aos="fade-left">
-
-        <!-- Contact card -->
-        <div class="rounded-2xl p-7 mb-5 text-white"
-             style="background:linear-gradient(155deg,var(--navy-700) 0%,#152848 100%);">
-          <div class="sec-label mb-2" style="color:var(--gold);">สนใจโครงการนี้?</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;line-height:1.2;margin-bottom:0.75rem;">
-            ปรึกษาห้องวิวแม่น้ำ<br>ที่เหมาะกับคุณ
-          </h3>
-          <p style="color:rgba(255,255,255,0.55);font-size:0.86rem;line-height:1.7;margin-bottom:1.75rem;">
-            ทีมงานช่วยแนะนำยูนิตตามทิศวิวและงบประมาณเพื่อการอยู่อาศัยที่สบายที่สุด
-          </p>
-          <a href="#ctaBanner"
-             class="btn btn-primary-gold w-100 py-3 rounded-full text-sm text-center d-block mb-3"
-             style="text-decoration:none;">
-            <i class="bi bi-chat-dots me-2"></i>ติดต่อสอบถาม
-          </a>
-          <a href="tel:+66800000000"
-             class="btn w-100 py-2 rounded-full text-sm text-center d-block"
-             style="background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.25);text-decoration:none;">
-            <i class="bi bi-telephone me-2"></i>080-000-0000
-          </a>
-        </div>
-
-        <!-- Amenities card -->
-        <div class="detail-card">
-          <div class="sec-label mb-4">สิ่งอำนวยความสะดวก</div>
-          <div class="amenity-item"><i class='bi bi-water'></i> River View Deck</div>
-          <div class="amenity-item"><i class='bi bi-tree'></i> Green Courtyard</div>
-          <div class="amenity-item"><i class='bi bi-sun'></i> Morning Yoga Lawn</div>
-          <div class="amenity-item"><i class='bi bi-cup-hot'></i> Quiet Lounge</div>
-          <div class="amenity-item"><i class='bi bi-shield-check'></i> Security 24 ชม.</div>
-          <div class="amenity-item"><i class='bi bi-p-square'></i> ที่จอดรถเพียงพอ</div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ CTA BANNER ═══════════════════════════════ -->
-<section id="ctaBanner" class="text-white text-center" style="position:relative;overflow:hidden;padding:7rem 0;">
-  <div class="absolute inset-0"
-       style="background:linear-gradient(155deg,rgba(10,22,40,0.96) 0%,rgba(13,31,60,0.92) 100%),
-              url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80') center/cover no-repeat;">
-  </div>
-  <!-- Gold glow -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] rounded-full"
-         style="background:radial-gradient(ellipse,rgba(201,168,76,0.12),transparent 68%);"></div>
+<!-- HERO (Split) -->
+<section class="hero" id="hero">
+  <div class="hero-media" style="background-image:url('./LumphineeView/LumphineeViewPlate.jpg');background-size:cover;background-position:center;">
+    <div class="hero-tag"><i class="bi bi-water"></i> RIVER VIEW LIVING</div>
+    <div class="hero-vertical">LUMPINI VILLE · PRANANGKLAO RIVERVIEW</div>
   </div>
 
-  <div class="container px-4 px-md-5 relative z-10" style="max-width:680px;">
-    <div data-aos="fade-up">
-      <span class="sec-label d-block mb-4" style="color:var(--gold);">ติดต่อเรา</span>
-      <div class="gold-rule mb-6" style="opacity:0.6;"></div>
-      <h2 class="text-white mb-5 font-display"
-          style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:600;line-height:1.15;">
-        สัมผัสบรรยากาศ Riverside Calm ที่<br>        <span class="text-shimmer">ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว?</span>
-      </h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;margin-bottom:2.5rem;line-height:1.7;">
-ติดต่อเราเพื่อรับข้อมูลห้องวิวสวยและโปรโมชั่นล่าสุดของโครงการ
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="tel:+66800000000"
-           class="btn btn-primary-gold px-9 py-3 rounded-full text-sm flex items-center justify-center gap-2"
-           style="text-decoration:none;">
-          <i class="bi bi-telephone-fill"></i> 080-000-0000
-        </a>
-        <a href="mailto:hello@nichacondo.th"
-           class="btn btn-outline-glass px-9 py-3 rounded-full text-sm flex items-center justify-center gap-2"
-           style="text-decoration:none;">
-          <i class="bi bi-envelope"></i> ส่งอีเมลสอบถาม
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
-<footer style="background:var(--navy);color:rgba(255,255,255,0.55);">
-  <div class="container px-4 px-md-5 py-14 mx-auto" style="max-width:1320px;">
-    <div class="row g-6 mb-10">
-
-      <!-- Brand -->
-      <div class="col-12 col-md-5">
-        <div class="flex items-center gap-3 mb-5">
-          <div class="w-9 h-9 rounded-full flex items-center justify-center"
-               style="background:linear-gradient(135deg,#c9a84c,#e0c070);">
-            <i class="bi bi-building" style="font-size:1rem;color:#0a1628;"></i>
-          </div>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:#fff;letter-spacing:0.04em;">
-            NICHA<span style="color:#c9a84c;"> CONDO</span>
-          </span>
-        </div>
-        <p style="font-size:0.86rem;line-height:1.75;color:rgba(255,255,255,0.45);">
-          พอร์ตโฟลิโอคอนโดมิเนียมระดับพรีเมียมทั่วประเทศไทย
+  <div class="hero-content">
+    <div class="wrap" style="width:100%;">
+      <div class="hero-card" data-aos="fade-up">
+        <div class="kicker">คอนโดบรรยากาศสงบ ใกล้ริมน้ำ</div>
+        <h1>ลุมพินี วิลล์<br>พระนั่งเกล้า-ริเวอร์วิว</h1>
+        <p class="sub">
+          เหมาะสำหรับอยู่อาศัยระยะยาว บรรยากาศผ่อนคลาย เดินทางสะดวกสู่ถนนหลักและสิ่งอำนวยความสะดวกสำคัญของนนทบุรี
         </p>
-      </div>
 
-      <!-- Menu -->
-      <div class="col-6 col-md-3">
-        <h5 class="text-white font-semibold mb-5"
-            style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;">เมนูหลัก</h5>
-        <ul class="list-none flex flex-col gap-3">
-          <li><a href="index.html" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">หน้าแรก</a></li>
-          <li><a href="index.html#mapSection" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">แผนที่โครงการ</a></li>
-          <li><a href="index.html#properties" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">โครงการทั้งหมด</a></li>
-          <li><a href="index.html#contract" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">สัญญาเช่า</a></li>
-        </ul>
-      </div>
+        <div class="meta">
+          <div class="m">
+            <b>ทำเล</b>
+            <span>พระนั่งเกล้า · นนทบุรี</span>
+          </div>
+          <div class="m">
+            <b>ไฮไลต์</b>
+            <span>วิวแม่น้ำ · ลมเย็น</span>
+          </div>
+        </div>
 
-      <!-- Contact -->
-      <div class="col-6 col-md-4">
-        <h5 class="text-white font-semibold mb-5"
-            style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;">ติดต่อ</h5>
-        <ul class="list-none flex flex-col gap-3">
-          <li class="flex items-center gap-3" style="color:rgba(255,255,255,0.45);font-size:0.88rem;">
-            <i class="bi bi-telephone flex-shrink-0" style="color:#c9a84c;"></i> 080-000-0000
-          </li>
-          <li class="flex items-center gap-3" style="color:rgba(255,255,255,0.45);font-size:0.88rem;">
-            <i class="bi bi-envelope flex-shrink-0" style="color:#c9a84c;"></i> hello@nichacondo.th
-          </li>
-        </ul>
+        <div class="actions">
+          <a class="btn-main" href="#location"><i class="bi bi-compass"></i> ดูทำเล</a>
+          <a class="btn-soft" href="#gallery"><i class="bi bi-images"></i> ดูรูปภาพ</a>
+          <a class="btn-soft" href="#contact"><i class="bi bi-telephone"></i> ติดต่อ</a>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
 
+<!-- LOCATION -->
+<section class="sec" id="location">
+  <div class="wrap">
+    <div class="sec-head" data-aos="fade-up">
+      <div>
+        <div class="kicker" style="margin:0 0 6px">ทำเลและการเดินทาง</div>
+        <h2>จุดเชื่อมต่อสำคัญรอบโครงการ</h2>
+      </div>
+      <p>จัดวางใหม่เป็น “ไทม์ไลน์ + การ์ด” เพื่อให้อ่านง่ายและแตกต่างจากดีไซน์เดิม</p>
     </div>
 
-    <!-- Divider + copyright -->
-    <div class="pt-6" style="border-top:1px solid rgba(255,255,255,0.07);">
-      <p class="text-center" style="font-size:0.72rem;color:rgba(255,255,255,0.28);letter-spacing:0.08em;">
-        © 2024 NICHA CONDO · สงวนลิขสิทธิ์ทุกประการ
-      </p>
+    <div class="loc-wrap">
+      <!-- Timeline -->
+      <div class="loc-timeline" data-aos="fade-right">
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div>
+            <b>เช้า: ออกกำลังกาย / เดินเล่นริมน้ำ</b>
+            <span>บรรยากาศสบาย ช่วยเริ่มวันด้วยพลังที่ดี</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div>
+            <b>กลางวัน: เดินทางเข้าเมือง</b>
+            <span>เชื่อมถนนหลักและโซนไลฟ์สไตล์ได้สะดวก</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div>
+            <b>เย็น: พักผ่อนเงียบสงบ</b>
+            <span>เหมาะสำหรับคนทำงานที่ต้องการพื้นที่ชาร์จพลัง</span>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <a class="btn-soft" href="https://maps.app.goo.gl/1JvCbJLj7Qpr2MxXA" target="_blank" rel="noopener">
+            <i class="bi bi-geo-alt"></i> เปิดในแผนที่
+          </a>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div class="loc-cards" data-aos="fade-left">
+        <div class="card">
+          <div class="ico"><i class="bi bi-train-front"></i></div>
+          <div>
+            <small>การเดินทาง</small>
+            <strong>MRT สายสีม่วง ไทรม้า</strong>
+            <em>ประมาณ 900 เมตร</em>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ico"><i class="bi bi-bag"></i></div>
+          <div>
+            <small>ศูนย์การค้า</small>
+            <strong>โซนรัตนาธิเบศร์</strong>
+            <em>ประมาณ 1.5 กม.</em>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ico"><i class="bi bi-hospital"></i></div>
+          <div>
+            <small>โรงพยาบาล</small>
+            <strong>รพ.พระนั่งเกล้า</strong>
+            <em>ประมาณ 600 เมตร</em>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ico"><i class="bi bi-signpost-2"></i></div>
+          <div>
+            <small>ถนนหลัก</small>
+            <strong>ถ.รัตนาธิเบศร์</strong>
+            <em>เชื่อมเมืองได้ง่าย</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head" data-aos="fade-up">
+      <div>
+        <div class="kicker" style="margin:0 0 6px">แกลเลอรี</div>
+        <h2>บรรยากาศโครงการ & ห้องพัก</h2>
+      </div>
+    </div>
+
+    <div class="masonry" data-aos="fade-up" data-aos-delay="80">
+      <!-- SLOT A: big -->
+      <div class="tile big">
+        <span class="slot-hint">SLOT A · ภาพหลัก</span>
+        <img src="./LumphineeView/LumphineeView-Building.jpg" alt="SLOT A"
+             onerror="this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600&q=80';">
+        <div class="cap">
+          <b>ภาพไฮไลต์</b>
+          <span>สวนส่วนกลางขนาดใหญ่ พื้นที่สีเขียวปลอดโปร่ง</span>
+        </div>
+      </div>
+
+      <div class="stack">
+        <!-- SLOT B -->
+        <div class="tile">
+          <span class="badge">SLOT B</span>
+          <img src="assets/images/lumpini/gallery-b.jpg" alt="SLOT B"
+               onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1600&q=80';">
+        </div>
+
+        <!-- SLOT C -->
+        <div class="tile">
+          <span class="badge">SLOT C</span>
+          <img src="assets/images/lumpini/gallery-c.jpg" alt="SLOT C"
+               onerror="this.src='https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1600&q=80';">
+          <div class="cap">
+            <b>ภาพบรรยากาศ</b>
+            <span>ใส่รูปฟิตเนส สวน ล็อบบี้ หรือวิวแม่น้ำ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <div class="cta-grid">
+      <div class="cta-left" data-aos="fade-right">
+        <div class="kicker" style="color:rgba(255,255,255,.7)">Contact Us</div>
+        <h3>นัดดูห้อง · ขอรูปเพิ่มเติม · สอบถามราคา</h3>
+        <p>
+          แจ้งความต้องการของคุณไว้ได้เลย (จำนวนห้องนอน/งบประมาณ/ต้องการห้องวิวแม่น้ำ)
+          ทีมงานจะติดต่อกลับโดยเร็วที่สุด
+        </p>
+
+        <div class="quick">
+          <a class="chip" href="tel:0863429855"><i class="bi bi-telephone"></i> 086 342 9855</a>
+          <a class="chip" href="mailto:jew.scb18@gmail.com"><i class="bi bi-envelope"></i> jew.scb18@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-card" data-aos="fade-left">
+        <div style="color:#fff;font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;">
+          ส่งข้อมูลให้เราติดต่อกลับ
+        </div>
+        <form class="form" onsubmit="return false;">
+          <input class="in" type="text" placeholder="ชื่อ - นามสกุล" />
+          <input class="in" type="tel" placeholder="เบอร์โทรศัพท์" />
+          <input class="in" type="email" placeholder="อีเมล" />
+          <textarea class="in" rows="4" placeholder="ต้องการห้องแบบไหน / งบประมาณ / ข้อความเพิ่มเติม"></textarea>
+          <button class="send" type="button">ส่งข้อมูล</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-row">
+        <div>
+          <b style="font-family:'Cormorant Garamond',serif;color:var(--deep);font-size:1.05rem;">ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว</b><br>
+          <span>© 2024 NICHA CONDO · สงวนลิขสิทธิ์ทุกประการ</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+          <a href="#location">ทำเล</a>
+          <a href="#gallery">แกลเลอรี</a>
+          <a href="#contact">ติดต่อ</a>
+          <a href="tel:0863429855">086 342 9855</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-AOS.init({ duration:750, easing:'ease-out-cubic', once:true, offset:55 });
-
-/* Navbar scroll effect */
-const mainNav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 55) {
-    mainNav.classList.add('scrolled');
-    mainNav.style.background = '';
-  } else {
-    mainNav.classList.remove('scrolled');
-    mainNav.style.background = 'rgba(10,22,40,0.12)';
-  }
-}, { passive:true });
-
-/* Mobile menu */
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileMenu   = document.getElementById('mobileMenu');
-const hb1 = document.getElementById('hb1');
-const hb2 = document.getElementById('hb2');
-const hb3 = document.getElementById('hb3');
-let menuOpen = false;
-
-function openMenu() {
-  menuOpen = true;
-  mobileMenu.classList.remove('hidden-menu');
-  document.body.style.overflow = 'hidden';
-  hamburgerBtn.setAttribute('aria-expanded', 'true');
-  hb1.style.transform = 'rotate(45deg) translate(5px,5px)';
-  hb2.style.opacity   = '0';
-  hb3.style.transform = 'rotate(-45deg) translate(5px,-5px)';
-  hb3.style.width     = '24px';
-}
-function closeMenu() {
-  menuOpen = false;
-  mobileMenu.classList.add('hidden-menu');
-  document.body.style.overflow = '';
-  hamburgerBtn.setAttribute('aria-expanded', 'false');
-  hb1.style.transform = '';
-  hb2.style.opacity   = '1';
-  hb3.style.transform = '';
-  hb3.style.width     = '20px';
-}
-hamburgerBtn.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
-document.getElementById('menuOverlay').addEventListener('click', closeMenu);
-document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeMenu));
+  AOS.init({ duration: 850, easing: 'ease-out-cubic', once: true, offset: 70 });
 </script>
 </body>
 </html>
