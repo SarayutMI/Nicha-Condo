@@ -1,623 +1,842 @@
-<!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
+<!doctype html>
+<html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>เดอะ ทรี สุขุมวิท 71-เอกมัย | NICHA CONDO</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Libs -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy:  { DEFAULT:'#0a1628', 700:'#0d1f3c', 600:'#152848', 500:'#1e3a5f' },
-            gold:  { DEFAULT:'#c9a84c', light:'#e0c070', dark:'#a87c2a', pale:'#f5ecd7', faint:'#fdf8ee' },
-            cream: { DEFAULT:'#faf8f3', 100:'#f5f2ea' },
-          },
-          fontFamily: {
-            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans:    ['"IBM Plex Sans Thai"', '"IBM Plex Sans"', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-  <style>
-    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
-    body { font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif; background:#faf8f3; color:#0a1628; overflow-x:hidden; }
-    ::-webkit-scrollbar { width:5px; }
-    ::-webkit-scrollbar-track { background:#f0ece0; }
-    ::-webkit-scrollbar-thumb { background:linear-gradient(180deg,#c9a84c,#a87c2a); border-radius:99px; }
-    :root {
-      --navy:#1b1f2b; --navy-700:#2c3345; --gold:#c78e5e; --gold-lt:#e0ad82;
-      --gold-pale:#f7e6d9; --cream:#f9f4ef; --cream-100:#f2e9e1;
-    }
-
-    /* ── Display / Headings ── */
-    .font-display { font-family:'Cormorant Garamond',Georgia,serif; }
-    .sec-label {
-      font-size:0.65rem; font-weight:600; letter-spacing:0.35em;
-      text-transform:uppercase; color:var(--gold);
-    }
-    .sec-title {
-      font-family:'Cormorant Garamond',Georgia,serif;
-      font-size:clamp(1.9rem,3.8vw,3.2rem); font-weight:600;
-      color:var(--navy-700); line-height:1.15;
-    }
-    .display-hero {
-      font-family:'Cormorant Garamond',Georgia,serif;
-      font-size:clamp(2.2rem,5.5vw,4.5rem); font-weight:600;
-      line-height:1.1; letter-spacing:-0.01em;
-    }
-
-    /* ── Gold ornaments ── */
-    .gold-rule {
-      display:block; width:40px; height:1px;
-      background:linear-gradient(90deg,transparent,var(--gold),transparent);
-      margin:0 auto;
-    }
-    .gold-line-h {
-      display:inline-block; width:56px; height:1px;
-      background:linear-gradient(90deg,var(--gold),var(--gold-lt));
-    }
-    .ornament-diamond {
-      display:inline-block; width:6px; height:6px;
-      background:var(--gold); transform:rotate(45deg); flex-shrink:0;
-    }
-
-    /* ── Shimmer text ── */
-    .text-shimmer {
-      background:linear-gradient(120deg,#c9a84c 0%,#f5ecd7 38%,#c9a84c 55%,#a87c2a 100%);
-      background-size:280% 100%; -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent; background-clip:text;
-      animation:shimmerMove 3.5s linear infinite;
-    }
-    @keyframes shimmerMove { 0%{background-position:200% center} 100%{background-position:-200% center} }
-
-    /* ── Glass / Cards ── */
-    .glass {
-      background:rgba(255,255,255,0.72); backdrop-filter:blur(20px);
-      -webkit-backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.45);
-      box-shadow:0 24px 60px -12px rgba(10,22,40,0.10);
-    }
-    .detail-card {
-      background:#fff; border-radius:0.75rem; padding:1.6rem;
-      border:1px solid rgba(201,168,76,0.18);
-      border-top:2px solid rgba(201,168,76,0.55);
-      transition:box-shadow 0.3s, transform 0.3s;
-    }
-    .detail-card:hover {
-      box-shadow:0 16px 48px rgba(10,22,40,0.09);
-      transform:translateY(-2px);
-    }
-    .stat-card {
-      background:#fff; border-radius:0.75rem; padding:1.5rem 1rem;
-      border:1px solid rgba(201,168,76,0.18);
-      text-align:center; transition:box-shadow 0.3s, transform 0.3s;
-    }
-    .stat-card:hover {
-      box-shadow:0 12px 40px rgba(10,22,40,0.08);
-      transform:translateY(-2px);
-    }
-
-    /* ── Navbar ── */
-    #mainNav { transition:background 0.45s, box-shadow 0.45s, padding 0.45s; }
-    #mainNav.scrolled {
-      background:rgba(250,248,243,0.97) !important;
-      box-shadow:0 2px 24px rgba(10,22,40,0.08);
-      padding-top:0.55rem !important; padding-bottom:0.55rem !important;
-    }
-    #mainNav.scrolled .nav-logo-text { color:#0a1628 !important; }
-    #mainNav.scrolled .nav-link { color:rgba(10,22,40,0.7) !important; }
-    #mainNav.scrolled .nav-link:hover { color:#0a1628 !important; }
-
-    /* ── Buttons ── */
-    .btn-primary-gold {
-      background:linear-gradient(135deg,#c9a84c,#e0c070); color:#0a1628;
-      font-weight:600; letter-spacing:0.14em; font-size:0.76rem;
-      text-transform:uppercase; border:none;
-      transition:transform 0.25s, box-shadow 0.25s, filter 0.25s;
-    }
-    .btn-primary-gold:hover {
-      transform:translateY(-3px) scale(1.02);
-      box-shadow:0 14px 40px rgba(201,168,76,0.45); color:#0a1628;
-      filter:brightness(1.06);
-    }
-    .btn-outline-glass {
-      background:rgba(255,255,255,0.08); color:#fff;
-      border:1px solid rgba(255,255,255,0.38); font-weight:500;
-      letter-spacing:0.14em; font-size:0.76rem; text-transform:uppercase;
-      backdrop-filter:blur(8px); transition:background 0.25s, transform 0.25s;
-    }
-    .btn-outline-glass:hover {
-      background:rgba(255,255,255,0.18); transform:translateY(-3px); color:#fff;
-    }
-    .btn-outline-navy {
-      background:transparent; color:var(--navy-700);
-      border:1px solid rgba(10,22,40,0.25); font-weight:500;
-      letter-spacing:0.1em; font-size:0.76rem; text-transform:uppercase;
-      transition:background 0.25s, transform 0.25s;
-    }
-    .btn-outline-navy:hover {
-      background:var(--cream-100); transform:translateY(-2px); color:var(--navy-700);
-    }
-
-    /* ── Mobile menu ── */
-    #mobileMenu { transition:transform 0.4s cubic-bezier(.77,0,.175,1), opacity 0.35s; }
-    #mobileMenu.hidden-menu { transform:translateX(100%); opacity:0; pointer-events:none; }
-
-    /* ── Footer ── */
-    footer a:hover { color:var(--gold-lt) !important; }
-
-    /* ── Amenity items ── */
-    .amenity-item {
-      display:flex; align-items:center; gap:0.9rem; padding:0.6rem 0;
-      border-bottom:1px solid rgba(201,168,76,0.1); font-size:0.88rem; color:#374151;
-    }
-    .amenity-item:last-child { border-bottom:none; }
-    .amenity-item i { color:var(--gold); font-size:1rem; width:20px; text-align:center; flex-shrink:0; }
-
-    .theme-strip .mood-chip {
-      display:inline-flex; align-items:center; gap:.35rem;
-      border:1px solid rgba(10,22,40,.12); border-radius:999px;
-      padding:.3rem .8rem; font-size:.72rem; font-weight:600;
-      letter-spacing:.08em; color:var(--navy-700); background:rgba(255,255,255,.8);
-    }
-    .lifestyle-list li { position:relative; padding-left:1.1rem; margin-bottom:.35rem; }
-    .lifestyle-list li::before {
-      content:""; position:absolute; left:0; top:.62rem; width:6px; height:6px;
-      border-radius:50%; background:var(--gold);
-    }
-    .lifestyle-list li:last-child { margin-bottom:0; }
-  </style>
-</head>
-<body class="lifestyle-loft">
-
-<!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
-<nav id="mainNav" class="fixed top-0 left-0 w-full z-[999] py-4 transition-all"
-     style="background:rgba(10,22,40,0.12); backdrop-filter:blur(16px);">
-  <div class="container-fluid px-4 px-md-5">
-    <div class="flex items-center justify-between max-w-[1440px] mx-auto">
-
-      <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-3 text-decoration-none">
-        <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-             style="background:linear-gradient(135deg,#c9a84c,#e0c070);">
-          <i class="bi bi-building" style="font-size:1rem;color:#0a1628;"></i>
-        </div>
-        <span class="nav-logo-text font-bold tracking-tight text-white transition-colors"
-              style="font-size:1.1rem;letter-spacing:0.02em;">
-          NICHA<span style="color:#c9a84c;"> CONDO</span>
-        </span>
-      </a>
-
-      <!-- Desktop links -->
-      <ul class="hidden md:flex items-center gap-1 list-none mb-0">
-        <li><a href="index.html"
-               class="nav-link text-white/75 hover:text-white px-4 py-2 rounded-lg hover:bg-white/8 transition-all text-sm font-medium tracking-wide">
-          หน้าแรก</a></li>
-        <li><a href="index.html#mapSection"
-               class="nav-link text-white/75 hover:text-white px-4 py-2 rounded-lg hover:bg-white/8 transition-all text-sm font-medium tracking-wide">
-          แผนที่โครงการ</a></li>
-        <li><a href="index.html#properties"
-               class="nav-link text-white/75 hover:text-white px-4 py-2 rounded-lg hover:bg-white/8 transition-all text-sm font-medium tracking-wide">
-          โครงการ</a></li>
-      </ul>
-
-      <!-- CTA + Hamburger -->
-      <div class="hidden md:flex items-center gap-3">
-        <a href="#ctaBanner" class="btn btn-primary-gold px-5 py-2 rounded-full text-sm" style="text-decoration:none;">
-          ติดต่อสอบถาม
-        </a>
-      </div>
-      <button id="hamburgerBtn"
-              class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg gap-[5px] hover:bg-white/10 transition-all"
-              aria-label="เมนู" aria-expanded="false">
-        <span id="hb1" class="block w-6 h-px bg-white transition-all duration-300"></span>
-        <span id="hb2" class="block w-6 h-px bg-white transition-all duration-300"></span>
-        <span id="hb3" class="block w-5 h-px bg-white transition-all duration-300"></span>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="hidden-menu fixed inset-0 z-[998] flex flex-col"
-     style="background:rgba(10,22,40,0.98);">
-  <div id="menuOverlay" class="absolute inset-0"></div>
-  <div class="relative flex flex-col h-full px-8 py-24 z-10">
-    <ul class="list-none flex flex-col gap-2 mb-auto">
-      <li><a href="index.html"
-             class="mobile-nav-link block text-white text-2xl font-semibold py-3 border-b border-white/10"
-             style="text-decoration:none;font-family:'Cormorant Garamond',serif;letter-spacing:0.02em;">หน้าแรก</a></li>
-      <li><a href="index.html#mapSection"
-             class="mobile-nav-link block text-white/75 text-2xl font-medium py-3 border-b border-white/10"
-             style="text-decoration:none;font-family:'Cormorant Garamond',serif;">แผนที่โครงการ</a></li>
-      <li><a href="index.html#properties"
-             class="mobile-nav-link block text-white/75 text-2xl font-medium py-3 border-b border-white/10"
-             style="text-decoration:none;font-family:'Cormorant Garamond',serif;">โครงการ</a></li>
-    </ul>
-    <div class="mt-8">
-      <a href="#ctaBanner"
-         class="btn btn-primary-gold w-full py-3 rounded-full text-sm text-center mobile-nav-link d-block"
-         style="text-decoration:none;">ติดต่อสอบถาม</a>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
-<section class="relative flex items-center justify-center text-white overflow-hidden"
-  style="min-height:88vh; background:linear-gradient(160deg,rgba(27,31,43,0.88),rgba(69,76,94,0.68) 53%,rgba(27,31,43,0.92)), url('https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1600&q=90') center/cover no-repeat;">
-
-  <!-- Subtle vignette overlay -->
-  <div class="absolute inset-0 pointer-events-none"
-       style="background:radial-gradient(ellipse at center,transparent 40%,rgba(10,22,40,0.45) 100%);"></div>
-
-  <!-- Thin gold frame corners (top-left / bottom-right) -->
-  <div class="absolute pointer-events-none" style="top:2.5rem;left:2.5rem;width:60px;height:60px;
-       border-top:1px solid rgba(201,168,76,0.5);border-left:1px solid rgba(201,168,76,0.5);"></div>
-  <div class="absolute pointer-events-none" style="bottom:2.5rem;right:2.5rem;width:60px;height:60px;
-       border-bottom:1px solid rgba(201,168,76,0.5);border-right:1px solid rgba(201,168,76,0.5);"></div>
-
-  <div class="relative z-10 container px-4 px-md-5 text-center" style="max-width:860px;">
-
-    <!-- Location badge -->
-    <div class="inline-flex items-center gap-4 mb-8" data-aos="fade-down" data-aos-delay="100">
-      <span class="gold-line-h"></span>
-      <span class="ornament-diamond"></span>
-      <span style="font-size:0.65rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:#c9a84c;">
-        กรุงเทพฯ
-      </span>
-      <span class="ornament-diamond"></span>
-      <span class="gold-line-h"></span>
-    </div>
-
-    <!-- Property name -->
-    <h1 class="display-hero text-white mb-5" data-aos="fade-up" data-aos-delay="180">
-      เดอะ ทรี สุขุมวิท 71-เอกมัย
-    </h1>
-
-    <!-- Address -->
-    <p class="flex items-center justify-center gap-2 mb-10 text-white/70"
-       style="font-size:0.95rem;letter-spacing:0.04em;" data-aos="fade-up" data-aos-delay="260">
-      <i class="bi bi-geo-alt" style="color:#c9a84c;"></i>
-      สุขุมวิท 71, เอกมัย, กรุงเทพฯ
-    </p>
-
-    <!-- CTA row -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4"
-         data-aos="fade-up" data-aos-delay="340">
-      <a href="#details"
-         class="btn btn-primary-gold px-9 py-3 rounded-full flex items-center gap-2"
-         style="text-decoration:none;">
-        <i class="bi bi-info-circle"></i> ดูข้อมูลเพิ่มเติม
-      </a>
-      <a href="index.html#properties"
-         class="btn btn-outline-glass px-9 py-3 rounded-full flex items-center gap-2"
-         style="text-decoration:none;">
-        <i class="bi bi-arrow-left"></i> กลับหน้าหลัก
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ BREADCRUMB ═══════════════════════════════ -->
-<div style="background:var(--cream-100);border-bottom:1px solid rgba(201,168,76,0.12);" class="py-3">
-  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
-    <nav aria-label="breadcrumb">
-      <ol class="flex flex-wrap items-center gap-2 text-sm list-none m-0 p-0" style="color:#6b7280;">
-        <li><a href="index.html" style="color:var(--gold);text-decoration:none;">หน้าแรก</a></li>
-        <li><i class="bi bi-chevron-right" style="font-size:0.65rem;color:#c9a84c;"></i></li>
-        <li><a href="index.html#properties" style="color:var(--gold);text-decoration:none;">โครงการ</a></li>
-        <li><i class="bi bi-chevron-right" style="font-size:0.65rem;color:#c9a84c;"></i></li>
-        <li style="color:var(--navy-700);font-weight:500;">เดอะ ทรี สุขุมวิท 71-เอกมัย</li>
-      </ol>
-    </nav>
-  </div>
-</div>
-
-<section class="theme-strip py-4" style="background:linear-gradient(90deg,var(--cream-100),#fff,var(--cream-100));border-bottom:1px solid rgba(10,22,40,0.08);">
-  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
-    <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
-      <div>
-        <div class="sec-label mb-1">Lifestyle Loft</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--navy-700);margin:0;">Loft Energy ใจกลางไลฟ์สไตล์สุขุมวิท</h3>
-        <p style="margin:.45rem 0 0;color:#4b5563;font-size:.9rem;">อยู่ใกล้โซนกิน ดื่ม ทำงาน และออกกำลังกาย พร้อมดีไซน์ที่มีเอกลักษณ์</p>
-      </div>
-      <div class="d-flex flex-wrap gap-2"><span class="mood-chip">Loft Character</span><span class="mood-chip">Ekkamai Vibe</span><span class="mood-chip">Creative Living</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ DETAILS ═══════════════════════════════ -->
-<section id="details" style="background:var(--cream);padding:6rem 0 7rem;">
-  <div class="container px-4 px-md-5 mx-auto" style="max-width:1320px;">
-    <div class="row g-5">
-
-      <!-- ── Left: Info ── -->
-      <div class="col-12 col-lg-8">
-        <div data-aos="fade-right">
-
-          <!-- Section heading -->
-          <span class="sec-label">Lifestyle Loft Story</span>
-          <div style="width:40px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:0.9rem 0 1.4rem;"></div>
-          <h2 class="sec-title mb-5">เดอะ ทรี สุขุมวิท 71-เอกมัย</h2>
-
-          <p style="color:#4b5563;line-height:1.85;font-size:0.95rem;max-width:600px;" class="mb-8">
-            เดอะ ทรี สุขุมวิท 71-เอกมัย เน้นคาแรกเตอร์แบบลอฟต์ทันสมัย เหมาะกับคนเมืองสายครีเอทีฟที่ชอบความยืดหยุ่นของพื้นที่และการใช้ชีวิตใกล้คาเฟ่ ร้านอาหาร และย่านไลฟ์สไตล์ของเอกมัย.
-          </p>
-
-          <!-- Stat cards -->
-          <div class="row g-3 mb-8">
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-geo-alt mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">ที่ตั้ง</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  กรุงเทพฯ
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-building mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">ประเภท</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  คอนโดมิเนียม
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-calendar-check mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">เช่าขั้นต่ำ</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  1 เดือน
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <i class="bi bi-house-check mb-3 d-block" style="font-size:1.4rem;color:var(--gold);"></i>
-                <div class="sec-label mb-1">สถานะ</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--navy-700);">
-                  พร้อมเข้าพัก
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Location card -->
-          <div class="detail-card">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                   style="background:var(--gold-pale);">
-                <i class="bi bi-geo-alt-fill" style="color:var(--gold);font-size:1.1rem;"></i>
-              </div>
-              <div>
-                <div class="sec-label mb-1">ที่ตั้ง</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--navy-700);">
-                  สุขุมวิท 71, เอกมัย, กรุงเทพฯ
-                </div>
-              </div>
-            </div>
-            <p style="font-size:0.88rem;color:#6b7280;line-height:1.8;margin:0;">
-              ตั้งอยู่ในทำเลศักยภาพ สะดวกสบายในการเดินทาง ใกล้ระบบขนส่งสาธารณะ
-              ห้างสรรพสินค้า โรงพยาบาล และสิ่งอำนวยความสะดวกต่างๆ
-            </p>
-          </div>
-
-          <div class="detail-card mt-4" style="background:var(--cream-100);">
-            <div class="sec-label mb-3">Loft Lifestyle Highlights</div>
-            <ul class="lifestyle-list m-0 p-0" style="list-style:none;color:#4b5563;font-size:0.9rem;line-height:1.85;">
-                <li>โทนวัสดุเท่ร่วมสมัย พร้อมพื้นที่ปรับฟังก์ชัน</li>
-                <li>รองรับการ work-from-home ได้สะดวก</li>
-                <li>ใกล้แหล่งไลฟ์สไตล์ยอดนิยมของสุขุมวิท</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── Right: Sidebar ── -->
-      <div class="col-12 col-lg-4" data-aos="fade-left">
-
-        <!-- Contact card -->
-        <div class="rounded-2xl p-7 mb-5 text-white"
-             style="background:linear-gradient(155deg,var(--navy-700) 0%,#152848 100%);">
-          <div class="sec-label mb-2" style="color:var(--gold);">สนใจโครงการนี้?</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;line-height:1.2;margin-bottom:0.75rem;">
-            ค้นหายูนิต Loft<br>ให้ตรงสไตล์คุณ
-          </h3>
-          <p style="color:rgba(255,255,255,0.55);font-size:0.86rem;line-height:1.7;margin-bottom:1.75rem;">
-            รับคำแนะนำห้องที่เหมาะกับการใช้ชีวิตแบบ dynamic ในย่านสุขุมวิท-เอกมัย
-          </p>
-          <a href="#ctaBanner"
-             class="btn btn-primary-gold w-100 py-3 rounded-full text-sm text-center d-block mb-3"
-             style="text-decoration:none;">
-            <i class="bi bi-chat-dots me-2"></i>ติดต่อสอบถาม
-          </a>
-          <a href="tel:+66800000000"
-             class="btn w-100 py-2 rounded-full text-sm text-center d-block"
-             style="background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.25);text-decoration:none;">
-            <i class="bi bi-telephone me-2"></i>080-000-0000
-          </a>
-        </div>
-
-        <!-- Amenities card -->
-        <div class="detail-card">
-          <div class="sec-label mb-4">สิ่งอำนวยความสะดวก</div>
-          <div class="amenity-item"><i class='bi bi-bricks'></i> Loft-style Lobby</div>
-          <div class="amenity-item"><i class='bi bi-laptop'></i> Creative Work Corner</div>
-          <div class="amenity-item"><i class='bi bi-music-note-beamed'></i> Social Deck</div>
-          <div class="amenity-item"><i class='bi bi-bicycle'></i> Active Fitness</div>
-          <div class="amenity-item"><i class='bi bi-shield-lock'></i> Access Control</div>
-          <div class="amenity-item"><i class='bi bi-cup-straw'></i> Café Point</div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ CTA BANNER ═══════════════════════════════ -->
-<section id="ctaBanner" class="text-white text-center" style="position:relative;overflow:hidden;padding:7rem 0;">
-  <div class="absolute inset-0"
-       style="background:linear-gradient(155deg,rgba(10,22,40,0.96) 0%,rgba(13,31,60,0.92) 100%),
-              url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80') center/cover no-repeat;">
-  </div>
-  <!-- Gold glow -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] rounded-full"
-         style="background:radial-gradient(ellipse,rgba(201,168,76,0.12),transparent 68%);"></div>
-  </div>
-
-  <div class="container px-4 px-md-5 relative z-10" style="max-width:680px;">
-    <div data-aos="fade-up">
-      <span class="sec-label d-block mb-4" style="color:var(--gold);">ติดต่อเรา</span>
-      <div class="gold-rule mb-6" style="opacity:0.6;"></div>
-      <h2 class="text-white mb-5 font-display"
-          style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:600;line-height:1.15;">
-        เปิดประสบการณ์ Lifestyle Loft ที่<br>        <span class="text-shimmer">เดอะ ทรี สุขุมวิท 71-เอกมัย?</span>
-      </h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;margin-bottom:2.5rem;line-height:1.7;">
-ปรึกษาทีมงานเพื่อเลือกยูนิตที่ทั้งเท่ ใช้งานได้จริง และคุ้มค่าระยะยาว
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="tel:+66800000000"
-           class="btn btn-primary-gold px-9 py-3 rounded-full text-sm flex items-center justify-center gap-2"
-           style="text-decoration:none;">
-          <i class="bi bi-telephone-fill"></i> 080-000-0000
-        </a>
-        <a href="mailto:hello@nichacondo.th"
-           class="btn btn-outline-glass px-9 py-3 rounded-full text-sm flex items-center justify-center gap-2"
-           style="text-decoration:none;">
-          <i class="bi bi-envelope"></i> ส่งอีเมลสอบถาม
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
-<footer style="background:var(--navy);color:rgba(255,255,255,0.55);">
-  <div class="container px-4 px-md-5 py-14 mx-auto" style="max-width:1320px;">
-    <div class="row g-6 mb-10">
-
-      <!-- Brand -->
-      <div class="col-12 col-md-5">
-        <div class="flex items-center gap-3 mb-5">
-          <div class="w-9 h-9 rounded-full flex items-center justify-center"
-               style="background:linear-gradient(135deg,#c9a84c,#e0c070);">
-            <i class="bi bi-building" style="font-size:1rem;color:#0a1628;"></i>
-          </div>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:#fff;letter-spacing:0.04em;">
-            NICHA<span style="color:#c9a84c;"> CONDO</span>
-          </span>
-        </div>
-        <p style="font-size:0.86rem;line-height:1.75;color:rgba(255,255,255,0.45);">
-          พอร์ตโฟลิโอคอนโดมิเนียมระดับพรีเมียมทั่วประเทศไทย
-        </p>
-      </div>
-
-      <!-- Menu -->
-      <div class="col-6 col-md-3">
-        <h5 class="text-white font-semibold mb-5"
-            style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;">เมนูหลัก</h5>
-        <ul class="list-none flex flex-col gap-3">
-          <li><a href="index.html" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">หน้าแรก</a></li>
-          <li><a href="index.html#mapSection" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">แผนที่โครงการ</a></li>
-          <li><a href="index.html#properties" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">โครงการทั้งหมด</a></li>
-          <li><a href="index.html#contract" style="color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.88rem;" class="hover:text-gold transition-colors">สัญญาเช่า</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div class="col-6 col-md-4">
-        <h5 class="text-white font-semibold mb-5"
-            style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;">ติดต่อ</h5>
-        <ul class="list-none flex flex-col gap-3">
-          <li class="flex items-center gap-3" style="color:rgba(255,255,255,0.45);font-size:0.88rem;">
-            <i class="bi bi-telephone flex-shrink-0" style="color:#c9a84c;"></i> 080-000-0000
-          </li>
-          <li class="flex items-center gap-3" style="color:rgba(255,255,255,0.45);font-size:0.88rem;">
-            <i class="bi bi-envelope flex-shrink-0" style="color:#c9a84c;"></i> hello@nichacondo.th
-          </li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Divider + copyright -->
-    <div class="pt-6" style="border-top:1px solid rgba(255,255,255,0.07);">
-      <p class="text-center" style="font-size:0.72rem;color:rgba(255,255,255,0.28);letter-spacing:0.08em;">
-        © 2024 NICHA CONDO · สงวนลิขสิทธิ์ทุกประการ
-      </p>
-    </div>
-  </div>
-</footer>
-
-<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-AOS.init({ duration:750, easing:'ease-out-cubic', once:true, offset:55 });
-
-/* Navbar scroll effect */
-const mainNav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 55) {
-    mainNav.classList.add('scrolled');
-    mainNav.style.background = '';
-  } else {
-    mainNav.classList.remove('scrolled');
-    mainNav.style.background = 'rgba(10,22,40,0.12)';
-  }
-}, { passive:true });
-
-/* Mobile menu */
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileMenu   = document.getElementById('mobileMenu');
-const hb1 = document.getElementById('hb1');
-const hb2 = document.getElementById('hb2');
-const hb3 = document.getElementById('hb3');
-let menuOpen = false;
-
-function openMenu() {
-  menuOpen = true;
-  mobileMenu.classList.remove('hidden-menu');
-  document.body.style.overflow = 'hidden';
-  hamburgerBtn.setAttribute('aria-expanded', 'true');
-  hb1.style.transform = 'rotate(45deg) translate(5px,5px)';
-  hb2.style.opacity   = '0';
-  hb3.style.transform = 'rotate(-45deg) translate(5px,-5px)';
-  hb3.style.width     = '24px';
-}
-function closeMenu() {
-  menuOpen = false;
-  mobileMenu.classList.add('hidden-menu');
-  document.body.style.overflow = '';
-  hamburgerBtn.setAttribute('aria-expanded', 'false');
-  hb1.style.transform = '';
-  hb2.style.opacity   = '1';
-  hb3.style.transform = '';
-  hb3.style.width     = '20px';
-}
-hamburgerBtn.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
-document.getElementById('menuOverlay').addEventListener('click', closeMenu);
-document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeMenu));
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Tree Sukhumvit 71 Ekamai | คอนโดและที่พักให้เช่า · NICHA CONDO</title>
+<meta name="description" content="เชื่อมทุกจังหวะชีวิตย่านสุขุมวิท 71 ใกล้ ARL รามคำแหง">
+<meta name="theme-color" content="#102b35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer>
 </script>
+</head>
+<body data-property-id="6">
+<a class="skip" href="#main">ข้ามไปเนื้อหา</a>
+<header class="header">
+<a class="brand" href="index.html">NICHA<span>CONDO · FIND YOUR PLACE</span>
+</a>
+<nav aria-label="เมนูหลัก">
+<a href="index.html#properties">เลือกที่พัก</a>
+<a href="#contact">ติดต่อเรา</a>
+<a class="nav-call" href="tel:0863429855">086 342 9855</a>
+</nav>
+</header>
+<main id="main">
+<section class="property-hero">
+<div class="property-hero-copy">
+<a class="back" href="index.html#properties">← กลับไปเลือกที่พัก</a>
+<p class="eyebrow">กรุงเทพฯ · รายการ 6</p>
+<h1>The Tree Sukhumvit 71 Ekamai</h1>
+<p class="hero-tagline">เชื่อมทุกจังหวะชีวิตย่านสุขุมวิท 71 ใกล้ ARL รามคำแหง</p>
+<a class="button gold" href="#contact">สอบถามรายละเอียดห้อง ↗</a>
+</div>
+<div class="property-hero-image">
+<img src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_BuildingMain.jpg" alt="ภาพประกอบโครงการ The Tree Sukhumvit 71 Ekamai" fetchpriority="high">
+</div>
+</section>
+<div class="property-bar">
+<span>สอบถามห้องว่างและราคา</span>
+<a href="#overview">จุดเด่น</a>
+<a href="#location">ทำเล</a>
+<a href="#gallery">ภาพประกอบ</a>
+<a href="#contact">นัดชม / สอบถาม</a>
+</div>
+<section id="overview" class="section overview">
+<div>
+<p class="eyebrow">YOUR NEXT CHAPTER</p>
+<h2>พื้นที่ที่เข้ากับ<br>จังหวะชีวิตของคุณ</h2>
+</div>
+<div>
+<p class="lead">เชื่อมวันทำงานกับชีวิตย่านสุขุมวิทจากทำเลสุขุมวิท 71 ใกล้แยกคลองตันและ ARL รามคำแหง พร้อมพื้นที่ทำงานร่วมสำหรับเปลี่ยนบรรยากาศระหว่างวัน และส่วนกลางชั้นสูง ทั้งสระว่ายน้ำ ฟิตเนส และ Sky Lounge สำหรับเวลาที่อยากพักจากความวุ่นวายของเมือง</p>
+<div class="highlights">
+<article>
+<span>01</span>
+<h3>ใกล้ ARL รามคำแหงและแนวถนนหลักหลายเส้น</h3>
+</article>
+<article>
+<span>02</span>
+<h3>มีพื้นที่ทำงานร่วมและห้องกิจกรรม</h3>
+</article>
+<article>
+<span>03</span>
+<h3>มีส่วนกลางชั้นสูงสำหรับออกกำลังกายและพักผ่อน</h3>
+</article>
+</div>
+</div>
+</section>
+<section id="location" class="section pale">
+<p class="eyebrow">LOCATION & LIFESTYLE</p>
+<h2>ทำเลที่ช่วยให้ชีวิตลงตัว</h2>
+<div class="two-columns">
+<article>
+<h3>เดินทางและใช้ชีวิต</h3>
+<p>ทำเลใกล้แยกคลองตันเชื่อมแนวสุขุมวิท 71 เพชรบุรี รามคำแหง และพัฒนาการ มี ARL รามคำแหงเป็นทางเลือกเดินทางด้วยรถไฟฟ้า ส่วนย่านเอกมัยและทองหล่อเป็นจุดหมายที่เดินทางต่อได้</p>
+<a class="text-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Tree%20Sukhumvit%2071%20Ekamai">ค้นหาโครงการบน Google Maps ↗</a>
+</article>
+<article>
+<h3>จุดหมายรอบโครงการ</h3>
+<p>ARL รามคำแหงและท่าเรือคลองตันเป็นจุดเชื่อมการเดินทาง ย่านเอกมัยและทองหล่อมีร้านอาหารและกิจกรรมที่เดินทางต่อได้ โรงพยาบาลเพชรเวชและโรงพยาบาลกรุงเทพเป็นจุดหมายด้านสุขภาพในพื้นที่โดยรอบ</p>
+</article>
+</div>
+</section>
+<section class="section amenities">
+<div>
+<p class="eyebrow">MORE THAN A ROOM</p>
+<h2>เติมความสุข<br>ให้วันธรรมดา</h2>
+</div>
+<div>
+<h3>สิ่งอำนวยความสะดวกของโครงการ</h3>
+<p>Lobby, Recreation Room สวนชั้นล่าง และ Co working Space ส่วนพื้นที่ชั้นสูงมี Sky Lounge ฟิตเนส ห้องโยคะ สระว่ายน้ำระบบเกลือ และสวนลอยฟ้า ให้เลือกใช้งานตามสิทธิและเวลาเปิดของโครงการ</p>
+<h3>เหมาะกับไลฟ์สไตล์ของใคร</h3>
+<p>เหมาะกับผู้ใช้ ARL คนทำงานแนวเพชรบุรีและพัฒนาการ หรือผู้ที่ต้องการเดินทางเชื่อมย่านสุขุมวิท</p>
+</div>
+</section>
+<section id="gallery" class="section pale" data-gallery>
+<p class="eyebrow">A CLOSER LOOK</p>
+<h2>ชมโครงการให้ครบทุกมุม</h2>
+<p class="muted">รวมภาพโครงการ ส่วนกลาง ภาพห้องตัวอย่าง และผังที่มีให้ชม ภาพจากเว็บไซต์โครงการอาจเป็นภาพจำลองหรือห้องตัวอย่าง กรุณาขอภาพห้องที่สนใจจากผู้ดูแลเพื่อยืนยันวิว เฟอร์นิเจอร์ และสภาพห้องก่อนนัดชม</p>
+<div class="filters gallery-filters" data-gallery-controls hidden role="group" aria-label="เลือกประเภทภาพ">
+<button type="button" class="filter active" data-gallery-filter="all" aria-pressed="true">ทุกภาพ</button>
+<button type="button" class="filter" data-gallery-filter="building" aria-pressed="false">อาคารและบรรยากาศ</button>
+<button type="button" class="filter" data-gallery-filter="facilities" aria-pressed="false">ส่วนกลาง</button>
+<button type="button" class="filter" data-gallery-filter="interior" aria-pressed="false">ห้องและพื้นที่ภายใน</button>
+<button type="button" class="filter" data-gallery-filter="plan" aria-pressed="false">ผังและแผนที่</button>
+</div>
+<p class="gallery-count muted" aria-live="polite">ทั้งหมด 74 ภาพ</p>
+<div class="gallery">
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_BuildingMain.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 1">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_BuildingMain.jpg" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 1">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Barcony.JPG" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 2">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Barcony.JPG" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 2">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Barcony2.JPG" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 3">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Barcony2.JPG" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 3">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Bathroom.JPG" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 4">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Bathroom.JPG" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 4">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Bedroom.JPG" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 5">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Bedroom.JPG" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 5">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Bedroom3.JPG" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 6">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Bedroom3.JPG" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 6">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Bedroom4.JPG" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 7">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Bedroom4.JPG" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 7">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Building-view.webp" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 8">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Building-view.webp" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 8">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Building.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 9">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Building.jpg" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 9">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_BuildingView.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 10">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_BuildingView.jpg" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 10">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Kitchen.JPG" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 11">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Kitchen.JPG" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 11">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Kitchen2.JPG" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 12">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Kitchen2.JPG" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 12">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Livingroom.JPG" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 13">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Livingroom.JPG" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 13">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Pool.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 14">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-71_Pool.jpg" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 14">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-Bedroom2.JPG" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 15">
+<img loading="lazy" decoding="async" src="The-Tree-Sukhumvit-71/The-Tree-Sukhumvit-Bedroom2.JPG" alt="ภาพประกอบโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 15">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/c0a0a476e989d8.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 16">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/c0a0a476e989d8-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 16">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/ddf129afcbc268.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 17">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/ddf129afcbc268-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 17">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/50bbe3a6a0655d.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 18">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/50bbe3a6a0655d-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 18">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/7f6ff092f6877d.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 19">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/7f6ff092f6877d-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 19">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/5977f32e70d9dd.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 20">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/5977f32e70d9dd-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 20">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/2d416cc88e9dbd.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 21">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/2d416cc88e9dbd-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 21">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/1a12cb6db237d8.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 22">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/1a12cb6db237d8-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 22">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/ac65de656928a9.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพจำลองโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 23">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/ac65de656928a9-thumb.webp" alt="ภาพจำลองโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 23">
+</button>
+<figcaption>
+<span>ภาพจำลองโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/aa2676829bc7b6.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 24">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/aa2676829bc7b6-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 24">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/b527be66dfbdea.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 25">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/b527be66dfbdea-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 25">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/fc488e89f00370.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 26">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/fc488e89f00370-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 26">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/10668a20aec0d8.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 27">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/10668a20aec0d8-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 27">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/e4139cf42b2d7d.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 28">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/e4139cf42b2d7d-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 28">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/f678ac997a12b7.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 29">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/f678ac997a12b7-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 29">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/a94c71f699d9f6.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 30">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/a94c71f699d9f6-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 30">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/313171c2fcb558.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 31">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/313171c2fcb558-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 31">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/238394359c7a3d.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 32">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/238394359c7a3d-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 32">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/db2bb70027afb0.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 33">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/db2bb70027afb0-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 33">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/5cdfded7be1d90.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 34">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/5cdfded7be1d90-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 34">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/0332a88cd99e07.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 35">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/0332a88cd99e07-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 35">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/452ff2c03b5b8a.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 36">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/452ff2c03b5b8a-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 36">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/d0c3633fd7bbf6.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 37">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/d0c3633fd7bbf6-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 37">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/399a66e13e9f0e.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 38">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/399a66e13e9f0e-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 38">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/bacdd990896571.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 39">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/bacdd990896571-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 39">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/ae0c9981465153.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 40">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/ae0c9981465153-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 40">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/8a5bccb7f38b06.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 41">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/8a5bccb7f38b06-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 41">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/8677d1d71b3924.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 42">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/8677d1d71b3924-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 42">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/236f9bc645bc47.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 43">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/236f9bc645bc47-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 43">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/f0e5aad3dfc53f.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 44">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/f0e5aad3dfc53f-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 44">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/cbeaa70d485253.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 45">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/cbeaa70d485253-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 45">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/792bcad520ca52.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 46">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/792bcad520ca52-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 46">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/4ad76438dce514.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 47">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/4ad76438dce514-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 47">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/46967768f74bd2.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 48">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/46967768f74bd2-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 48">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/e2ca1a23632ffd.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 49">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/e2ca1a23632ffd-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 49">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/acc2c337f0a2fa.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 50">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/acc2c337f0a2fa-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 50">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/ad111cb25177b6.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 51">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/ad111cb25177b6-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 51">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/603085dbb1ef0e.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 52">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/603085dbb1ef0e-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 52">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/c22084bbbb933d.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 53">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/c22084bbbb933d-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 53">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/02fbd81609e8fa.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 54">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/02fbd81609e8fa-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 54">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/2be4889e80be47.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 55">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/2be4889e80be47-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 55">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/be435fe8c8db5b.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 56">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/be435fe8c8db5b-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 56">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/a0841f756f1acf.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 57">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/a0841f756f1acf-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 57">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/99fef161ff0159.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 58">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/99fef161ff0159-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 58">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/3d2901594a6a3b.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 59">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/3d2901594a6a3b-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 59">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/2ffe91fd7d4a52.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 60">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/2ffe91fd7d4a52-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 60">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/9b477363b8b912.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 61">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/9b477363b8b912-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 61">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/cf8f580179e271.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 62">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/cf8f580179e271-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 62">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/282baeab3490a2.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 63">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/282baeab3490a2-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 63">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/2a7773ad7c47e9.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 64">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/2a7773ad7c47e9-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 64">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/e105e33d76a783.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 65">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/e105e33d76a783-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 65">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/e057d16883af77.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 66">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/e057d16883af77-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 66">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/446d641beaed4b.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 67">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/446d641beaed4b-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 67">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/295fb79e643ac3.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 68">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/295fb79e643ac3-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 68">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/303398f720c455.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 69">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/303398f720c455-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 69">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/660ea291d9241e.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 70">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/660ea291d9241e-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 70">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/42220b6b58e4b8.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 71">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/42220b6b58e4b8-thumb.webp" alt="ภาพบรรยากาศโครงการ · The Tree Sukhumvit 71 Ekamai · ภาพ 71">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/318977da02f757.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ผังห้องตัวอย่าง · The Tree Sukhumvit 71 Ekamai · ภาพ 72">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/318977da02f757-thumb.webp" alt="ผังห้องตัวอย่าง · The Tree Sukhumvit 71 Ekamai · ภาพ 72">
+</button>
+<figcaption>
+<span>ผังห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/ffe641040ba94f.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ผังห้องตัวอย่าง · The Tree Sukhumvit 71 Ekamai · ภาพ 73">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/ffe641040ba94f-thumb.webp" alt="ผังห้องตัวอย่าง · The Tree Sukhumvit 71 Ekamai · ภาพ 73">
+</button>
+<figcaption>
+<span>ผังห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/tree/4c432265939ed9.jpg" data-source-url="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" aria-label="ขยาย ผังห้องตัวอย่าง · The Tree Sukhumvit 71 Ekamai · ภาพ 74">
+<img loading="lazy" decoding="async" src="assets/project-photos/tree/4c432265939ed9-thumb.webp" alt="ผังห้องตัวอย่าง · The Tree Sukhumvit 71 Ekamai · ภาพ 74">
+</button>
+<figcaption>
+<span>ผังห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+</div>
+<button type="button" class="button gallery-more" data-gallery-more hidden>ดูภาพทั้งหมด</button>
+</section>
+<section class="section">
+<p class="eyebrow">MAKE IT YOURS</p>
+<h2>เลือกห้องให้ตรงใจ ก่อนตัดสินใจ</h2>
+<div class="steps">
+<article>
+<span>01</span>
+<h3>บอกความต้องการ</h3>
+<p>ส่งชื่อโครงการ งบประมาณ วันที่ต้องการเข้าอยู่ และจำนวนผู้พัก</p>
+</article>
+<article>
+<span>02</span>
+<h3>ดูรายละเอียดห้อง</h3>
+<p>สอบถามราคา พื้นที่ ชั้น ภาพห้อง เฟอร์นิเจอร์ และเงื่อนไขสัญญา</p>
+</article>
+<article>
+<span>03</span>
+<h3>วางแผนเข้าอยู่</h3>
+<p>ยืนยันความพร้อมของห้องและนัดชมกับผู้ดูแลก่อนตัดสินใจ</p>
+</article>
+</div>
+<div class="faq">
+<details>
+<summary>ห้องยังว่างไหม และค่าเช่าเท่าไร?</summary>
+<p>ติดต่อผู้ดูแลพร้อมชื่อโครงการและวันที่ต้องการเข้าอยู่ เพื่อรับราคาและสถานะห้องล่าสุด</p>
+</details>
+<details>
+<summary>ใช้ส่วนกลาง จอดรถ หรือเลี้ยงสัตว์ได้ไหม?</summary>
+<p>สิทธิส่วนกลาง ที่จอดรถ และเงื่อนไขสัตว์เลี้ยงขึ้นอยู่กับห้องและข้อกำหนดโครงการ สอบถามผู้ดูแลเพื่อยืนยันรายละเอียดก่อนทำสัญญา</p>
+</details>
+</div>
+</section>
+<section id="contact" class="contact section">
+<div>
+<p class="eyebrow">LET’S FIND YOUR PLACE</p>
+<h2>สนใจ The Tree Sukhumvit 71 Ekamai?</h2>
+<p>ส่งชื่อโครงการพร้อมงบประมาณและวันเข้าอยู่ที่ต้องการ<br>ให้เราช่วยประสานรายละเอียดห้องที่เหมาะกับคุณ</p>
+<div class="contact-actions">
+<a class="button gold" href="https://line.me/R/ti/p/@779fsbjm" target="_blank" rel="noopener">คุยกับเราทาง LINE ↗</a>
+<a class="button outline" href="tel:0863429855">โทร 086 342 9855</a>
+</div>
+<a class="email" href="mailto:jew.scb18@gmail.com">jew.scb18@gmail.com</a>
+</div>
+<div class="inquiry">
+<h3>เตรียมข้อความสำหรับสอบถาม</h3>
+<label for="inquiry-message">แก้ไขข้อความแล้วคัดลอกไปส่งใน LINE ได้เลย</label>
+<textarea id="inquiry-message" rows="6">สวัสดีค่ะ/ครับ สนใจ The Tree Sukhumvit 71 Ekamai (รายการ 6)
+งบประมาณ:
+วันที่ต้องการเข้าอยู่:
+จำนวนผู้พัก:
+ขอทราบราคา รายละเอียดห้อง และวันสะดวกนัดชมค่ะ/ครับ</textarea>
+<button class="button cream" id="copy-inquiry" type="button">คัดลอกข้อความ</button>
+<p id="copy-status" role="status">
+</p>
+</div>
+</section>
+</main>
+<div class="mobile-contact">
+<a href="tel:0863429855">โทรสอบถาม</a>
+<a href="https://line.me/R/ti/p/@779fsbjm" target="_blank" rel="noopener">สอบถามทาง LINE ↗</a>
+</div>
+<footer class="footer">
+<a class="brand" href="index.html">NICHA CONDO</a>
+<p>พื้นที่ที่ใช่ สำหรับชีวิตของคุณ</p>
+<a href="tel:0863429855">โทร 086 342 9855</a>
+<span>© 2026 NICHA CONDO</span>
+</footer>
+<dialog id="lightbox" aria-label="ภาพขยาย">
+<button class="lightbox-close" aria-label="ปิดภาพ">✕</button>
+<div class="lightbox-stage">
+<button type="button" class="lightbox-prev" aria-label="ภาพก่อนหน้า">‹</button>
+<img alt="">
+<button type="button" class="lightbox-next" aria-label="ภาพถัดไป">›</button>
+</div>
+<p>
+</p>
+<a class="lightbox-source" hidden target="_blank" rel="noopener">ดูแหล่งที่มาภาพ ↗</a>
+</dialog>
 </body>
 </html>

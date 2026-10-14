@@ -1,660 +1,567 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว | NICHA CONDO</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Libs -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-  <style>
-    :root{
-      --ink:#0f242a;
-      --deep:#16303a;
-      --sage:#9eb8a4;
-      --sage2:#c2d7c7;
-      --bg:#f4f8f6;
-      --bg2:#eaf1ee;
-      --line:rgba(15,36,42,.10);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'IBM Plex Sans Thai',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
-    a{text-decoration:none}
-    .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
-
-    /* ───────── NAV (different layout) ───────── */
-    .nav{
-      position:fixed;top:0;left:0;right:0;z-index:999;
-      background:rgba(244,248,246,.92);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--line);
-    }
-    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .brand{
-      display:flex;flex-direction:column;line-height:1.05;
-      font-family:'Cormorant Garamond',serif;color:var(--deep);
-    }
-    .brand b{font-size:1.1rem;letter-spacing:.03em}
-    .brand span{font-size:.78rem;color:rgba(15,36,42,.55);letter-spacing:.06em}
-    .nav-pill{
-      display:flex;gap:10px;align-items:center;
-      padding:6px;border:1px solid var(--line);
-      border-radius:999px;background:#fff;
-    }
-    .nav-pill a{
-      font-size:.78rem;font-weight:600;letter-spacing:.05em;
-      color:rgba(15,36,42,.70);
-      padding:.45rem .9rem;border-radius:999px;
-      transition:.2s;
-    }
-    .nav-pill a:hover{background:var(--bg2);color:var(--deep)}
-    .nav-cta{
-      display:flex;gap:10px;align-items:center;
-      font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-      padding:.55rem 1rem;border-radius:999px;
-      background:linear-gradient(135deg,var(--sage),var(--sage2));
-      color:var(--deep);
-      border:0;
-    }
-    .nav-cta:hover{filter:brightness(1.04)}
-    @media (max-width: 992px){
-      .nav-pill{display:none}
-      .nav-cta{font-size:.72rem}
-    }
-
-    /* ───────── HERO (different placement: split + vertical title) ───────── */
-    .hero{
-      padding-top:72px;
-      min-height:92vh;
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      background:var(--bg);
-    }
-    @media (max-width: 992px){
-      .hero{grid-template-columns:1fr;min-height:auto}
-    }
-
-    /* SLOT: HERO IMAGE */
-    .hero-media{
-      position:relative;
-      min-height:92vh;
-      background:#cfdad4;
-      overflow:hidden;
-    }
-    @media (max-width: 992px){
-      .hero-media{min-height:64vh}
-    }
-    .hero-media::before{
-      content:"";
-      position:absolute;inset:0;
-      background-image:url("assets/images/lumpini/hero.jpg"); /* <-- เปลี่ยนรูปได้ */
-      background-size:cover;background-position:center;
-      transform:scale(1.02);
-    }
-    .hero-media::after{
-      content:"";
-      position:absolute;inset:0;
-      background:linear-gradient(90deg,rgba(15,36,42,.78) 0%, rgba(15,36,42,.20) 60%, rgba(15,36,42,.00) 100%);
-    }
-    .hero-tag{
-      position:absolute;left:22px;top:24px;z-index:2;
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 14px;border-radius:999px;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.20);
-      color:#fff;
-      font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-      backdrop-filter:blur(10px);
-    }
-    .hero-vertical{
-      position:absolute;right:14px;bottom:18px;z-index:2;
-      writing-mode:vertical-rl;
-      transform:rotate(180deg);
-      font-family:'Cormorant Garamond',serif;
-      font-weight:600;
-      color:rgba(255,255,255,.30);
-      letter-spacing:.12em;
-      font-size:clamp(18px,2vw,22px);
-    }
-
-    .hero-content{
-      display:flex;align-items:center;
-      padding:56px 0;
-      position:relative;
-    }
-    .hero-card{
-      width:100%;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:28px 24px;
-      box-shadow:0 18px 50px rgba(15,36,42,.08);
-    }
-    .kicker{
-      font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
-      color:rgba(15,36,42,.55);
-      display:flex;align-items:center;gap:10px;
-    }
-    .kicker::before{
-      content:"";
-      width:34px;height:1px;background:linear-gradient(90deg,var(--sage),transparent);
-      display:inline-block;
-    }
-    h1{
-      margin:14px 0 6px;
-      font-family:'Cormorant Garamond',serif;
-      font-weight:600;line-height:1.05;
-      font-size:clamp(2.1rem,3.6vw,3.2rem);
-      color:var(--deep);
-    }
-    .sub{
-      font-size:1rem;color:rgba(15,36,42,.62);line-height:1.8;margin:0 0 18px;
-    }
-    .meta{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-      margin:18px 0 18px;
-    }
-    .meta .m{
-      border:1px dashed rgba(158,184,164,.55);
-      border-radius:14px;
-      padding:12px 12px;
-      background:linear-gradient(180deg,#fff,var(--bg2));
-    }
-    .meta .m b{display:block;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(15,36,42,.5)}
-    .meta .m span{display:block;margin-top:6px;font-weight:700;color:var(--deep)}
-    .actions{display:flex;flex-wrap:wrap;gap:10px}
-    .btn-main{
-      border:0;border-radius:999px;
-      padding:.85rem 1.15rem;
-      background:var(--deep);color:#fff;
-      font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-      display:inline-flex;align-items:center;gap:.5rem;
-    }
-    .btn-main:hover{background:#2b5b6b;color:#fff}
-    .btn-soft{
-      border:1px solid rgba(15,36,42,.18);
-      border-radius:999px;
-      padding:.85rem 1.15rem;
-      background:#fff;color:var(--deep);
-      font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-      display:inline-flex;align-items:center;gap:.5rem;
-    }
-    .btn-soft:hover{background:var(--bg2)}
-
-    /* ───────── SECTION TITLES ───────── */
-    .sec{padding:72px 0}
-    .sec-head{
-      display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
-      margin-bottom:22px;
-    }
-    @media (max-width: 768px){ .sec-head{flex-direction:column;align-items:flex-start} }
-    .sec-head h2{
-      margin:0;
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(1.9rem,3.2vw,2.6rem);
-      font-weight:600;
-      color:var(--deep);
-    }
-    .sec-head p{margin:0;color:rgba(15,36,42,.6);max-width:460px;line-height:1.8}
-
-    /* ───────── LOCATION (different layout: timeline left + cards right) ───────── */
-    .loc-wrap{
-      display:grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap:18px;
-      align-items:start;
-    }
-    @media (max-width: 992px){ .loc-wrap{grid-template-columns:1fr} }
-    .loc-timeline{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:20px 18px;
-    }
-    .tl-item{
-      display:grid;
-      grid-template-columns: 22px 1fr;
-      gap:12px;
-      padding:12px 0;
-      border-bottom:1px solid rgba(15,36,42,.06);
-    }
-    .tl-item:last-child{border-bottom:0}
-    .dot{
-      width:12px;height:12px;border-radius:99px;
-      background:var(--sage);
-      margin-top:5px;
-      box-shadow:0 0 0 6px rgba(158,184,164,.18);
-    }
-    .tl-item b{display:block;color:var(--deep);font-size:.95rem}
-    .tl-item span{display:block;color:rgba(15,36,42,.6);font-size:.85rem;margin-top:4px;line-height:1.6}
-
-    .loc-cards{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-    @media (max-width: 576px){ .loc-cards{grid-template-columns:1fr} }
-    .card{
-      background:#fff;border:1px solid var(--line);
-      border-radius:18px;
-      padding:16px 14px;
-      display:flex;gap:12px;align-items:flex-start;
-      transition:.25s;
-    }
-    .card:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(15,36,42,.08)}
-    .ico{
-      width:40px;height:40px;border-radius:14px;
-      display:flex;align-items:center;justify-content:center;
-      background:rgba(158,184,164,.20);
-      color:#4d7b65;font-size:1.05rem;flex:0 0 auto;
-    }
-    .card small{
-      display:block;
-      font-weight:800;letter-spacing:.16em;text-transform:uppercase;
-      color:rgba(15,36,42,.45);
-      font-size:.65rem;
-    }
-    .card strong{display:block;margin-top:6px;color:var(--deep);font-size:.95rem}
-    .card em{display:block;margin-top:3px;color:rgba(15,36,42,.55);font-style:normal;font-size:.8rem}
-
-    /* ───────── GALLERY (different: masonry-ish) ───────── */
-    .gallery{
-      background:var(--bg2);
-    }
-    .masonry{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:14px;
-    }
-    @media (max-width: 992px){ .masonry{grid-template-columns:1fr} }
-    .stack{display:grid;gap:14px}
-    .tile{
-      position:relative;border-radius:22px;overflow:hidden;
-      background:#dbe5df;border:1px solid rgba(15,36,42,.08);
-      min-height:220px;
-    }
-    .tile.big{min-height:460px}
-    .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
-    .tile:hover img{transform:scale(1.03)}
-    .cap{
-      position:absolute;left:0;right:0;bottom:0;
-      padding:16px 18px;
-      color:#fff;
-      background:linear-gradient(180deg,transparent,rgba(0,0,0,.70));
-    }
-    .cap b{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.35rem;display:block
-    }
-    .cap span{display:block;color:rgba(255,255,255,.72);font-size:.82rem;margin-top:4px;line-height:1.5}
-    .badge{
-      position:absolute;top:14px;right:14px;
-      background:rgba(15,36,42,.82);
-      border:1px solid rgba(255,255,255,.18);
-      color:#fff;
-      padding:.28rem .6rem;
-      border-radius:999px;
-      font-size:.72rem;font-weight:900;letter-spacing:.12em;
-    }
-    .slot-hint{
-      position:absolute;left:14px;top:14px;
-      padding:.35rem .65rem;
-      border-radius:999px;
-      background:rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.22);
-      color:#fff;
-      font-size:.7rem;font-weight:800;letter-spacing:.12em;
-      backdrop-filter:blur(8px);
-    }
-
-    /* ───────── CTA (different: split card over bg) ───────── */
-    .cta{
-      position:relative;
-      padding:82px 0;
-      background:var(--deep);
-      overflow:hidden;
-    }
-    /* SLOT: CTA BG IMAGE */
-    .cta::before{
-      content:"";
-      position:absolute;inset:0;
-      background-image:url("assets/images/lumpini/cta.jpg"); /* <-- เปลี่ยนรูปได้ */
-      background-size:cover;background-position:center;
-      opacity:.35;
-      transform:scale(1.02);
-    }
-    .cta::after{
-      content:"";
-      position:absolute;inset:0;
-      background:linear-gradient(90deg,rgba(22,48,58,.88),rgba(22,48,58,.55),rgba(22,48,58,.88));
-    }
-    .cta-grid{
-      position:relative;z-index:2;
-      display:grid;
-      grid-template-columns: 1fr .9fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    @media (max-width: 992px){ .cta-grid{grid-template-columns:1fr} }
-    .cta-left{
-      color:#fff;
-      padding:18px 6px;
-    }
-    .cta-left h3{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2rem,3.7vw,3.2rem);
-      margin:10px 0 12px;
-      font-weight:600;
-    }
-    .cta-left p{margin:0;color:rgba(255,255,255,.70);line-height:1.8;max-width:520px}
-    .contact-card{
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.20);
-      border-radius:22px;
-      padding:18px 18px 16px;
-      backdrop-filter:blur(14px);
-    }
-    .form{
-      display:grid;gap:10px;margin-top:12px
-    }
-    .in{
-      width:100%;
-      padding:.9rem 1rem;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.20);
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      outline:none;
-      font-size:.9rem;
-    }
-    .in::placeholder{color:rgba(255,255,255,.55)}
-    .send{
-      border:0;border-radius:14px;
-      padding:.9rem 1rem;
-      background:linear-gradient(135deg,var(--sage),var(--sage2));
-      color:var(--deep);
-      font-weight:900;
-      letter-spacing:.12em;text-transform:uppercase;
-      font-size:.78rem;
-    }
-    .send:hover{filter:brightness(1.04)}
-    .quick{
-      display:flex;flex-wrap:wrap;gap:10px;margin-top:12px
-    }
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:.55rem .8rem;border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.18);
-      color:#fff;
-      font-size:.82rem;
-    }
-    .chip i{color:var(--sage2)}
-
-    /* Footer */
-    footer{background:#fff;border-top:1px solid var(--line)}
-    .foot{padding:24px 0;color:rgba(15,36,42,.60);font-size:.82rem}
-    .foot-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .foot a{color:rgba(15,36,42,.60)}
-    .foot a:hover{color:var(--deep)}
-  </style>
-</head>
-
-<body>
-
-<!-- NAV -->
-<header class="nav">
-  <div class="wrap">
-    <div class="nav-inner">
-        <b>ลุมพินี วิลล์</b>
-        <span>พระนั่งเกล้า-ริเวอร์วิว</span>
-      </a>
-
-      <nav class="nav-pill" aria-label="เมนูหลัก">
-        <a href="#hero">รู้จักเรา</a>
-        <a href="#location">ทำเล</a>
-        <a href="#gallery">แกลเลอรี</a>
-        <a href="index.html">หน้าหลัก</a>
-      </nav>
-
-      <a class="nav-cta" href="#contact">
-        <i class="bi bi-chat-dots"></i> ติดต่อเรา
-      </a>
-    </div>
-  </div>
-</header>
-
-<!-- HERO (Split) -->
-<section class="hero" id="hero">
-  <div class="hero-media" style="background-image:url('./LumphineeView/LumphineeViewPlate.jpg');background-size:cover;background-position:center;">
-    <div class="hero-tag"><i class="bi bi-water"></i> RIVER VIEW LIVING</div>
-    <div class="hero-vertical">LUMPINI VILLE · PRANANGKLAO RIVERVIEW</div>
-  </div>
-
-  <div class="hero-content">
-    <div class="wrap" style="width:100%;">
-      <div class="hero-card" data-aos="fade-up">
-        <div class="kicker">คอนโดบรรยากาศสงบ ใกล้ริมน้ำ</div>
-        <h1>ลุมพินี วิลล์<br>พระนั่งเกล้า-ริเวอร์วิว</h1>
-        <p class="sub">
-          เหมาะสำหรับอยู่อาศัยระยะยาว บรรยากาศผ่อนคลาย เดินทางสะดวกสู่ถนนหลักและสิ่งอำนวยความสะดวกสำคัญของนนทบุรี
-        </p>
-
-        <div class="meta">
-          <div class="m">
-            <b>ทำเล</b>
-            <span>พระนั่งเกล้า · นนทบุรี</span>
-          </div>
-          <div class="m">
-            <b>ไฮไลต์</b>
-            <span>วิวแม่น้ำ · ลมเย็น</span>
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn-main" href="#location"><i class="bi bi-compass"></i> ดูทำเล</a>
-          <a class="btn-soft" href="#gallery"><i class="bi bi-images"></i> ดูรูปภาพ</a>
-          <a class="btn-soft" href="#contact"><i class="bi bi-telephone"></i> ติดต่อ</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LOCATION -->
-<section class="sec" id="location">
-  <div class="wrap">
-    <div class="sec-head" data-aos="fade-up">
-      <div>
-        <div class="kicker" style="margin:0 0 6px">ทำเลและการเดินทาง</div>
-        <h2>จุดเชื่อมต่อสำคัญรอบโครงการ</h2>
-      </div>
-      <p>จัดวางใหม่เป็น “ไทม์ไลน์ + การ์ด” เพื่อให้อ่านง่ายและแตกต่างจากดีไซน์เดิม</p>
-    </div>
-
-    <div class="loc-wrap">
-      <!-- Timeline -->
-      <div class="loc-timeline" data-aos="fade-right">
-        <div class="tl-item">
-          <div class="dot"></div>
-          <div>
-            <b>เช้า: ออกกำลังกาย / เดินเล่นริมน้ำ</b>
-            <span>บรรยากาศสบาย ช่วยเริ่มวันด้วยพลังที่ดี</span>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="dot"></div>
-          <div>
-            <b>กลางวัน: เดินทางเข้าเมือง</b>
-            <span>เชื่อมถนนหลักและโซนไลฟ์สไตล์ได้สะดวก</span>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="dot"></div>
-          <div>
-            <b>เย็น: พักผ่อนเงียบสงบ</b>
-            <span>เหมาะสำหรับคนทำงานที่ต้องการพื้นที่ชาร์จพลัง</span>
-          </div>
-        </div>
-
-        <div style="margin-top:14px">
-          <a class="btn-soft" href="https://maps.app.goo.gl/1JvCbJLj7Qpr2MxXA" target="_blank" rel="noopener">
-            <i class="bi bi-geo-alt"></i> เปิดในแผนที่
-          </a>
-        </div>
-      </div>
-
-      <!-- Cards -->
-      <div class="loc-cards" data-aos="fade-left">
-        <div class="card">
-          <div class="ico"><i class="bi bi-train-front"></i></div>
-          <div>
-            <small>การเดินทาง</small>
-            <strong>MRT สายสีม่วง ไทรม้า</strong>
-            <em>ประมาณ 900 เมตร</em>
-          </div>
-        </div>
-        <div class="card">
-          <div class="ico"><i class="bi bi-bag"></i></div>
-          <div>
-            <small>ศูนย์การค้า</small>
-            <strong>โซนรัตนาธิเบศร์</strong>
-            <em>ประมาณ 1.5 กม.</em>
-          </div>
-        </div>
-        <div class="card">
-          <div class="ico"><i class="bi bi-hospital"></i></div>
-          <div>
-            <small>โรงพยาบาล</small>
-            <strong>รพ.พระนั่งเกล้า</strong>
-            <em>ประมาณ 600 เมตร</em>
-          </div>
-        </div>
-        <div class="card">
-          <div class="ico"><i class="bi bi-signpost-2"></i></div>
-          <div>
-            <small>ถนนหลัก</small>
-            <strong>ถ.รัตนาธิเบศร์</strong>
-            <em>เชื่อมเมืองได้ง่าย</em>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="sec gallery" id="gallery">
-  <div class="wrap">
-    <div class="sec-head" data-aos="fade-up">
-      <div>
-        <div class="kicker" style="margin:0 0 6px">แกลเลอรี</div>
-        <h2>บรรยากาศโครงการ & ห้องพัก</h2>
-      </div>
-    </div>
-
-    <div class="masonry" data-aos="fade-up" data-aos-delay="80">
-      <!-- SLOT A: big -->
-      <div class="tile big">
-        <span class="slot-hint">SLOT A · ภาพหลัก</span>
-        <img src="./LumphineeView/LumphineeView-Building.jpg" alt="SLOT A"
-             onerror="this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600&q=80';">
-        <div class="cap">
-          <b>ภาพไฮไลต์</b>
-          <span>สวนส่วนกลางขนาดใหญ่ พื้นที่สีเขียวปลอดโปร่ง</span>
-        </div>
-      </div>
-
-      <div class="stack">
-        <!-- SLOT B -->
-        <div class="tile">
-          <span class="badge">SLOT B</span>
-          <img src="assets/images/lumpini/gallery-b.jpg" alt="SLOT B"
-               onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1600&q=80';">
-        </div>
-
-        <!-- SLOT C -->
-        <div class="tile">
-          <span class="badge">SLOT C</span>
-          <img src="assets/images/lumpini/gallery-c.jpg" alt="SLOT C"
-               onerror="this.src='https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1600&q=80';">
-          <div class="cap">
-            <b>ภาพบรรยากาศ</b>
-            <span>ใส่รูปฟิตเนส สวน ล็อบบี้ หรือวิวแม่น้ำ</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="cta" id="contact">
-  <div class="wrap">
-    <div class="cta-grid">
-      <div class="cta-left" data-aos="fade-right">
-        <div class="kicker" style="color:rgba(255,255,255,.7)">Contact Us</div>
-        <h3>นัดดูห้อง · ขอรูปเพิ่มเติม · สอบถามราคา</h3>
-        <p>
-          แจ้งความต้องการของคุณไว้ได้เลย (จำนวนห้องนอน/งบประมาณ/ต้องการห้องวิวแม่น้ำ)
-          ทีมงานจะติดต่อกลับโดยเร็วที่สุด
-        </p>
-
-        <div class="quick">
-          <a class="chip" href="tel:0863429855"><i class="bi bi-telephone"></i> 086 342 9855</a>
-          <a class="chip" href="mailto:jew.scb18@gmail.com"><i class="bi bi-envelope"></i> jew.scb18@gmail.com</a>
-        </div>
-      </div>
-
-      <div class="contact-card" data-aos="fade-left">
-        <div style="color:#fff;font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;">
-          ส่งข้อมูลให้เราติดต่อกลับ
-        </div>
-        <form class="form" onsubmit="return false;">
-          <input class="in" type="text" placeholder="ชื่อ - นามสกุล" />
-          <input class="in" type="tel" placeholder="เบอร์โทรศัพท์" />
-          <input class="in" type="email" placeholder="อีเมล" />
-          <textarea class="in" rows="4" placeholder="ต้องการห้องแบบไหน / งบประมาณ / ข้อความเพิ่มเติม"></textarea>
-          <button class="send" type="button">ส่งข้อมูล</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div class="foot-row">
-        <div>
-          <b style="font-family:'Cormorant Garamond',serif;color:var(--deep);font-size:1.05rem;">ลุมพินี วิลล์ พระนั่งเกล้า-ริเวอร์วิว</b><br>
-          <span>© 2024 NICHA CONDO · สงวนลิขสิทธิ์ทุกประการ</span>
-        </div>
-        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
-          <a href="#location">ทำเล</a>
-          <a href="#gallery">แกลเลอรี</a>
-          <a href="#contact">ติดต่อ</a>
-          <a href="tel:0863429855">086 342 9855</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  AOS.init({ duration: 850, easing: 'ease-out-cubic', once: true, offset: 70 });
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว | คอนโดและที่พักให้เช่า · NICHA CONDO</title>
+<meta name="description" content="มุมพักผ่อนในนนทบุรี พร้อมทางเลือกเดินทางด้วย MRT สายสีม่วง">
+<meta name="theme-color" content="#102b35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer>
 </script>
+</head>
+<body data-property-id="5">
+<a class="skip" href="#main">ข้ามไปเนื้อหา</a>
+<header class="header">
+<a class="brand" href="index.html">NICHA<span>CONDO · FIND YOUR PLACE</span>
+</a>
+<nav aria-label="เมนูหลัก">
+<a href="index.html#properties">เลือกที่พัก</a>
+<a href="#contact">ติดต่อเรา</a>
+<a class="nav-call" href="tel:0863429855">086 342 9855</a>
+</nav>
+</header>
+<main id="main">
+<section class="property-hero">
+<div class="property-hero-copy">
+<a class="back" href="index.html#properties">← กลับไปเลือกที่พัก</a>
+<p class="eyebrow">นนทบุรี · รายการ 5</p>
+<h1>ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว</h1>
+<p class="hero-tagline">มุมพักผ่อนในนนทบุรี พร้อมทางเลือกเดินทางด้วย MRT สายสีม่วง</p>
+<a class="button gold" href="#contact">สอบถามรายละเอียดห้อง ↗</a>
+</div>
+<div class="property-hero-image">
+<img src="LumphineeView/LumphineeView-Building.jpg" alt="ภาพประกอบโครงการ ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว" fetchpriority="high">
+</div>
+</section>
+<div class="property-bar">
+<span>สอบถามห้องว่างและราคา</span>
+<a href="#overview">จุดเด่น</a>
+<a href="#location">ทำเล</a>
+<a href="#gallery">ภาพประกอบ</a>
+<a href="#contact">นัดชม / สอบถาม</a>
+</div>
+<section id="overview" class="section overview">
+<div>
+<p class="eyebrow">YOUR NEXT CHAPTER</p>
+<h2>พื้นที่ที่เข้ากับ<br>จังหวะชีวิตของคุณ</h2>
+</div>
+<div>
+<p class="lead">เลือกมุมพักผ่อนในย่านไทรม้า นนทบุรี กับโครงการอาคาร 8 ชั้นที่มีพื้นที่สีเขียว สระว่ายน้ำ และพื้นที่ใช้ชีวิตร่วม เหมาะกับผู้ที่มีจุดหมายในนนทบุรีและต้องการทางเลือกเดินทางด้วย MRT สายสีม่วง ให้คุณจัดสมดุลระหว่างวันทำงานและเวลาส่วนตัวได้ในแบบของคุณ</p>
+<div class="highlights">
+<article>
+<span>01</span>
+<h3>มีทางเลือกเดินทางผ่าน MRT สายสีม่วง</h3>
+</article>
+<article>
+<span>02</span>
+<h3>มีพื้นที่สีเขียวและส่วนกลางสำหรับพักผ่อน</h3>
+</article>
+<article>
+<span>03</span>
+<h3>มีศูนย์การค้า โรงพยาบาล และท่าเรือในพื้นที่โดยรอบ</h3>
+</article>
+</div>
+</div>
+</section>
+<section id="location" class="section pale">
+<p class="eyebrow">LOCATION & LIFESTYLE</p>
+<h2>ทำเลที่ช่วยให้ชีวิตลงตัว</h2>
+<div class="two-columns">
+<article>
+<h3>เดินทางและใช้ชีวิต</h3>
+<p>ตั้งอยู่ในทำเลไทรม้า ย่านพระนั่งเกล้า มีสถานี MRT สะพานพระนั่งเกล้าและสถานีไทรม้าเป็นทางเลือกเชื่อมการเดินทางไปยังจุดหมายตามแนวสายสีม่วง</p>
+<a class="text-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=%E0%B8%A5%E0%B8%B8%E0%B8%A1%E0%B8%9E%E0%B8%B4%E0%B8%99%E0%B8%B5%20%E0%B8%A7%E0%B8%B4%E0%B8%A5%E0%B8%A5%E0%B9%8C%20%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%99%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%B2%20%E0%B8%A3%E0%B8%B4%E0%B9%80%E0%B8%A7%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%A7%E0%B8%B4%E0%B8%A7">ค้นหาโครงการบน Google Maps ↗</a>
+</article>
+<article>
+<h3>จุดหมายรอบโครงการ</h3>
+<p>โรงพยาบาลพระนั่งเกล้าเป็นจุดหมายด้านสุขภาพ Central รัตนาธิเบศร์เป็นตัวเลือกซื้อของและอาหาร ส่วนท่าเรือวัดแคนอกเป็นอีกทางเลือกการเดินทางในพื้นที่ โดยแต่ละแห่งต้องเดินทางต่อจากโครงการ</p>
+</article>
+</div>
+</section>
+<section class="section amenities">
+<div>
+<p class="eyebrow">MORE THAN A ROOM</p>
+<h2>เติมความสุข<br>ให้วันธรรมดา</h2>
+</div>
+<div>
+<h3>สิ่งอำนวยความสะดวกของโครงการ</h3>
+<p>สระว่ายน้ำ ฟิตเนส พื้นที่สีเขียว พื้นที่ใช้ชีวิตร่วม และสนามเด็กเล่น ให้ผู้พักอาศัยเลือกกิจกรรมตามช่วงเวลาที่สะดวก</p>
+<h3>เหมาะกับไลฟ์สไตล์ของใคร</h3>
+<p>เหมาะกับผู้ทำงานในนนทบุรี ผู้ที่มีภารกิจย่านพระนั่งเกล้า และผู้ใช้ MRT สายสีม่วง</p>
+</div>
+</section>
+<section id="gallery" class="section pale" data-gallery>
+<p class="eyebrow">A CLOSER LOOK</p>
+<h2>ชมโครงการให้ครบทุกมุม</h2>
+<p class="muted">รวมภาพโครงการ ส่วนกลาง ภาพห้องตัวอย่าง และผังที่มีให้ชม ภาพจากเว็บไซต์โครงการอาจเป็นภาพจำลองหรือห้องตัวอย่าง กรุณาขอภาพห้องที่สนใจจากผู้ดูแลเพื่อยืนยันวิว เฟอร์นิเจอร์ และสภาพห้องก่อนนัดชม</p>
+<div class="filters gallery-filters" data-gallery-controls hidden role="group" aria-label="เลือกประเภทภาพ">
+<button type="button" class="filter active" data-gallery-filter="all" aria-pressed="true">ทุกภาพ</button>
+<button type="button" class="filter" data-gallery-filter="building" aria-pressed="false">อาคารและบรรยากาศ</button>
+<button type="button" class="filter" data-gallery-filter="facilities" aria-pressed="false">ส่วนกลาง</button>
+<button type="button" class="filter" data-gallery-filter="interior" aria-pressed="false">ห้องและพื้นที่ภายใน</button>
+<button type="button" class="filter" data-gallery-filter="plan" aria-pressed="false">ผังและแผนที่</button>
+</div>
+<p class="gallery-count muted" aria-live="polite">ทั้งหมด 42 ภาพ</p>
+<div class="gallery">
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="LumphineeView/LumphineeView-Building.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 1">
+<img loading="lazy" decoding="async" src="LumphineeView/LumphineeView-Building.jpg" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 1">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="LumphineeView/LumphineeViewPlate.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 2">
+<img loading="lazy" decoding="async" src="LumphineeView/LumphineeViewPlate.jpg" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 2">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/e027da0cf32cca.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 3">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/e027da0cf32cca-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 3">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/d7ecf309ff9c8b.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 4">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/d7ecf309ff9c8b-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 4">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/909d8fae85dc51.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 5">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/909d8fae85dc51-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 5">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/d0cb4d0cfa298c.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 6">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/d0cb4d0cfa298c-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 6">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/d8278e9963e75c.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 7">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/d8278e9963e75c-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 7">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/784b6039d3b19a.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 8">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/784b6039d3b19a-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 8">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/79b70d15d0ce81.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 9">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/79b70d15d0ce81-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 9">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/da91cdd25e77e5.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 10">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/da91cdd25e77e5-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 10">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/29f0268ca2bc1a.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 11">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/29f0268ca2bc1a-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 11">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/e4b14b5a9c1a0b.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 12">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/e4b14b5a9c1a0b-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 12">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/a90d9631a114b1.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 13">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/a90d9631a114b1-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 13">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/26c4c9f33a629d.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 14">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/26c4c9f33a629d-thumb.webp" alt="ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 14">
+</button>
+<figcaption>
+<span>ผังโครงการ / ผังห้อง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/d9597ff805b810.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 15">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/d9597ff805b810-thumb.webp" alt="ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 15">
+</button>
+<figcaption>
+<span>ผังโครงการ / ผังห้อง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/1605db0742aa9e.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 16">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/1605db0742aa9e-thumb.webp" alt="ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 16">
+</button>
+<figcaption>
+<span>ผังโครงการ / ผังห้อง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/af1d81940b220b.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 17">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/af1d81940b220b-thumb.webp" alt="ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 17">
+</button>
+<figcaption>
+<span>ผังโครงการ / ผังห้อง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/b853584237fd49.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 18">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/b853584237fd49-thumb.webp" alt="ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 18">
+</button>
+<figcaption>
+<span>ผังโครงการ / ผังห้อง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/a58efe2c23337e.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 19">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/a58efe2c23337e-thumb.webp" alt="ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 19">
+</button>
+<figcaption>
+<span>ผังโครงการ / ผังห้อง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/ad8d89109a6fe0.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 20">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/ad8d89109a6fe0-thumb.webp" alt="ผังโครงการ / ผังห้อง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 20">
+</button>
+<figcaption>
+<span>ผังโครงการ / ผังห้อง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/58257bdbdbc8fa.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 21">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/58257bdbdbc8fa-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 21">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/913f5e9480f3ad.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 22">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/913f5e9480f3ad-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 22">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/e849e908bb69ee.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 23">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/e849e908bb69ee-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 23">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/8c1a8846637cd1.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 24">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/8c1a8846637cd1-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 24">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/d941a2dafba385.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 25">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/d941a2dafba385-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 25">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/c5ceca354ce106.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 26">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/c5ceca354ce106-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 26">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/4550ecb696619d.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 27">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/4550ecb696619d-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 27">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/559ffcd60cfd7c.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 28">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/559ffcd60cfd7c-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 28">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/bd08e4c0f3fdf7.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 29">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/bd08e4c0f3fdf7-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 29">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/e815111fc363d0.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 30">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/e815111fc363d0-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 30">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/05fec5700d24a5.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 31">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/05fec5700d24a5-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 31">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/48468d44590c3a.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 32">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/48468d44590c3a-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 32">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/108ef05e5d62be.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 33">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/108ef05e5d62be-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 33">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/f5193622c98a70.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 34">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/f5193622c98a70-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 34">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/a65199ede25d72.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 35">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/a65199ede25d72-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 35">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/ee9358bc591d5b.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 36">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/ee9358bc591d5b-thumb.webp" alt="ภาพห้องตัวอย่าง · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 36">
+</button>
+<figcaption>
+<span>ภาพห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/3e5ef768a5df00.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 37">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/3e5ef768a5df00-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 37">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/ac50f6a8ca8cdc.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 38">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/ac50f6a8ca8cdc-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 38">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/dead16d710b0d1.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 39">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/dead16d710b0d1-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 39">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/1a3c8cab7b1ab4.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 40">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/1a3c8cab7b1ab4-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 40">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/6f98c2dd44f764.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 41">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/6f98c2dd44f764-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 41">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/lumpini/c95696759d7a50.jpg" data-source-url="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" aria-label="ขยาย ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 42">
+<img loading="lazy" decoding="async" src="assets/project-photos/lumpini/c95696759d7a50-thumb.webp" alt="ภาพประกอบโครงการ · ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว · ภาพ 42">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+<a class="photo-credit" href="https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview" target="_blank" rel="noopener">ที่มา: LPN ↗</a>
+</figcaption>
+</figure>
+</div>
+<button type="button" class="button gallery-more" data-gallery-more hidden>ดูภาพทั้งหมด</button>
+</section>
+<section class="section">
+<p class="eyebrow">MAKE IT YOURS</p>
+<h2>เลือกห้องให้ตรงใจ ก่อนตัดสินใจ</h2>
+<div class="steps">
+<article>
+<span>01</span>
+<h3>บอกความต้องการ</h3>
+<p>ส่งชื่อโครงการ งบประมาณ วันที่ต้องการเข้าอยู่ และจำนวนผู้พัก</p>
+</article>
+<article>
+<span>02</span>
+<h3>ดูรายละเอียดห้อง</h3>
+<p>สอบถามราคา พื้นที่ ชั้น ภาพห้อง เฟอร์นิเจอร์ และเงื่อนไขสัญญา</p>
+</article>
+<article>
+<span>03</span>
+<h3>วางแผนเข้าอยู่</h3>
+<p>ยืนยันความพร้อมของห้องและนัดชมกับผู้ดูแลก่อนตัดสินใจ</p>
+</article>
+</div>
+<div class="faq">
+<details>
+<summary>ห้องยังว่างไหม และค่าเช่าเท่าไร?</summary>
+<p>ติดต่อผู้ดูแลพร้อมชื่อโครงการและวันที่ต้องการเข้าอยู่ เพื่อรับราคาและสถานะห้องล่าสุด</p>
+</details>
+<details>
+<summary>ใช้ส่วนกลาง จอดรถ หรือเลี้ยงสัตว์ได้ไหม?</summary>
+<p>สิทธิส่วนกลาง ที่จอดรถ และเงื่อนไขสัตว์เลี้ยงขึ้นอยู่กับห้องและข้อกำหนดโครงการ สอบถามผู้ดูแลเพื่อยืนยันรายละเอียดก่อนทำสัญญา</p>
+</details>
+</div>
+</section>
+<section id="contact" class="contact section">
+<div>
+<p class="eyebrow">LET’S FIND YOUR PLACE</p>
+<h2>สนใจ ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว?</h2>
+<p>ส่งชื่อโครงการพร้อมงบประมาณและวันเข้าอยู่ที่ต้องการ<br>ให้เราช่วยประสานรายละเอียดห้องที่เหมาะกับคุณ</p>
+<div class="contact-actions">
+<a class="button gold" href="https://line.me/R/ti/p/@779fsbjm" target="_blank" rel="noopener">คุยกับเราทาง LINE ↗</a>
+<a class="button outline" href="tel:0863429855">โทร 086 342 9855</a>
+</div>
+<a class="email" href="mailto:jew.scb18@gmail.com">jew.scb18@gmail.com</a>
+</div>
+<div class="inquiry">
+<h3>เตรียมข้อความสำหรับสอบถาม</h3>
+<label for="inquiry-message">แก้ไขข้อความแล้วคัดลอกไปส่งใน LINE ได้เลย</label>
+<textarea id="inquiry-message" rows="6">สวัสดีค่ะ/ครับ สนใจ ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว (รายการ 5)
+งบประมาณ:
+วันที่ต้องการเข้าอยู่:
+จำนวนผู้พัก:
+ขอทราบราคา รายละเอียดห้อง และวันสะดวกนัดชมค่ะ/ครับ</textarea>
+<button class="button cream" id="copy-inquiry" type="button">คัดลอกข้อความ</button>
+<p id="copy-status" role="status">
+</p>
+</div>
+</section>
+</main>
+<div class="mobile-contact">
+<a href="tel:0863429855">โทรสอบถาม</a>
+<a href="https://line.me/R/ti/p/@779fsbjm" target="_blank" rel="noopener">สอบถามทาง LINE ↗</a>
+</div>
+<footer class="footer">
+<a class="brand" href="index.html">NICHA CONDO</a>
+<p>พื้นที่ที่ใช่ สำหรับชีวิตของคุณ</p>
+<a href="tel:0863429855">โทร 086 342 9855</a>
+<span>© 2026 NICHA CONDO</span>
+</footer>
+<dialog id="lightbox" aria-label="ภาพขยาย">
+<button class="lightbox-close" aria-label="ปิดภาพ">✕</button>
+<div class="lightbox-stage">
+<button type="button" class="lightbox-prev" aria-label="ภาพก่อนหน้า">‹</button>
+<img alt="">
+<button type="button" class="lightbox-next" aria-label="ภาพถัดไป">›</button>
+</div>
+<p>
+</p>
+<a class="lightbox-source" hidden target="_blank" rel="noopener">ดูแหล่งที่มาภาพ ↗</a>
+</dialog>
 </body>
 </html>

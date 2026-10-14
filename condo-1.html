@@ -1,1040 +1,675 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="th">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>NOBLE REVOLVE 2 - RATCHADA</title>
-
-<!-- Single font request — only weights used -->
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@200,0&display=swap" rel="stylesheet"/>
-
-<style>
-/* ══ Reset ══ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif;
-  background:#f7f5f2;color:#1a1a1a;overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-a{text-decoration:none;color:inherit;}
-img{display:block;max-width:100%;}
-
-/* ══ Variables ══ */
-:root{
-  --wood:   #6d5b49;
-  --wood-lt:#8c7460;
-  --wood-dk:#4e3f30;
-  --cream:  #f7f5f2;
-  --paper:  #ffffff;
-  --ink:    #1a1a1a;
-  --ink-50: rgba(26,26,26,0.5);
-  --ink-20: rgba(26,26,26,0.12);
-  --border: rgba(109,91,73,0.18);
-  --font:   'IBM Plex Sans Thai','IBM Plex Sans',sans-serif;
-  --serif:  'Cormorant Garamond',Georgia,serif;
-  --max:    1200px;
-  --px:     clamp(1rem,4vw,2.5rem);
-  --ease:   cubic-bezier(0.22,1,0.36,1);
-}
-
-/* ══ Material Icons ══ */
-.material-symbols-outlined{
-  font-variation-settings:'FILL' 0,'wght' 200,'GRAD' 0,'opsz' 24;
-  vertical-align:middle;line-height:1;
-}
-
-/* ══ Reveal animation — CSS only, no JS lib ══ */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
-.reveal{opacity:0;animation:fadeUp .6s var(--ease) forwards;}
-.d1{animation-delay:.05s;} .d2{animation-delay:.12s;}
-.d3{animation-delay:.19s;} .d4{animation-delay:.26s;}
-/* Trigger on scroll via IntersectionObserver (lightweight, native) */
-.lazy-reveal{opacity:0;transform:translateY(18px);transition:opacity .55s var(--ease),transform .55s var(--ease);}
-.lazy-reveal.visible{opacity:1;transform:none;}
-
-/* ══ NAVBAR ══ */
-#nav{
-  position:sticky;top:0;z-index:100;
-  background:rgba(247,245,242,0.96);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  transition:box-shadow .3s;
-}
-#nav.shadow{box-shadow:0 2px 20px rgba(0,0,0,0.08);}
-.nav-inner{
-  max-width:var(--max);margin:0 auto;padding:0 var(--px);
-  height:72px;display:flex;align-items:center;justify-content:space-between;
-}
-.nav-logo{
-  font-family:var(--font);font-size:1rem;font-weight:700;
-  letter-spacing:.06em;color:var(--ink);
-}
-.nav-links{display:flex;gap:.25rem;list-style:none;}
-.nav-links a{
-  font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  padding:.5rem .9rem;color:var(--ink-50);
-  border-bottom:2px solid transparent;
-  transition:color .2s,border-color .2s;
-}
-.nav-links a:hover,.nav-links a.active{color:var(--ink);border-color:var(--wood);}
-.nav-actions{display:flex;align-items:center;gap:1rem;}
-.nav-lang{
-  font-size:.68rem;font-weight:600;letter-spacing:.1em;
-  color:var(--ink-50);cursor:pointer;
-  transition:color .2s;
-}
-.nav-lang:hover{color:var(--ink);}
-.btn-primary{
-  font-family:var(--font);font-size:.68rem;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;
-  background:var(--wood);color:#fff;
-  padding:.65rem 1.4rem;border:none;cursor:pointer;
-  transition:background .2s,transform .2s;
-}
-.btn-primary:hover{background:var(--wood-dk);transform:translateY(-1px);}
-
-/* Hamburger */
-.ham{
-  display:none;flex-direction:column;justify-content:center;
-  gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;
-}
-.ham span{display:block;width:22px;height:1.5px;background:var(--ink);transition:.3s;}
-.ham.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
-.ham.open span:nth-child(2){opacity:0;}
-.ham.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
-
-/* Mobile menu */
-#mob{
-  display:none;position:fixed;inset:0;z-index:99;
-  background:rgba(247,245,242,0.97);backdrop-filter:blur(16px);
-  flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;
-}
-#mob.open{display:flex;}
-#mob a{
-  font-size:1.4rem;font-weight:600;letter-spacing:.04em;
-  color:var(--ink-50);transition:color .2s;
-}
-#mob a:hover{color:var(--ink);}
-
-/* ══ HERO ══ */
-#hero{position:relative;overflow:hidden;background:#1a1a1a;}
-.hero-img{
-  width:100%;aspect-ratio:16/7;object-fit:cover;
-  /* no parallax — GPU friendly */
-  display:block;
-}
-@media(max-width:640px){.hero-img{aspect-ratio:4/5;object-fit:cover;}}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(10,8,6,0.1) 0%,
-    rgba(10,8,6,0.25) 50%,
-    rgba(10,8,6,0.72) 100%
-  );
-}
-.hero-content{
-  position:absolute;inset:0;
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
-  padding:0 1rem 4rem;text-align:center;color:#fff;
-}
-.hero-eyebrow{
-  font-size:.6rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;
-  color:rgba(255,255,255,0.6);margin-bottom:1rem;
-}
-.hero-title{
-  font-family:var(--serif);
-  font-size:clamp(2.2rem,5vw,4rem);font-weight:600;line-height:1.05;
-  letter-spacing:-.01em;margin-bottom:.75rem;
-}
-.hero-sub{
-  font-size:.85rem;color:rgba(255,255,255,0.6);
-  letter-spacing:.04em;margin-bottom:2.5rem;
-}
-/* Hero stats bar */
-.hero-stats{
-  display:inline-flex;
-  background:rgba(255,255,255,0.94);
-  border:1px solid rgba(0,0,0,0.08);
-  color:var(--ink);
-}
-.hero-stat{
-  padding:1rem 2.5rem;
-  border-right:1px solid var(--border);
-  display:flex;flex-direction:column;align-items:center;gap:.3rem;
-}
-.hero-stat:last-child{border-right:none;}
-.hero-stat-lbl{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--wood);}
-.hero-stat-val{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--ink);}
-.hero-stat-unit{font-size:.7rem;font-weight:400;color:var(--ink-50);}
-
-/* ══ SECTION BASE ══ */
-.section{padding:5rem 0;}
-.section-inner{max-width:var(--max);margin:0 auto;padding:0 var(--px);}
-.section-head{text-align:center;margin-bottom:3rem;}
-.sec-eyebrow{
-  font-size:.6rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--wood);margin-bottom:.6rem;
-}
-.sec-title{
-  font-family:var(--font);font-size:clamp(1.3rem,2.5vw,1.9rem);
-  font-weight:700;letter-spacing:-.01em;color:var(--ink);
-}
-.sec-rule{
-  width:36px;height:2px;background:var(--wood);
-  margin:.75rem auto 0;
-}
-
-/* ══ LOCATION ══ */
-#location{background:var(--paper);}
-.loc-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border:1px solid var(--border);
-}
-.loc-item{
-  padding:2rem 1.5rem;text-align:center;
-  border-right:1px solid var(--border);
-  display:flex;flex-direction:column;align-items:center;gap:.75rem;
-  transition:background .2s;
-}
-.loc-item:last-child{border-right:none;}
-.loc-item:hover{background:#faf8f5;}
-.loc-icon-wrap{
-  width:48px;height:48px;border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  transition:border-color .2s,background .2s;
-}
-.loc-item:hover .loc-icon-wrap{border-color:var(--wood);background:rgba(109,91,73,0.06);}
-.loc-icon-wrap .material-symbols-outlined{font-size:20px;color:var(--wood);}
-.loc-name{font-size:.78rem;font-weight:600;color:var(--ink);line-height:1.4;}
-.loc-sub{font-size:.7rem;color:var(--ink-50);}
-.loc-time{
-  font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--wood);
-}
-.map-cta{margin-top:2.5rem;text-align:center;}
-.btn-outline{
-  font-family:var(--font);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.75rem 2rem;border:1px solid var(--wood);color:var(--wood);
-  transition:background .2s,color .2s;
-}
-.btn-outline:hover{background:var(--wood);color:#fff;}
-
-/* ══ AMENITIES ══ */
-#amenities{background:#f2efe9;}
-.amen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);}
-.amen-card{
-  background:var(--paper);overflow:hidden;
-  display:flex;flex-direction:column;
-}
-/* Image attachment style */
-.amen-img-wrap{
-  position:relative;overflow:hidden;
-  /* Fixed aspect — no layout shift */
-  aspect-ratio:16/9;
-  background:#e8e3dc;
-}
-.amen-img-wrap img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .5s var(--ease);
-  /* loading=lazy set in HTML */
-}
-.amen-card:hover .amen-img-wrap img{transform:scale(1.03);}
-.amen-body{padding:1.25rem 1.5rem 1.5rem;}
-.amen-tag{
-  font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--wood);margin-bottom:.35rem;display:block;
-}
-.amen-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.35rem;}
-.amen-desc{font-size:.8rem;line-height:1.7;color:var(--ink-50);}
-
-/* ══ GALLERY — Image Attachment Style ══ */
-#gallery{background:var(--paper);}
-/* Primary 2-up + details strip */
-.gallery-primary{
-  display:grid;grid-template-columns:1.6fr 1fr;
-  gap:1px;background:var(--border);
-  border:1px solid var(--border);
-  margin-bottom:1px;
-}
-.gallery-strip{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1px;background:var(--border);
-  border:1px solid var(--border);
-  border-top:none;
-}
-/* Attachment card */
-.att-card{
-  position:relative;overflow:hidden;
-  background:#e8e3dc;cursor:pointer;
-  /* no absolute positioning of labels — keeps layout simple */
-}
-.att-card img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .5s var(--ease);
-  display:block;
-}
-.att-card:hover img{transform:scale(1.04);}
-.att-footer{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.6rem .9rem;
-  background:var(--paper);border-top:1px solid var(--border);
-}
-.att-name{font-size:.72rem;font-weight:600;color:var(--ink);}
-.att-type{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--wood);}
-
-/* Heights */
-.att-large{height:420px;}
-.att-med  {height:420px;}
-.att-sm   {height:200px;}
-
-/* ══ PROJECT DETAILS ══ */
-#details{background:#f2efe9;}
-.det-grid{
-  display:grid;grid-template-columns:1fr 380px;
-  gap:3rem;align-items:start;
-}
-.det-prose p{
-  font-size:.88rem;line-height:1.85;color:var(--ink-50);margin-bottom:1.25rem;
-}
-.det-points{list-style:none;margin-top:1.75rem;}
-.det-points li{
-  display:flex;align-items:flex-start;gap:.75rem;
-  padding:.8rem 0;border-bottom:1px solid var(--border);
-  font-size:.82rem;line-height:1.65;color:var(--ink-50);
-  transition:color .2s;
-}
-.det-points li:hover{color:var(--ink);}
-.det-points li:last-child{border-bottom:none;}
-.det-points li .material-symbols-outlined{font-size:16px;color:var(--wood);flex-shrink:0;margin-top:2px;}
-
-/* Stat strip */
-.stat-strip{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:1px;background:var(--border);
-  border:1px solid var(--border);margin-top:2rem;
-}
-.stat-cell{
-  background:var(--paper);padding:1.5rem 1.25rem;
-  display:flex;flex-direction:column;gap:.4rem;
-  transition:background .2s;
-}
-.stat-cell:hover{background:#faf8f5;}
-.stat-cell .material-symbols-outlined{font-size:18px;color:var(--wood);}
-.stat-lbl{font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-50);}
-.stat-val{font-size:.95rem;font-weight:700;color:var(--ink);}
-
-/* Sidebar contact card */
-.contact-card{
-  background:var(--paper);
-  border:1px solid var(--border);
-  border-top:2px solid var(--wood);
-  padding:2rem;
-  position:sticky;top:88px;
-}
-.cc-lbl{font-size:.58rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--wood);margin-bottom:.6rem;}
-.cc-title{font-size:1.2rem;font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:.75rem;}
-.cc-sub{font-size:.78rem;line-height:1.7;color:var(--ink-50);margin-bottom:1.5rem;}
-.cc-row{
-  display:flex;align-items:center;gap:.75rem;
-  padding:.85rem 1rem;border:1px solid var(--border);
-  margin-bottom:.6rem;transition:border-color .2s,background .2s;
-}
-.cc-row:hover{border-color:var(--wood);background:#faf8f5;}
-.cc-row .material-symbols-outlined{font-size:16px;color:var(--wood);flex-shrink:0;}
-.cc-row-lbl{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-50);display:block;margin-bottom:.15rem;}
-.cc-row-val{font-size:.82rem;font-weight:600;color:var(--ink);}
-
-/* Amenity list */
-.amen-list{list-style:none;margin-top:1.5rem;}
-.amen-list li{
-  display:flex;align-items:center;gap:.65rem;
-  padding:.55rem 0;border-bottom:1px solid var(--border);
-  font-size:.78rem;color:var(--ink-50);transition:color .2s;
-}
-.amen-list li:last-child{border-bottom:none;}
-.amen-list li:hover{color:var(--ink);}
-.amen-list li .material-symbols-outlined{font-size:14px;color:var(--wood);flex-shrink:0;}
-
-/* ══ CTA BAND ══ */
-#cta{
-  background:var(--wood-dk);color:#fff;
-  padding:4rem 0;
-}
-.cta-inner{
-  max-width:var(--max);margin:0 auto;padding:0 var(--px);
-  display:flex;align-items:center;justify-content:space-between;gap:3rem;
-  flex-wrap:wrap;
-}
-.cta-text .sec-eyebrow{color:rgba(255,255,255,0.5);}
-.cta-text .sec-title{color:#fff;font-size:clamp(1.3rem,2.5vw,1.85rem);}
-.cta-text .sec-rule{background:rgba(255,255,255,0.35);}
-.cta-text p{font-size:.85rem;color:rgba(255,255,255,0.55);margin-top:.75rem;max-width:420px;line-height:1.75;}
-.cta-actions{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn-white{
-  font-family:var(--font);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.85rem 2rem;background:#fff;color:var(--wood-dk);border:none;cursor:pointer;
-  transition:transform .2s,box-shadow .2s;
-}
-.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
-.btn-outline-w{
-  font-family:var(--font);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.85rem 2rem;background:transparent;color:#fff;
-  border:1px solid rgba(255,255,255,0.35);cursor:pointer;
-  transition:background .2s;
-}
-.btn-outline-w:hover{background:rgba(255,255,255,0.1);}
-
-/* ══ FOOTER ══ */
-footer{
-  background:#1a1a1a;color:rgba(255,255,255,0.45);
-  padding:4rem 0 0;
-}
-.foot-inner{
-  max-width:var(--max);margin:0 auto;padding:0 var(--px);
-  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;
-  padding-bottom:3rem;
-}
-.foot-brand{font-size:1rem;font-weight:700;color:#fff;letter-spacing:.06em;margin-bottom:.75rem;}
-.foot-desc{font-size:.78rem;line-height:1.75;max-width:260px;margin-bottom:1.25rem;}
-.foot-socials{display:flex;gap:.5rem;}
-.foot-social{
-  width:32px;height:32px;border:1px solid rgba(255,255,255,0.15);
-  display:flex;align-items:center;justify-content:center;
-  color:rgba(255,255,255,0.35);
-  transition:border-color .2s,color .2s;
-}
-.foot-social:hover{border-color:var(--wood);color:var(--wood);}
-.foot-social .material-symbols-outlined{font-size:15px;}
-.foot-col-title{
-  font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-  color:#fff;margin-bottom:1.25rem;
-}
-.foot-links{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
-.foot-links a{font-size:.78rem;color:rgba(255,255,255,0.35);transition:color .2s;}
-.foot-links a:hover{color:var(--wood);}
-.foot-contact-row{
-  display:flex;align-items:center;gap:.65rem;
-  margin-bottom:.65rem;font-size:.78rem;color:rgba(255,255,255,0.35);
-  transition:color .2s;
-}
-.foot-contact-row:hover{color:rgba(255,255,255,0.7);}
-.foot-contact-row .material-symbols-outlined{font-size:14px;color:var(--wood);flex-shrink:0;}
-.foot-bottom{
-  border-top:1px solid rgba(255,255,255,0.07);
-  padding:1.25rem var(--px);
-  text-align:center;
-  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
-}
-
-/* ══ RESPONSIVE ══ */
-@media(max-width:900px){
-  .nav-links,.nav-lang{display:none;}
-  .ham{display:flex;}
-  .loc-grid{grid-template-columns:repeat(2,1fr);}
-  .loc-item{border-bottom:1px solid var(--border);}
-  .det-grid{grid-template-columns:1fr;}
-  .contact-card{position:static;}
-  .foot-inner{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:640px){
-  .amen-grid{grid-template-columns:1fr;}
-  .gallery-primary{grid-template-columns:1fr;}
-  .gallery-strip{grid-template-columns:repeat(2,1fr);}
-  .att-large,.att-med{height:240px;}
-  .att-sm{height:160px;}
-  .stat-strip{grid-template-columns:repeat(2,1fr);}
-  .cta-inner{flex-direction:column;gap:2rem;}
-  .foot-inner{grid-template-columns:1fr;}
-  .hero-stat{padding:.75rem 1.25rem;}
-}
-</style>
-</head>
-<body>
-
-<!-- ══ NAVBAR ══ -->
-<nav id="nav">
-  <div class="nav-inner">
-    
-    <img src="NichaCondoLogo/LOGO-Natcha Condo.jpeg" alt="Natcha Condo Logo" style="height:40px;">
-    <div class="nav-logo">NOBLE REVOLVE 2</div>
-     
-    <ul class="nav-links">
-      <li><a href="#" class="active">HOME</a></li>
-      <li><a href="#details">PROJECT INFO</a></li>
-      <li><a href="#gallery">GALLERY</a></li>
-      <li><a href="#location">LOCATION</a></li>
-      <li><a href="#cta">CONTACT</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <a href="index.html" class="btn-primary">Main Page</a>
-      <button class="ham" id="hamBtn" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-  </div>
-</nav>
-
-<!-- Mobile menu -->
-<div id="mob">
-  <a href="#" class="mob-link">HOME</a>
-  <a href="#details" class="mob-link">PROJECT INFO</a>
-  <a href="#gallery" class="mob-link">GALLERY</a>
-  <a href="#location" class="mob-link">LOCATION</a>
-  <a href="#cta" class="mob-link">CONTACT</a>
-</div>
-
-
-<!-- ══ HERO ══ -->
-<section id="hero">
-
-  <!-- SLOT: NobleRevolveRatchada2-building-1 -->
-  <img
-    class="hero-img"
-    src="./NobleRevolveRatchada2/NobleRevolveRatchada2-building.jpg"
-    alt="Noble Revolve Ratchada 2 — Exterior"
-    loading="eager"
-    fetchpriority="high"
-    onerror="this.style.background='#2d2926';this.removeAttribute('src');"
-  />
-
-  <div class="hero-overlay"></div>
-
-  <div class="hero-content">
-    <p class="hero-eyebrow reveal d1">Noble Development · Ratchada, Bangkok</p>
-    <h1 class="hero-title reveal d2">Noble Revolve 2</h1>
-    <p class="hero-sub reveal d3">ออกแบบมาเพื่อหมุนรอบตัวคุณ · Designed to Revolve Around You</p>
-
-    <div class="hero-stats reveal d4">
-      <div class="hero-stat">
-        <span class="hero-stat-lbl" style="font-family:'IBM Plex Sans',sans-serif;">Size</span>
-        <span class="hero-stat-val" style="font-family:'IBM Plex Sans',sans-serif;">26.74 <span class="hero-stat-unit">sq.wah</span></span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-lbl" style="font-family:'IBM Plex Sans',sans-serif;">Floors</span>
-        <span class="hero-stat-val" style="font-family:'IBM Plex Sans',sans-serif;">26</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ LOCATION ══ -->
-<section id="location" class="section">
-  <div class="section-inner">
-
-    <div class="section-head lazy-reveal">
-      <p class="sec-eyebrow">ทำเลและการเดินทาง</p>
-      <h2 class="sec-title">Location &amp; Connectivity</h2>
-      <div class="sec-rule"></div>
-    </div>
-
-    <div class="loc-grid lazy-reveal">
-      <div class="loc-item">
-        <div class="loc-name">MRT Thailand Cultural Centre</div>
-        <div class="loc-time" style="font-family:'IBM Plex Sans',sans-serif;">1.6 km</div>
-      </div>
-      <div class="loc-item">
-        <div class="loc-name">Esplanade Ratchada</div>
-        <div class="loc-time" style="font-family:'IBM Plex Sans',sans-serif;">1.5 km</div>
-      </div>
-      <div class="loc-item">
-        <div class="loc-name">Central Rama 9</div>
-        <div class="loc-time" style="font-family:'IBM Plex Sans',sans-serif;">1.5 km</div>
-      </div>
-      <div class="loc-item">
-        <div class="loc-name">The Street Ratchada</div>
-        <div class="loc-time" style="font-family:'IBM Plex Sans',sans-serif;">2.3 km</div>
-      </div>
-      <div class="loc-item">
-        <div class="loc-name">Bangkok Hospital Ratchada</div>
-        <div class="loc-time" style="font-family:'IBM Plex Sans',sans-serif;">1.2 km</div>
-      </div>
-      <div class="loc-item">
-        <div class="loc-name">Chulalongkorn University</div>
-        <div class="loc-time" style="font-family:'IBM Plex Sans',sans-serif;">2.8 km</div>
-      </div>
-      <div class="loc-item">
-        <div class="loc-name">Lumpini Park</div>
-        <div class="loc-time" style="font-family:'IBM Plex Sans',sans-serif;">3.2 km</div>
-      </div>
-      <div class="loc-item">
-        <div class="loc-name">Ratchada Food Street</div>
-        <div class="loc-time" style="font-family:'IBM Plex Sans',sans-serif;">0.9 km</div>
-      </div>
-    </div>
-
-    <div class="map-cta lazy-reveal">
-      <a href="https://share.google/VFJ47Oq6PCCE94HTR" target="_blank" rel="noopener" class="btn-outline">
-        <span class="material-symbols-outlined" style="font-size:15px;">map</span>
-        VIEW ON MAP
-      </a>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══ AMENITIES ══ -->
-<section id="amenities" class="section">
-  <div class="section-inner">
-
-    <div class="section-head lazy-reveal">
-      <p class="sec-eyebrow">สิ่งอำนวยความสะดวก</p>
-      <h2 class="sec-title">Amenities</h2>
-      <div class="sec-rule"></div>
-    </div>
-
-    <div class="amen-grid lazy-reveal">
-
-      <!-- SLOT: NobleRevolveRatchada2-Pool-1 -->
-      <div class="amen-card">
-        <div class="amen-img-wrap">
-          <img
-            src="./NobleRevolveRatchada2/NobleRevolveRatchada2-Pool.jpg"
-            alt="Salt Water Pool"
-            loading="lazy"
-            onerror="this.style.display='none';"
-          />
-        </div>
-        <div class="amen-body">
-          <span class="amen-tag">Wellness</span>
-          <h3 class="amen-title">Infinity Edge Pool</h3>
-          <p class="amen-desc">สระว่ายน้ำระบบเกลือพร้อมวิวเมืองพาโนรามา</p>
-        </div>
-      </div>
-
-      <!-- SLOT: NobleRevolveRatchada2-yards-1 -->
-      <div class="amen-card">
-        <div class="amen-img-wrap">
-          <img
-            src="./NobleRevolveRatchada2/NobleRevolveRatchada2-Yard1.jpg"
-            alt="Rooftop Garden"
-            loading="lazy"
-            onerror="this.style.display='none';"
-          />
-        </div>
-        <div class="amen-body">
-          <span class="amen-tag">Outdoor</span>
-          <h3 class="amen-title">Rooftop Garden</h3>
-          <p class="amen-desc">พื้นที่สีเขียวบนยอดตึกเพื่อการผ่อนคลาย</p>
-        </div>
-      </div>
-
-      <!-- SLOT: NobleRevolveRatchada2-space-1 -->
-      <div class="amen-card">
-        <div class="amen-img-wrap">
-          <img
-            src="./NobleRevolveRatchada2/NobleRevolveRatchada2-space.jpg"
-            alt="Co-working Space"
-            loading="lazy"
-            onerror="this.style.display='none';"
-          />
-        </div>
-        <div class="amen-body">
-          <span class="amen-tag">Work &amp; Lounge</span>
-          <h3 class="amen-title">Co-working Space &amp; Lounge</h3>
-          <p class="amen-desc">พื้นที่ทำงานและสันทนาการที่ทันสมัย</p>
-        </div>
-      </div>
-
-      <!-- SLOT: NobleRevolveRatchada2-building-2 -->
-      <div class="amen-card">
-        <div class="amen-img-wrap">
-          <img
-            src="./NobleRevolveRatchada2/NobleRevolveRatchada2-building2.jpg"
-            alt="Fitness Center"
-            loading="lazy"
-            onerror="this.style.display='none';"
-          />
-        </div>
-        <div class="amen-body">
-          <span class="amen-tag">Fitness</span>
-          <h3 class="amen-title">Fitness Center</h3>
-          <p class="amen-desc">ฟิตเนสพร้อมอุปกรณ์ครบครันคุณภาพพรีเมียม</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ GALLERY — Image Attachment Style ══ -->
-<section id="gallery" class="section">
-  <div class="section-inner">
-
-    <div class="section-head lazy-reveal">
-      <p class="sec-eyebrow">ภาพภายในโครงการ</p>
-      <h2 class="sec-title">Interior Gallery</h2>
-      <div class="sec-rule"></div>
-    </div>
-
-    <!-- Primary row -->
-    <div class="gallery-primary lazy-reveal">
-
-      <!-- SLOT: room-1 -->
-      <div class="att-card att-large">
-        <img
-          src="./NobleRevolveRatchada2/NobleRevolveRatchada2-room.jpg"
-          alt="Living Room"
-          loading="lazy"
-          onerror="this.style.display='none';"
-        />
-        <div class="att-footer">
-          <span class="att-name">ห้องนั่งเล่น — Living Area</span>
-          <span class="att-type">Room</span>
-        </div>
-      </div>
-
-      <!-- SLOT: room-2 -->
-      <div class="att-card att-med">
-        <img
-          src="./NobleRevolveRatchada2/NobleRevolveRatchada2-room2.jpg"
-          alt="Bedroom"
-          loading="lazy"
-          onerror="this.style.display='none';"
-        />
-        <div class="att-footer">
-          <span class="att-name">ห้องนอน — Bedroom</span>
-          <span class="att-type">Room</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Strip row -->
-    <div class="gallery-strip lazy-reveal">
-
-      <!-- SLOT: room-3 -->
-      <div class="att-card att-sm">
-        <img
-          src="./NobleRevolveRatchada2/NobleRevolveRatchada2-room3.jpg"
-          alt="Kitchen"
-          loading="lazy"
-          onerror="this.style.display='none';"
-        />
-        <div class="att-footer">
-          <span class="att-name">ห้องครัว</span>
-          <span class="att-type">Room</span>
-        </div>
-      </div>
-
-      <!-- SLOT: room-4 -->
-      <div class="att-card att-sm">
-        <img
-          src="./NobleRevolveRatchada2/NobleRevolveRatchada2-room4.jpg"
-          alt="Bathroom"
-          loading="lazy"
-          onerror="this.style.display='none';"
-        />
-        <div class="att-footer">
-          <span class="att-name">ห้องน้ำ</span>
-          <span class="att-type">Room</span>
-        </div>
-      </div>
-
-      <!-- SLOT: room-5 -->
-      <div class="att-card att-sm">
-        <img
-          src="./NobleRevolveRatchada2/NobleRevolveRatchada2-room5.jpg"
-          alt="Dining"
-          loading="lazy"
-          onerror="this.style.display='none';"
-        />
-        <div class="att-footer">
-          <span class="att-name">โซนรับประทานอาหาร</span>
-          <span class="att-type">Room</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Yards row -->
-    <div class="gallery-strip lazy-reveal" style="border-top:none;margin-top:1px;">
-
-      <!-- SLOT: yards-2 -->
-      <div class="att-card att-sm">
-        <img
-          src="./NobleRevolveRatchada2/NobleRevolveRatchada2-Yards.jpg"
-          alt="Outdoor Yard 2"
-          loading="lazy"
-          onerror="this.style.display='none';"
-        />
-        <div class="att-footer">
-          <span class="att-name">Outdoor Yard 02</span>
-          <span class="att-type">Yards</span>
-        </div>
-      </div>
-
-      <!-- SLOT: yards-3 -->
-      <div class="att-card att-sm">
-        <img
-          src="./NobleRevolveRatchada2/NobleRevolveRatchada2-Yard1.jpg"
-          alt="Outdoor Yard 3"
-          loading="lazy"
-          onerror="this.style.display='none';"
-        />
-        <div class="att-footer">
-          <span class="att-name">Outdoor Yard 03</span>
-          <span class="att-type">Yards</span>
-        </div>
-      </div>
-
-      <!-- SLOT: building-2 -->
-      <div class="att-card att-sm">
-        <img
-          src="./NobleRevolveRatchada2/NobleRevolveRatchada2-building2.jpg"
-          alt="Building Exterior"
-          loading="lazy"
-          onerror="this.style.display='none';"
-        />
-        <div class="att-footer">
-          <span class="att-name">Building Exterior</span>
-          <span class="att-type">Building</span>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══ PROJECT DETAILS ══ -->
-<section id="details" class="section">
-  <div class="section-inner">
-
-    <div class="section-head lazy-reveal" style="text-align:left;">
-      <p class="sec-eyebrow">ข้อมูลโครงการ</p>
-      <h2 class="sec-title">Project Details</h2>
-      <div class="sec-rule" style="margin-left:0;"></div>
-    </div>
-
-    <div class="det-grid">
-
-      <!-- Left -->
-      <div class="lazy-reveal">
-        <div class="det-prose">
-          <p>โครงการระดับลักชัวรีในโซนรัชดา ออกแบบด้วยเส้นสายร่วมสมัย พื้นที่ส่วนกลางวางแผนให้ใช้ชีวิตเมืองได้อย่างสมดุลทั้งงานและการพักผ่อน เหมาะกับคนรุ่นใหม่ที่ต้องการภาพลักษณ์พรีเมียมพร้อมการเดินทางที่คล่องตัว</p>
-          <p>ตั้งอยู่ในทำเลศักยภาพ สะดวกสบายในการเดินทาง ใกล้ระบบขนส่งสาธารณะ ห้างสรรพสินค้าชั้นนำ โรงพยาบาล และสิ่งอำนวยความสะดวกครบครัน</p>
-        </div>
-
-        <ul class="det-points">
-          <li><span class="material-symbols-outlined">check_circle</span>Grand Lobby เพดานสูง ดีไซน์ระดับพรีเมียม</li>
-          <li><span class="material-symbols-outlined">check_circle</span>เดินทางสะดวก ใกล้ MRT ศูนย์วัฒนธรรมแห่งประเทศไทย</li>
-          <li><span class="material-symbols-outlined">check_circle</span>1 ห้องนอน 1 ห้องนั่งเล่น 1 ห้องน้ำ</li>
-          <li><span class="material-symbols-outlined">check_circle</span>เช่าขั้นต่ำเพียง 1 ปี ยืดหยุ่นทุกไลฟ์สไตล์</li>
-          <li><span class="material-symbols-outlined">check_circle</span>พร้อมเข้าพักทันที</li>
-          <li><span class="material-symbols-outlined">check_circle</span>Smart Security 24 ชม.</li>
-        </ul>
-
-        <div class="stat-strip">
-          <div class="stat-cell">
-            <span class="material-symbols-outlined">location_on</span>
-            <span class="stat-lbl">ที่ตั้ง</span>
-            <span class="stat-val">รัชดาภิเษก</span>
-          </div>
-          <div class="stat-cell">
-            <span class="material-symbols-outlined">apartment</span>
-            <span class="stat-lbl">ประเภท</span>
-            <span class="stat-val">คอนโดมิเนียม</span>
-          </div>
-          <div class="stat-cell">
-            <span class="material-symbols-outlined">calendar_month</span>
-            <span class="stat-lbl">เช่าขั้นต่ำ</span>
-            <span class="stat-val">1 ปี</span>
-          </div>
-          <div class="stat-cell" style="background:#faf3ec;">
-            <span class="material-symbols-outlined" style="color:var(--wood);">verified</span>
-            <span class="stat-lbl">สถานะ</span>
-            <span class="stat-val" style="color:var(--wood);">ห้องว่าง</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sidebar -->
-      <div class="lazy-reveal">
-        <div class="contact-card">
-          <div class="cc-lbl">สนใจโครงการนี้</div>
-          <h3 class="cc-title">นัดชมโครงการ<br/>แบบส่วนตัว</h3>
-          <p class="cc-sub">ทีมงานพร้อมให้คำปรึกษาและนัดชมโครงการ รับคำแนะนำยูนิตที่ตรงโจทย์ของคุณ</p>
-
-          <a href="tel:0863429855" class="cc-row">
-            <span class="material-symbols-outlined">phone</span>
-            <div>
-              <span class="cc-row-lbl">โทรศัพท์</span>
-              <span class="cc-row-val">086 342 9855</span>
-            </div>
-          </a>
-          <a href="mailto:jew.scb18@gmail.com" class="cc-row">
-            <span class="material-symbols-outlined">mail</span>
-            <div>
-              <span class="cc-row-lbl">อีเมล</span>
-              <span class="cc-row-val">jew.scb18@gmail.com</span>
-            </div>
-          </a>
-
-          <a href="#cta" class="btn-primary" style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:1.5rem;width:100%;">
-            <span class="material-symbols-outlined" style="font-size:15px;">arrow_forward</span>
-            ติดต่อสอบถาม
-          </a>
-        </div>
-
-        <div class="contact-card" style="margin-top:1rem;position:static;">
-          <div class="cc-lbl">สิ่งอำนวยความสะดวก</div>
-          <ul class="amen-list">
-            <li><span class="material-symbols-outlined">apartment</span>Grand Lobby เพดานสูง</li>
-            <li><span class="material-symbols-outlined">work</span>Business Lounge</li>
-            <li><span class="material-symbols-outlined">pool</span>สระว่ายน้ำระบบเกลือ</li>
-            <li><span class="material-symbols-outlined">fitness_center</span>Sky Fitness วิวเมือง</li>
-            <li><span class="material-symbols-outlined">security</span>Smart Security 24 ชม.</li>
-            <li><span class="material-symbols-outlined">electric_car</span>EV Ready Parking</li>
-            <li><span class="material-symbols-outlined">nature</span>Rooftop Sky Garden</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ CTA BAND ══ -->
-<section id="cta">
-  <div class="cta-inner">
-    <div class="cta-text lazy-reveal">
-      <p class="sec-eyebrow">ติดต่อเรา</p>
-      <h2 class="sec-title">สนใจโครงการนี้?</h2>
-      <div class="sec-rule" style="margin-left:0;"></div>
-      <p>รับคำแนะนำยูนิตที่ตรงโจทย์งบประมาณและเป้าหมายของคุณ<br/>พร้อมบริการนัดชมโครงการแบบส่วนตัว</p>
-    </div>
-    <div class="cta-actions lazy-reveal">
-      <a href="tel:0863429855" class="btn-white">
-        <span class="material-symbols-outlined" style="font-size:15px;">phone</span>
-        086 342 9855
-      </a>
-      <a href="mailto:jew.scb18@gmail.com" class="btn-outline-w">
-        <span class="material-symbols-outlined" style="font-size:15px;">mail</span>
-        jew.scb18@gmail.com
-      </a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ FOOTER ══ -->
-<footer>
-  <div class="foot-inner">
-
-    <div>
-      <div class="foot-brand">NOBLE REVOLVE 2</div>
-      <p class="foot-desc">An urban sanctuary designed to revolve around your lifestyle in the heart of Ratchada.</p>
-      <div class="foot-socials">
-        <a href="tel:0863429855" class="foot-social" title="086 342 9855">
-          <span class="material-symbols-outlined">phone</span>
-        </a>
-        <a href="mailto:jew.scb18@gmail.com" class="foot-social" title="jew.scb18@gmail.com">
-          <span class="material-symbols-outlined">mail</span>
-        </a>
-      </div>
-    </div>
-
-    <div>
-      <h5 class="foot-col-title">Contact Us</h5>
-      <ul class="foot-links">
-        <li><a href="tel:0863429855">086 342 9855</a></li>
-        <li><a href="mailto:jew.scb18@gmail.com">jew.scb18@gmail.com</a></li>
-        <li><a href="#">Sales Gallery</a></li>
-        <li><a href="#">Line @NobleDev</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h5 class="foot-col-title">Information</h5>
-      <ul class="foot-links">
-        <li><a href="#">About Project</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-      </ul>
-    </div>
-
-  </div>
-  <div class="foot-bottom">
-    &copy; 2024 NOBLE DEVELOPMENT PUBLIC COMPANY LIMITED. ALL RIGHTS RESERVED.
-  </div>
-</footer>
-
-
-<!-- ══ SCRIPTS — minimal, no libraries ══ -->
-<script>
-/* Navbar shadow on scroll */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('shadow', window.scrollY > 10);
-}, { passive: true });
-
-/* Mobile menu */
-const hamBtn = document.getElementById('hamBtn');
-const mob    = document.getElementById('mob');
-let open = false;
-function toggleMenu(state) {
-  open = state;
-  hamBtn.classList.toggle('open', open);
-  mob.classList.toggle('open', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-  hamBtn.setAttribute('aria-expanded', open);
-}
-hamBtn.addEventListener('click', () => toggleMenu(!open));
-document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => toggleMenu(false)));
-
-/* Scroll reveal — single IntersectionObserver, no deps */
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.lazy-reveal').forEach(el => io.observe(el));
-
-/* Map Modal Popup */
-const mapModal = document.getElementById('mapModal');
-const mapBtn = document.getElementById('mapBtn');
-const closeMapBtn = document.getElementById('closeMapBtn');
-
-if(mapBtn) {
-  mapBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    mapModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  });
-}
-
-if(closeMapBtn) {
-  closeMapBtn.addEventListener('click', () => {
-    mapModal.style.display = 'none';
-    document.body.style.overflow = '';
-  });
-}
-
-mapModal.addEventListener('click', (e) => {
-  if(e.target === mapModal) {
-    mapModal.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-});
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Noble Revolve Ratchada 2 | คอนโดและที่พักให้เช่า · NICHA CONDO</title>
+<meta name="description" content="ใช้ชีวิตใจกลางรัชดา ใกล้ MRT พร้อมมุมพักผ่อนหลังวันทำงาน">
+<meta name="theme-color" content="#102b35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer>
 </script>
-
+</head>
+<body data-property-id="1">
+<a class="skip" href="#main">ข้ามไปเนื้อหา</a>
+<header class="header">
+<a class="brand" href="index.html">NICHA<span>CONDO · FIND YOUR PLACE</span>
+</a>
+<nav aria-label="เมนูหลัก">
+<a href="index.html#properties">เลือกที่พัก</a>
+<a href="#contact">ติดต่อเรา</a>
+<a class="nav-call" href="tel:0863429855">086 342 9855</a>
+</nav>
+</header>
+<main id="main">
+<section class="property-hero">
+<div class="property-hero-copy">
+<a class="back" href="index.html#properties">← กลับไปเลือกที่พัก</a>
+<p class="eyebrow">กรุงเทพฯ · รายการ 1</p>
+<h1>Noble Revolve Ratchada 2</h1>
+<p class="hero-tagline">ใช้ชีวิตใจกลางรัชดา ใกล้ MRT พร้อมมุมพักผ่อนหลังวันทำงาน</p>
+<a class="button gold" href="#contact">สอบถามรายละเอียดห้อง ↗</a>
+</div>
+<div class="property-hero-image">
+<img src="NobleRevolveRatchada2/NobleRevolveRatchada2-building.jpg" alt="ภาพประกอบโครงการ Noble Revolve Ratchada 2" fetchpriority="high">
+</div>
+</section>
+<div class="property-bar">
+<span>สอบถามห้องว่างและราคา</span>
+<a href="#overview">จุดเด่น</a>
+<a href="#location">ทำเล</a>
+<a href="#gallery">ภาพประกอบ</a>
+<a href="#contact">นัดชม / สอบถาม</a>
+</div>
+<section id="overview" class="section overview">
+<div>
+<p class="eyebrow">YOUR NEXT CHAPTER</p>
+<h2>พื้นที่ที่เข้ากับ<br>จังหวะชีวิตของคุณ</h2>
+</div>
+<div>
+<p class="lead">เปลี่ยนวันทำงานในเมืองให้คล่องตัวขึ้น ด้วยที่พักย่านรัชดาใกล้ MRT ศูนย์วัฒนธรรมแห่งประเทศไทย เชื่อมต่อพระราม 9 และเดินทางต่อไปแนวสุขุมวิทได้สะดวกตามเส้นทางของคุณ กลับจากงานแล้วเลือกผ่อนคลายกับสระว่ายน้ำ ฟิตเนส หรือสวนภายในโครงการ พร้อมร้านอาหารและแหล่งซื้อของในย่านเดียวกัน</p>
+<div class="highlights">
+<article>
+<span>01</span>
+<h3>ใกล้ MRT สำหรับผู้ที่ใช้รถไฟฟ้าในชีวิตประจำวัน</h3>
+</article>
+<article>
+<span>02</span>
+<h3>มีพื้นที่ออกกำลังกายและพักผ่อนภายในโครงการ</h3>
+</article>
+<article>
+<span>03</span>
+<h3>อยู่ในย่านที่มีศูนย์การค้า ร้านอาหาร และบริการ</h3>
+</article>
+</div>
+</div>
+</section>
+<section id="location" class="section pale">
+<p class="eyebrow">LOCATION & LIFESTYLE</p>
+<h2>ทำเลที่ช่วยให้ชีวิตลงตัว</h2>
+<div class="two-columns">
+<article>
+<h3>เดินทางและใช้ชีวิต</h3>
+<p>ตั้งอยู่ย่านรัชดาภิเษก ห้วยขวาง ใกล้ MRT ศูนย์วัฒนธรรมแห่งประเทศไทย ซึ่งเชื่อมต่อย่านพระราม 9 และเดินทางต่อไปยังแนวสุขุมวิทได้ เลือกเส้นทางไปทำงานและแหล่งกิจกรรมได้ตามจุดหมายของคุณ</p>
+<a class="text-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Noble%20Revolve%20Ratchada%202">ค้นหาโครงการบน Google Maps ↗</a>
+</article>
+<article>
+<h3>จุดหมายรอบโครงการ</h3>
+<p>MRT ศูนย์วัฒนธรรมแห่งประเทศไทยเป็นจุดเชื่อมการเดินทางหลัก Esplanade Ratchada เป็นตัวเลือกสำหรับอาหารและกิจกรรม ส่วน Central Rama 9 เป็นจุดหมายซื้อของและใช้บริการที่เดินทางต่อได้</p>
+</article>
+</div>
+</section>
+<section class="section amenities">
+<div>
+<p class="eyebrow">MORE THAN A ROOM</p>
+<h2>เติมความสุข<br>ให้วันธรรมดา</h2>
+</div>
+<div>
+<h3>สิ่งอำนวยความสะดวกของโครงการ</h3>
+<p>สระว่ายน้ำ ฟิตเนส สวน พื้นที่จอดรถ และระบบรักษาความปลอดภัย ช่วยให้จัดเวลาออกกำลังกายและพักผ่อนได้ใกล้ที่พัก</p>
+<h3>เหมาะกับไลฟ์สไตล์ของใคร</h3>
+<p>เหมาะสำหรับคนทำงานรัชดาและพระราม 9 หรือผู้ที่ต้องการอยู่ในแนว MRT สายสีน้ำเงิน</p>
+</div>
+</section>
+<section id="gallery" class="section pale" data-gallery>
+<p class="eyebrow">A CLOSER LOOK</p>
+<h2>ชมโครงการให้ครบทุกมุม</h2>
+<p class="muted">รวมภาพโครงการ ส่วนกลาง ภาพห้องตัวอย่าง และผังที่มีให้ชม ภาพจากเว็บไซต์โครงการอาจเป็นภาพจำลองหรือห้องตัวอย่าง กรุณาขอภาพห้องที่สนใจจากผู้ดูแลเพื่อยืนยันวิว เฟอร์นิเจอร์ และสภาพห้องก่อนนัดชม</p>
+<div class="filters gallery-filters" data-gallery-controls hidden role="group" aria-label="เลือกประเภทภาพ">
+<button type="button" class="filter active" data-gallery-filter="all" aria-pressed="true">ทุกภาพ</button>
+<button type="button" class="filter" data-gallery-filter="building" aria-pressed="false">อาคารและบรรยากาศ</button>
+<button type="button" class="filter" data-gallery-filter="facilities" aria-pressed="false">ส่วนกลาง</button>
+<button type="button" class="filter" data-gallery-filter="interior" aria-pressed="false">ห้องและพื้นที่ภายใน</button>
+<button type="button" class="filter" data-gallery-filter="plan" aria-pressed="false">ผังและแผนที่</button>
+</div>
+<p class="gallery-count muted" aria-live="polite">ทั้งหมด 55 ภาพ</p>
+<div class="gallery">
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-building.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 1">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-building.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 1">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-Building2.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 2">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-Building2.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 2">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-Pool.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 3">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-Pool.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 3">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-Yard1.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 4">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-Yard1.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 4">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-Yards.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 5">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-Yards.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 5">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-room.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 6">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-room.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 6">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-room2.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 7">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-room2.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 7">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-room3.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 8">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-room3.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 8">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-room4.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 9">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-room4.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 9">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="interior">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-room5.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 10">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-room5.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 10">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="NobleRevolveRatchada2/NobleRevolveRatchada2-space.jpg" data-source-url="" aria-label="ขยาย ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 11">
+<img loading="lazy" decoding="async" src="NobleRevolveRatchada2/NobleRevolveRatchada2-space.jpg" alt="ภาพประกอบโครงการ · Noble Revolve Ratchada 2 · ภาพ 11">
+</button>
+<figcaption>
+<span>ภาพประกอบโครงการ</span>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/6308aea4d83284.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 12">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/6308aea4d83284-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 12">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/28ba9408ef824f.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 13">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/28ba9408ef824f-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 13">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/c932a7b2e0da00.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 14">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/c932a7b2e0da00-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 14">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/28ab3514d39f10.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 15">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/28ab3514d39f10-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 15">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/1ded4dd6611b77.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 16">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/1ded4dd6611b77-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 16">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/7bbcb3cc166243.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 17">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/7bbcb3cc166243-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 17">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/4d71799df0e126.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 18">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/4d71799df0e126-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 18">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/40fbf1cedfbee6.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 19">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/40fbf1cedfbee6-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 19">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/be75c9f30a6223.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 20">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/be75c9f30a6223-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 20">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/f8ba86d06a4ce9.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 21">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/f8ba86d06a4ce9-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 21">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/c15e1778ffff8c.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 22">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/c15e1778ffff8c-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 22">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/e4d8b1914d1702.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 23">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/e4d8b1914d1702-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 23">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/7fffcdc33e0f26.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 24">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/7fffcdc33e0f26-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 24">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/1d906c231e31c8.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 25">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/1d906c231e31c8-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 25">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/dfd314d28fedb2.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 26">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/dfd314d28fedb2-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 26">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/955bd3c1634ad8.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 27">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/955bd3c1634ad8-thumb.webp" alt="ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 27">
+</button>
+<figcaption>
+<span>ภาพจำลองโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/ff7e8601a9dc72.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 28">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/ff7e8601a9dc72-thumb.webp" alt="ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 28">
+</button>
+<figcaption>
+<span>ภาพจำลองโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/338868a06b0612.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 29">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/338868a06b0612-thumb.webp" alt="ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 29">
+</button>
+<figcaption>
+<span>ภาพจำลองโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="building">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/464f47801b31e7.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 30">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/464f47801b31e7-thumb.webp" alt="ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 30">
+</button>
+<figcaption>
+<span>ภาพจำลองโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/62027eb1d8da8b.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 31">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/62027eb1d8da8b-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 31">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/7d0a3e3edc340b.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 32">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/7d0a3e3edc340b-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 32">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/747c6151580b80.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 33">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/747c6151580b80-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 33">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/5475474ace0c13.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 34">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/5475474ace0c13-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 34">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/a770bc2239eed2.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 35">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/a770bc2239eed2-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 35">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/395d85b7a475a5.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 36">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/395d85b7a475a5-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 36">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/4a93982de01da2.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 37">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/4a93982de01da2-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 37">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/75d2c4e2afd7fd.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 38">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/75d2c4e2afd7fd-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 38">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/d86a9d0ac90243.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 39">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/d86a9d0ac90243-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 39">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/8f7a6b7be8d00b.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 40">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/8f7a6b7be8d00b-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 40">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/21bb823fd960df.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 41">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/21bb823fd960df-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 41">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/ca583325f12f93.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 42">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/ca583325f12f93-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 42">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/a6683540c67a93.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 43">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/a6683540c67a93-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 43">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/cba5358891b604.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 44">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/cba5358891b604-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 44">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/0b7d8af49a4c42.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 45">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/0b7d8af49a4c42-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 45">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/3bb37c0fd4863a.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 46">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/3bb37c0fd4863a-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 46">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/259510e3d96f0b.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 47">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/259510e3d96f0b-thumb.webp" alt="ภาพบรรยากาศโครงการ · Noble Revolve Ratchada 2 · ภาพ 47">
+</button>
+<figcaption>
+<span>ภาพบรรยากาศโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/826304093598c2.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 48">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/826304093598c2-thumb.webp" alt="ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 48">
+</button>
+<figcaption>
+<span>ภาพจำลองโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/6ef48e4ca86bfd.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 49">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/6ef48e4ca86bfd-thumb.webp" alt="ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 49">
+</button>
+<figcaption>
+<span>ภาพจำลองโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/4e3ad854eba262.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 50">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/4e3ad854eba262-thumb.webp" alt="ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 50">
+</button>
+<figcaption>
+<span>ภาพจำลองโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/a9ad0e6aab9a32.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 51">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/a9ad0e6aab9a32-thumb.webp" alt="ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 51">
+</button>
+<figcaption>
+<span>ภาพจำลองโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="facilities">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/ea2897804c9c0c.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 52">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/ea2897804c9c0c-thumb.webp" alt="ภาพจำลองโครงการ · Noble Revolve Ratchada 2 · ภาพ 52">
+</button>
+<figcaption>
+<span>ภาพจำลองโครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/1ead1f2f183ddc.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย แผนที่โครงการ · Noble Revolve Ratchada 2 · ภาพ 53">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/1ead1f2f183ddc-thumb.webp" alt="แผนที่โครงการ · Noble Revolve Ratchada 2 · ภาพ 53">
+</button>
+<figcaption>
+<span>แผนที่โครงการ</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/faa9f086e8f563.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ผังห้องตัวอย่าง · Noble Revolve Ratchada 2 · ภาพ 54">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/faa9f086e8f563-thumb.webp" alt="ผังห้องตัวอย่าง · Noble Revolve Ratchada 2 · ภาพ 54">
+</button>
+<figcaption>
+<span>ผังห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+<figure class="gallery-card" data-photo-category="plan">
+<button class="gallery-image" data-full-image="assets/project-photos/noble/d03c7141e39af2.jpg" data-source-url="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" aria-label="ขยาย ผังห้องตัวอย่าง · Noble Revolve Ratchada 2 · ภาพ 55">
+<img loading="lazy" decoding="async" src="assets/project-photos/noble/d03c7141e39af2-thumb.webp" alt="ผังห้องตัวอย่าง · Noble Revolve Ratchada 2 · ภาพ 55">
+</button>
+<figcaption>
+<span>ผังห้องตัวอย่าง</span>
+<a class="photo-credit" href="https://propertyhub.in.th/projects/noble-revolve-ratchada-2" target="_blank" rel="noopener">ที่มา: PropertyHub ↗</a>
+</figcaption>
+</figure>
+</div>
+<button type="button" class="button gallery-more" data-gallery-more hidden>ดูภาพทั้งหมด</button>
+</section>
+<section class="section">
+<p class="eyebrow">MAKE IT YOURS</p>
+<h2>เลือกห้องให้ตรงใจ ก่อนตัดสินใจ</h2>
+<div class="steps">
+<article>
+<span>01</span>
+<h3>บอกความต้องการ</h3>
+<p>ส่งชื่อโครงการ งบประมาณ วันที่ต้องการเข้าอยู่ และจำนวนผู้พัก</p>
+</article>
+<article>
+<span>02</span>
+<h3>ดูรายละเอียดห้อง</h3>
+<p>สอบถามราคา พื้นที่ ชั้น ภาพห้อง เฟอร์นิเจอร์ และเงื่อนไขสัญญา</p>
+</article>
+<article>
+<span>03</span>
+<h3>วางแผนเข้าอยู่</h3>
+<p>ยืนยันความพร้อมของห้องและนัดชมกับผู้ดูแลก่อนตัดสินใจ</p>
+</article>
+</div>
+<div class="faq">
+<details>
+<summary>ห้องยังว่างไหม และค่าเช่าเท่าไร?</summary>
+<p>ติดต่อผู้ดูแลพร้อมชื่อโครงการและวันที่ต้องการเข้าอยู่ เพื่อรับราคาและสถานะห้องล่าสุด</p>
+</details>
+<details>
+<summary>ใช้ส่วนกลาง จอดรถ หรือเลี้ยงสัตว์ได้ไหม?</summary>
+<p>สิทธิส่วนกลาง ที่จอดรถ และเงื่อนไขสัตว์เลี้ยงขึ้นอยู่กับห้องและข้อกำหนดโครงการ สอบถามผู้ดูแลเพื่อยืนยันรายละเอียดก่อนทำสัญญา</p>
+</details>
+</div>
+</section>
+<section id="contact" class="contact section">
+<div>
+<p class="eyebrow">LET’S FIND YOUR PLACE</p>
+<h2>สนใจ Noble Revolve Ratchada 2?</h2>
+<p>ส่งชื่อโครงการพร้อมงบประมาณและวันเข้าอยู่ที่ต้องการ<br>ให้เราช่วยประสานรายละเอียดห้องที่เหมาะกับคุณ</p>
+<div class="contact-actions">
+<a class="button gold" href="https://line.me/R/ti/p/@779fsbjm" target="_blank" rel="noopener">คุยกับเราทาง LINE ↗</a>
+<a class="button outline" href="tel:0863429855">โทร 086 342 9855</a>
+</div>
+<a class="email" href="mailto:jew.scb18@gmail.com">jew.scb18@gmail.com</a>
+</div>
+<div class="inquiry">
+<h3>เตรียมข้อความสำหรับสอบถาม</h3>
+<label for="inquiry-message">แก้ไขข้อความแล้วคัดลอกไปส่งใน LINE ได้เลย</label>
+<textarea id="inquiry-message" rows="6">สวัสดีค่ะ/ครับ สนใจ Noble Revolve Ratchada 2 (รายการ 1)
+งบประมาณ:
+วันที่ต้องการเข้าอยู่:
+จำนวนผู้พัก:
+ขอทราบราคา รายละเอียดห้อง และวันสะดวกนัดชมค่ะ/ครับ</textarea>
+<button class="button cream" id="copy-inquiry" type="button">คัดลอกข้อความ</button>
+<p id="copy-status" role="status">
+</p>
+</div>
+</section>
+</main>
+<div class="mobile-contact">
+<a href="tel:0863429855">โทรสอบถาม</a>
+<a href="https://line.me/R/ti/p/@779fsbjm" target="_blank" rel="noopener">สอบถามทาง LINE ↗</a>
+</div>
+<footer class="footer">
+<a class="brand" href="index.html">NICHA CONDO</a>
+<p>พื้นที่ที่ใช่ สำหรับชีวิตของคุณ</p>
+<a href="tel:0863429855">โทร 086 342 9855</a>
+<span>© 2026 NICHA CONDO</span>
+</footer>
+<dialog id="lightbox" aria-label="ภาพขยาย">
+<button class="lightbox-close" aria-label="ปิดภาพ">✕</button>
+<div class="lightbox-stage">
+<button type="button" class="lightbox-prev" aria-label="ภาพก่อนหน้า">‹</button>
+<img alt="">
+<button type="button" class="lightbox-next" aria-label="ภาพถัดไป">›</button>
+</div>
+<p>
+</p>
+<a class="lightbox-source" hidden target="_blank" rel="noopener">ดูแหล่งที่มาภาพ ↗</a>
+</dialog>
 </body>
 </html>
