@@ -522,7 +522,47 @@
     },
     "imageSources": [
       "https://propertyhub.in.th/projects/noble-revolve-ratchada-2"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://www.homenayoo.com/noble-revolve-ratchada-2/",
+      "sourceName": "HOMENAYOO",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "MRT ศูนย์วัฒนธรรมฯ",
+          "description": "เชื่อมต่อรถไฟฟ้าสายสีน้ำเงิน",
+          "kind": "transit",
+          "mode": "walking",
+          "mapQuery": "MRT Thailand Cultural Centre Exit 2",
+          "distanceMeters": 190
+        },
+        {
+          "name": "Esplanade รัชดา",
+          "description": "ช้อปปิ้งและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "Esplanade Ratchada",
+          "distanceMeters": 360
+        },
+        {
+          "name": "Central พระราม 9",
+          "description": "ศูนย์การค้าและไลฟ์สไตล์",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "Central Rama 9 Bangkok",
+          "distanceMeters": 810
+        },
+        {
+          "name": "โรงพยาบาลพระรามเก้า",
+          "description": "บริการด้านสุขภาพ",
+          "kind": "hospital",
+          "mode": "driving",
+          "mapQuery": "Praram 9 Hospital Bangkok",
+          "distanceMeters": 2700
+        }
+      ]
+    }
   },
   {
     "name": "Noble Revolve Ratchada 2",
@@ -1047,7 +1087,47 @@
     },
     "imageSources": [
       "https://propertyhub.in.th/projects/noble-revolve-ratchada-2"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://www.homenayoo.com/noble-revolve-ratchada-2/",
+      "sourceName": "HOMENAYOO",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "MRT ศูนย์วัฒนธรรมฯ",
+          "description": "เชื่อมต่อรถไฟฟ้าสายสีน้ำเงิน",
+          "kind": "transit",
+          "mode": "walking",
+          "mapQuery": "MRT Thailand Cultural Centre Exit 2",
+          "distanceMeters": 190
+        },
+        {
+          "name": "Esplanade รัชดา",
+          "description": "ช้อปปิ้งและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "Esplanade Ratchada",
+          "distanceMeters": 360
+        },
+        {
+          "name": "Central พระราม 9",
+          "description": "ศูนย์การค้าและไลฟ์สไตล์",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "Central Rama 9 Bangkok",
+          "distanceMeters": 810
+        },
+        {
+          "name": "โรงพยาบาลพระรามเก้า",
+          "description": "บริการด้านสุขภาพ",
+          "kind": "hospital",
+          "mode": "driving",
+          "mapQuery": "Praram 9 Hospital Bangkok",
+          "distanceMeters": 2700
+        }
+      ]
+    }
   },
   {
     "name": "NUE Noble Ngamwongwan",
@@ -1254,7 +1334,47 @@
     },
     "imageSources": [
       "https://www.noblehome.com/en/condominium/nue-ngamwongwan"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://www.condonayoo.com/nue-noble-ngamwongwan/",
+      "sourceName": "CONDONAYOO",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "The Mall งามวงศ์วาน",
+          "description": "ศูนย์การค้าและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "The Mall Lifestore Ngamwongwan",
+          "distanceMeters": 600
+        },
+        {
+          "name": "โรงพยาบาลนนทเวช",
+          "description": "ระยะทางตามตารางสถานที่ใกล้เคียง",
+          "kind": "hospital",
+          "mode": "walking",
+          "mapQuery": "Nonthavej Hospital",
+          "distanceMeters": 800
+        },
+        {
+          "name": "พันธุ์ทิพย์ งามวงศ์วาน",
+          "description": "ร้านค้าและบริการ",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "Pantip Plaza Ngamwongwan",
+          "distanceMeters": 200
+        },
+        {
+          "name": "Esplanade แคราย",
+          "description": "ช้อปปิ้งและความบันเทิง",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Esplanade Ngamwongwan Khae Rai",
+          "distanceMeters": 2500
+        }
+      ]
+    }
   },
   {
     "name": "CIELA Sripatum",
@@ -1557,7 +1677,47 @@
     },
     "imageSources": [
       "https://propertyhub.in.th/projects/ciela-sripatum"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://www.homenayoo.com/ciela-sripatum/",
+      "sourceName": "HOMENAYOO",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "มหาวิทยาลัยศรีปทุม",
+          "description": "สถานศึกษาในย่านพหลโยธิน",
+          "kind": "education",
+          "mode": "walking",
+          "mapQuery": "Sripatum University Bangkhen",
+          "distanceMeters": 450
+        },
+        {
+          "name": "ตลาดบางบัว",
+          "description": "อาหารและของใช้ประจำวัน",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "ตลาดบางบัว พหลโยธิน",
+          "distanceMeters": 280
+        },
+        {
+          "name": "Central รามอินทรา",
+          "description": "ช้อปปิ้งและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Central Ramindra",
+          "distanceMeters": 3500
+        },
+        {
+          "name": "โรงพยาบาลวิภาวดี",
+          "description": "บริการด้านสุขภาพ",
+          "kind": "hospital",
+          "mode": "driving",
+          "mapQuery": "Vibhavadi Hospital",
+          "distanceMeters": 3700
+        }
+      ]
+    }
   },
   {
     "name": "ลุมพินี วิลล์ พระนั่งเกล้า ริเวอร์วิว",
@@ -2029,7 +2189,47 @@
     },
     "imageSources": [
       "https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://www.lpn.co.th/en/condominium/project/lumpini-ville-phra-nang-klao-riverview",
+      "sourceName": "LPN",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "MRT สะพานพระนั่งเกล้า",
+          "description": "รถไฟฟ้าสายสีม่วง",
+          "kind": "transit",
+          "mode": "walking",
+          "mapQuery": "MRT Phra Nang Klao Bridge",
+          "distanceMeters": 600
+        },
+        {
+          "name": "ท่าเรือวัดแคนอก",
+          "description": "เชื่อมต่อเรือด่วนเจ้าพระยา",
+          "kind": "transit",
+          "mode": "driving",
+          "mapQuery": "Wat Khae Nok Pier",
+          "distanceMeters": 1900
+        },
+        {
+          "name": "Central รัตนาธิเบศร์",
+          "description": "ศูนย์การค้าและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Central Rattanathibet",
+          "distanceMeters": 3100
+        },
+        {
+          "name": "โรงพยาบาลพระนั่งเกล้า",
+          "description": "บริการด้านสุขภาพ",
+          "kind": "hospital",
+          "mode": "driving",
+          "mapQuery": "Phra Nang Klao Hospital",
+          "distanceMeters": 1900
+        }
+      ]
+    }
   },
   {
     "name": "The Tree Sukhumvit 71 Ekamai",
@@ -2722,49 +2922,52 @@
     },
     "imageSources": [
       "https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai"
-    ]
-  },
-  {
-    "name": "เซียล่า 1",
-    "region": "กรุงเทพฯ",
-    "tagline": "มองหาห้องที่เข้ากับชีวิตคุณ ให้เราช่วยดูรายละเอียดก่อนตัดสินใจ",
-    "description": "บอกเราว่าคุณกำลังมองหาที่พักแบบไหน ทั้งงบประมาณ วันที่ต้องการเข้าอยู่ และจำนวนผู้พัก เราจะช่วยประสานรายละเอียดของรายการนี้ เพื่อให้คุณเลือกที่พักได้อย่างมั่นใจ",
-    "highlights": [
-      "สอบถามรูปและรายละเอียดห้องที่สนใจ",
-      "เปรียบเทียบราคาและเงื่อนไขก่อนตัดสินใจ",
-      "ประสานวันพร้อมเข้าอยู่และการนัดชม"
     ],
-    "location": "",
-    "amenities": "",
-    "nearby": "",
-    "audience": "",
-    "images": [],
-    "status": "details",
-    "id": 7,
-    "reference": "รายการ 7",
-    "hasProjectContent": false,
-    "searchAliases": []
-  },
-  {
-    "name": "เซียล่า 2",
-    "region": "กรุงเทพฯ",
-    "tagline": "เลือกที่พักให้ตรงใจ เริ่มจากรายละเอียดห้องและทำเลที่เหมาะกับคุณ",
-    "description": "บอกเราว่าคุณกำลังมองหาที่พักแบบไหน ทั้งงบประมาณ วันที่ต้องการเข้าอยู่ และจำนวนผู้พัก เราจะช่วยประสานรายละเอียดของรายการนี้ เพื่อให้คุณเลือกที่พักได้อย่างมั่นใจ",
-    "highlights": [
-      "สอบถามรูปและรายละเอียดห้องที่สนใจ",
-      "เปรียบเทียบราคาและเงื่อนไขก่อนตัดสินใจ",
-      "ประสานวันพร้อมเข้าอยู่และการนัดชม"
-    ],
-    "location": "",
-    "amenities": "",
-    "nearby": "",
-    "audience": "",
-    "images": [],
-    "status": "details",
-    "id": 8,
-    "reference": "รายการ 8",
-    "hasProjectContent": false,
-    "searchAliases": []
+    "nearbyGuide": {
+      "sourceUrl": "https://yusabuy.com/2017/03/08/รีวิว-the-tree-sukhumvit-71-ekkamai/",
+      "sourceName": "อยู่สบาย",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "ARL รามคำแหง",
+          "description": "เชื่อมต่อแอร์พอร์ต เรล ลิงก์",
+          "kind": "transit",
+          "mode": "walking",
+          "mapQuery": "Airport Rail Link Ramkhamhaeng",
+          "distanceMeters": 350
+        },
+        {
+          "name": "The Mall รามคำแหง",
+          "description": "ช้อปปิ้งและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "The Mall Lifestore Ramkhamhaeng",
+          "distanceMeters": 1700,
+          "sourceUrl": "https://www.ddproperty.com/property/the-tree-sukhumvit-71-ekamai-เดอะทรี-สุขุมวิท-71-เ-60121135/",
+          "sourceName": "DDproperty"
+        },
+        {
+          "name": "มหาวิทยาลัยรามคำแหง",
+          "description": "สถานศึกษาในย่านหัวหมาก",
+          "kind": "education",
+          "mode": "driving",
+          "mapQuery": "Ramkhamhaeng University Hua Mak",
+          "distanceMeters": 2700,
+          "sourceUrl": "https://www.ddproperty.com/property/the-tree-sukhumvit-71-ekamai-เดอะทรี-สุขุมวิท-71-เ-60121135/",
+          "sourceName": "DDproperty"
+        },
+        {
+          "name": "โรงพยาบาลเพชรเวช",
+          "description": "ตรวจเส้นทางและระยะทางใน Google Maps",
+          "kind": "hospital",
+          "mode": "driving",
+          "mapQuery": "Petchavej Hospital",
+          "sourceUrl": "https://propertyhub.in.th/projects/the-tree-sukhumvit-71-ekamai",
+          "sourceName": "PropertyHub"
+        }
+      ]
+    }
   },
   {
     "name": "Copacabana Beach Jomtien",
@@ -2781,6 +2984,18 @@
     "audience": "เหมาะกับผู้ที่ต้องการอยู่ใกล้ทะเล ผู้ที่ย้ายมาใช้ชีวิตในพัทยา และผู้ทำงานจากที่พักที่ชอบบรรยากาศชายหาด",
     "region": "พัทยา",
     "images": [
+      "Copacabana/Homepage-copacabana-02.webp",
+      "Copacabana/745067_0.jpg",
+      "Copacabana/745068_0.jpg",
+      "Copacabana/745069_0.jpg",
+      "Copacabana/745070_0.jpg",
+      "Copacabana/745072_0.jpg",
+      "Copacabana/745074_0.jpg",
+      "Copacabana/745071_0.jpg",
+      "Copacabana/745073_0.jpg",
+      "Copacabana/745066_0.jpg",
+      "Copacabana/745075_0.jpg",
+      "Copacabana/745076.jpg",
       "Copacabana/Home-copacabana.jpg",
       "Copacabana/Copacabana_Bathroom.JPG",
       "Copacabana/Copacabana_Bathroom2.JPG",
@@ -2795,7 +3010,6 @@
       "Copacabana/Copacabana_Space2.jpg",
       "Copacabana/Copacabana_Table.JPG",
       "Copacabana/Copacabana_View.JPG",
-      "Copacabana/Homepage-copacabana-02.webp",
       "assets/project-photos/copacabana/68afaa643a08ca.jpg",
       "assets/project-photos/copacabana/0f852544e9d74c.jpg",
       "assets/project-photos/copacabana/8bebddd1e5648f.jpg",
@@ -2813,22 +3027,20 @@
       "assets/project-photos/copacabana/5a8435e76d3d14.jpeg",
       "assets/project-photos/copacabana/b6bd9158593fd1.jpeg",
       "assets/project-photos/copacabana/62c294e61f0a51.jpg",
-      "assets/project-photos/copacabana/e3372a060aced6.jpg",
-      "assets/project-photos/copacabana/66c43f08f5d206.jpg",
-      "assets/project-photos/copacabana/9f651d50d56c3d.jpg",
-      "assets/project-photos/copacabana/fdfc7cb3601612.jpg",
-      "assets/project-photos/copacabana/35c8f044157ed9.jpg",
-      "assets/project-photos/copacabana/2ca7615c436f67.jpg",
-      "assets/project-photos/copacabana/23f28642595a44.jpg",
-      "assets/project-photos/copacabana/49ce9212ff1ec0.jpg",
-      "assets/project-photos/copacabana/16dbade7fbfaf0.jpg",
-      "assets/project-photos/copacabana/485e13e614d50b.jpg",
-      "assets/project-photos/copacabana/77c2c4b940b217.jpg",
-      "assets/project-photos/copacabana/1aeca92f99a29b.jpg",
-      "assets/project-photos/copacabana/4a1a03b5fba311.jpg",
-      "assets/project-photos/copacabana/1eaabf04a31168.jpg",
-      "assets/project-photos/copacabana/63cd006f96063d.jpg",
-      "assets/project-photos/copacabana/0d2a119f15bb5d.jpg"
+      "Copacabana/S__79183932_0.jpg",
+      "Copacabana/S__79183934_0.jpg",
+      "Copacabana/S__79183935_0.jpg",
+      "Copacabana/S__79183936_0.jpg",
+      "Copacabana/S__79183937_0.jpg",
+      "Copacabana/S__79183938_0.jpg",
+      "Copacabana/S__79183939_0.jpg",
+      "Copacabana/S__79183940_0.jpg",
+      "Copacabana/S__79183941_0.jpg",
+      "Copacabana/S__79183942_0.jpg",
+      "Copacabana/S__79183943_0.jpg",
+      "Copacabana/S__79183945_0.jpg",
+      "Copacabana/S__79183947.jpg",
+      "Copacabana/Copacabana_RoomPlan.png"
     ],
     "status": "inquire",
     "id": 9,
@@ -3008,170 +3220,202 @@
         "width": 1537,
         "height": 2305
       },
-      "assets/project-photos/copacabana/e3372a060aced6.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/e3372a060aced6-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type1-1024x726-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183932_0.jpg": {
+        "category": "building",
+        "type": "ภาพจำลองอาคารและบรรยากาศโครงการ",
+        "thumbnail": "assets/project-photos/copacabana/S__79183932_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/66c43f08f5d206.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/66c43f08f5d206-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type4-1024x727-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183934_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183934_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/9f651d50d56c3d.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/9f651d50d56c3d-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type6-1024x727-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183935_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183935_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/fdfc7cb3601612.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/fdfc7cb3601612-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type7-1024x740-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183936_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183936_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/35c8f044157ed9.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/35c8f044157ed9-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type8-1024x724-2-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183937_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183937_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/2ca7615c436f67.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/2ca7615c436f67-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type9-1024x731-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183938_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183938_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/23f28642595a44.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/23f28642595a44-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type10-1024x729-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183939_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183939_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/49ce9212ff1ec0.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/49ce9212ff1ec0-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type11-1024x724-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183940_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183940_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/16dbade7fbfaf0.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/16dbade7fbfaf0-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type12-1024x729-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183941_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183941_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/485e13e614d50b.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/485e13e614d50b-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type13-1024x741-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183942_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183942_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/77c2c4b940b217.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/77c2c4b940b217-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type14-1024x730-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183943_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183943_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/1aeca92f99a29b.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/1aeca92f99a29b-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type15-1024x729-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183945_0.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/copacabana/S__79183945_0-thumb.webp"
       },
-      "assets/project-photos/copacabana/4a1a03b5fba311.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/4a1a03b5fba311-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type16-1024x728-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/S__79183947.jpg": {
+        "category": "building",
+        "type": "ภาพจำลองอาคารและบรรยากาศโครงการ",
+        "thumbnail": "assets/project-photos/copacabana/S__79183947-thumb.webp"
       },
-      "assets/project-photos/copacabana/1eaabf04a31168.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/1eaabf04a31168-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type2-1024x727-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/Homepage-copacabana-02.webp": {
+        "category": "building",
+        "type": "ภาพอาคาร Copacabana Beach Jomtien",
+        "thumbnail": "Copacabana/Homepage-copacabana-02.webp"
       },
-      "assets/project-photos/copacabana/63cd006f96063d.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/63cd006f96063d-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type3-1024x725-1-1024x542.jpg",
+      "Copacabana/Copacabana_RoomPlan.png": {
         "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+        "type": "แปลนห้อง Copacabana",
+        "thumbnail": "assets/project-photos/copacabana/Copacabana_RoomPlan-thumb.webp"
       },
-      "assets/project-photos/copacabana/0d2a119f15bb5d.jpg": {
-        "thumbnail": "assets/project-photos/copacabana/0d2a119f15bb5d-thumb.webp",
-        "sourcePage": "https://copacabanagroup.com/en/projects/copacabana-jomtien/",
-        "sourceImage": "https://copacabanagroup.com/wp-content/uploads/2024/09/type5-1024x772-1-1024x542.jpg",
-        "category": "plan",
-        "type": "ผังห้องตัวอย่าง",
-        "label": "",
-        "width": 1024,
-        "height": 542
+      "Copacabana/745067_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Copacabana",
+        "thumbnail": "assets/project-photos/copacabana/745067_0-thumb.webp",
+        "width": 1706,
+        "height": 960
+      },
+      "Copacabana/745068_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Copacabana",
+        "thumbnail": "assets/project-photos/copacabana/745068_0-thumb.webp",
+        "width": 1706,
+        "height": 960
+      },
+      "Copacabana/745069_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Copacabana",
+        "thumbnail": "assets/project-photos/copacabana/745069_0-thumb.webp",
+        "width": 1706,
+        "height": 960
+      },
+      "Copacabana/745070_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Copacabana",
+        "thumbnail": "assets/project-photos/copacabana/745070_0-thumb.webp",
+        "width": 1706,
+        "height": 960
+      },
+      "Copacabana/745072_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Copacabana",
+        "thumbnail": "assets/project-photos/copacabana/745072_0-thumb.webp",
+        "width": 1706,
+        "height": 960
+      },
+      "Copacabana/745074_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Copacabana",
+        "thumbnail": "assets/project-photos/copacabana/745074_0-thumb.webp",
+        "width": 1706,
+        "height": 960
+      },
+      "Copacabana/745071_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Copacabana",
+        "thumbnail": "assets/project-photos/copacabana/745071_0-thumb.webp",
+        "width": 1706,
+        "height": 960
+      },
+      "Copacabana/745073_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Copacabana",
+        "thumbnail": "assets/project-photos/copacabana/745073_0-thumb.webp",
+        "width": 1706,
+        "height": 960
+      },
+      "Copacabana/745066_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Copacabana",
+        "thumbnail": "assets/project-photos/copacabana/745066_0-thumb.webp",
+        "width": 960,
+        "height": 1706
+      },
+      "Copacabana/745075_0.jpg": {
+        "category": "building",
+        "type": "วิวจากห้องพัก",
+        "thumbnail": "assets/project-photos/copacabana/745075_0-thumb.webp",
+        "width": 1706,
+        "height": 960
+      },
+      "Copacabana/745076.jpg": {
+        "category": "building",
+        "type": "วิวจากห้องพัก",
+        "thumbnail": "assets/project-photos/copacabana/745076-thumb.webp",
+        "width": 1706,
+        "height": 960
       }
     },
     "imageSources": [
       "https://copacabanagroup.com/en/projects/copacabana-jomtien/"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://optimoproperties.com/en/project/copacabana-beach-jomtien/",
+      "sourceName": "Optimo Properties",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "หาดจอมเทียน",
+          "description": "พักผ่อนริมชายหาด",
+          "kind": "beach",
+          "mode": "walking",
+          "mapQuery": "Jomtien Beach Central Pattaya",
+          "distanceMeters": 50
+        },
+        {
+          "name": "Jomtien Night Market",
+          "description": "อาหารและบรรยากาศยามเย็น",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "Jomtien Night Market",
+          "distanceMeters": 500
+        },
+        {
+          "name": "ตลาดน้ำ 4 ภาค พัทยา",
+          "description": "อาหารและร้านค้าท้องถิ่น",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Pattaya Floating Market",
+          "distanceMeters": 4200
+        },
+        {
+          "name": "Walking Street",
+          "description": "สีสันยามค่ำคืน",
+          "kind": "nightlife",
+          "mode": "driving",
+          "mapQuery": "Walking Street Pattaya",
+          "distanceMeters": 5500
+        }
+      ]
+    }
   },
   {
     "name": "AROM Jomtien",
@@ -3615,7 +3859,52 @@
     },
     "imageSources": [
       "https://www.coloursdevelopment.com/aromjomtien/"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://www.coloursdevelopment.com/aromjomtien/",
+      "sourceName": "Colours Development",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "road",
+      "places": [
+        {
+          "name": "หาดจอมเทียน",
+          "description": "โครงการอยู่บนถนนเลียบหาดจอมเทียน",
+          "kind": "beach",
+          "mode": "walking",
+          "mapQuery": "Jomtien Beach Central Pattaya"
+        },
+        {
+          "name": "Makro พัทยาใต้",
+          "description": "ซื้ออาหารและของใช้",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Makro South Pattaya",
+          "distanceMeters": 2400,
+          "sourceUrl": "https://montmari-asia.com/en/property/kvartira-s-1-spalnej-v-arom-jomtien-rajon-jomtien-6-etazh-3825-kvm/",
+          "sourceName": "Montmari Thailand"
+        },
+        {
+          "name": "หาดดงตาล",
+          "description": "พักผ่อนริมชายหาด",
+          "kind": "beach",
+          "mode": "driving",
+          "mapQuery": "Dongtan Beach Pattaya",
+          "distanceMeters": 1700,
+          "sourceUrl": "https://montmari-asia.com/en/property/kvartira-s-1-spalnej-v-arom-jomtien-rajon-jomtien-6-etazh-3825-kvm/",
+          "sourceName": "Montmari Thailand"
+        },
+        {
+          "name": "Lotus’s พัทยาใต้",
+          "description": "ซูเปอร์มาร์เก็ตและร้านค้า",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Lotus South Pattaya",
+          "distanceMeters": 2800,
+          "sourceUrl": "https://montmari-asia.com/en/property/kvartira-s-1-spalnej-v-arom-jomtien-rajon-jomtien-6-etazh-3825-kvm/",
+          "sourceName": "Montmari Thailand"
+        }
+      ]
+    }
   },
   {
     "name": "AROM Wongamat",
@@ -3627,7 +3916,7 @@
       "เปรียบเทียบราคาและเงื่อนไขก่อนตัดสินใจ",
       "ประสานวันพร้อมเข้าอยู่และการนัดชม"
     ],
-    "location": "",
+    "location": "ตั้งอยู่ในซอยนาเกลือ 16 บริเวณหาดวงศ์อมาตย์ พัทยา ตามข้อมูลเว็บไซต์โครงการ Colours Development",
     "amenities": "",
     "nearby": "",
     "audience": "",
@@ -4044,6 +4333,50 @@
       }
     },
     "imageSources": [
+      "https://www.coloursdevelopment.com/aromwongamat/"
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://www.agoda.com/arom-wongomat/hotel/pattaya-th.html",
+      "sourceName": "Agoda",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "straight-line",
+      "places": [
+        {
+          "name": "หาดวงศ์อมาตย์",
+          "description": "พักผ่อนริมชายหาด",
+          "kind": "beach",
+          "mode": "walking",
+          "mapQuery": "Wong Amat Beach Pattaya",
+          "distanceMeters": 110
+        },
+        {
+          "name": "ปราสาทสัจธรรม",
+          "description": "พิพิธภัณฑ์และงานสถาปัตยกรรม",
+          "kind": "attraction",
+          "mode": "driving",
+          "mapQuery": "Sanctuary of Truth Pattaya",
+          "distanceMeters": 930
+        },
+        {
+          "name": "Central Pattaya",
+          "description": "ศูนย์การค้าและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Central Pattaya shopping mall",
+          "distanceMeters": 3400
+        },
+        {
+          "name": "Walking Street",
+          "description": "สีสันยามค่ำคืน",
+          "kind": "nightlife",
+          "mode": "driving",
+          "mapQuery": "Walking Street Pattaya",
+          "distanceMeters": 4500
+        }
+      ]
+    },
+    "mapQuery": "AROM Wongamat Naklua Soi 16 Pattaya",
+    "informationSources": [
       "https://www.coloursdevelopment.com/aromwongamat/"
     ]
   },
@@ -4716,7 +5049,47 @@
     },
     "imageSources": [
       "https://secretgardencondo.com/en"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://roof21.co.th/property/secret-garden-condo-naklua-ground-floor-1-bed-pool-view-unit-floor-1-peaceful-naklua-foreign-freehold-s-1677-s",
+      "sourceName": "ROOF21",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "หาดวงศ์อมาตย์",
+          "description": "พักผ่อนริมชายหาด",
+          "kind": "beach",
+          "mode": "driving",
+          "mapQuery": "Wong Amat Beach Pattaya",
+          "minutes": 3
+        },
+        {
+          "name": "Terminal 21 Pattaya",
+          "description": "ช้อปปิ้งและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Terminal 21 Pattaya",
+          "minutes": 5
+        },
+        {
+          "name": "Central Marina",
+          "description": "ศูนย์การค้าในพัทยาเหนือ",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Central Marina Pattaya",
+          "minutes": 10
+        },
+        {
+          "name": "โรงพยาบาลกรุงเทพพัทยา",
+          "description": "บริการด้านสุขภาพ",
+          "kind": "hospital",
+          "mode": "driving",
+          "mapQuery": "Bangkok Hospital Pattaya",
+          "minutes": 10
+        }
+      ]
+    }
   },
   {
     "name": "Embassy Pattaya",
@@ -5413,49 +5786,303 @@
     "imageSources": [
       "https://embassypattaya.com/the-story-of-project/",
       "https://embassypattaya.com/project-information/"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://embassypattaya.com/location/",
+      "sourceName": "Embassy Pattaya",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "หาดจอมเทียน",
+          "description": "พักผ่อนริมชายหาด",
+          "kind": "beach",
+          "mode": "walking",
+          "mapQuery": "Jomtien Beach Pattaya",
+          "distanceMeters": 300
+        },
+        {
+          "name": "Makro พัทยาใต้",
+          "description": "ซื้ออาหารและของใช้",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Makro South Pattaya",
+          "minutes": 6
+        },
+        {
+          "name": "Underwater World",
+          "description": "พิพิธภัณฑ์สัตว์น้ำ",
+          "kind": "attraction",
+          "mode": "driving",
+          "mapQuery": "Underwater World Pattaya",
+          "minutes": 8
+        },
+        {
+          "name": "Terminal 21 Pattaya",
+          "description": "ช้อปปิ้งและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Terminal 21 Pattaya",
+          "minutes": 35
+        }
+      ]
+    }
   },
   {
-    "name": "โนเบิ้ล พระราม 9",
+    "name": "Noble TERRA Rama 9 – Ekamai",
     "region": "กรุงเทพฯ",
-    "tagline": "มองหาที่พักย่านพระราม 9 ให้เราช่วยประสานรายละเอียดห้อง",
-    "description": "บอกเราว่าคุณกำลังมองหาที่พักแบบไหน ทั้งงบประมาณ วันที่ต้องการเข้าอยู่ และจำนวนผู้พัก เราจะช่วยประสานรายละเอียดของรายการนี้ เพื่อให้คุณเลือกที่พักได้อย่างมั่นใจ",
+    "tagline": "บ้านเดี่ยว 3 ชั้น เพียง 29 หลัง พร้อมลิฟต์ส่วนตัว ใจกลางพระราม 9–เอกมัย",
+    "description": "Noble TERRA Rama 9 – Ekamai (โนเบิล เทอร์รา พระราม 9–เอกมัย) โครงการบ้านเดี่ยว 3 ชั้นจาก Noble Development ออกแบบภายใต้แนวคิด Oneness with Nature เชื่อมพื้นที่อยู่อาศัยกับธรรมชาติผ่าน Tree Court ภายในบ้าน มีบ้านเพียง 29 หลัง และแบบบ้าน 4 แบบ ได้แก่ RADIX 382 ตร.ม., POLLINIS 409 ตร.ม., CORTEX 457 ตร.ม. และ FOLIUM 498 ตร.ม. พร้อมลิฟต์ส่วนตัว รองรับ 4–5 ห้องนอน 5–6 ห้องน้ำ และที่จอดรถ 3–5 คันตามแบบบ้าน",
     "highlights": [
-      "สอบถามรูปและรายละเอียดห้องที่สนใจ",
-      "เปรียบเทียบราคาและเงื่อนไขก่อนตัดสินใจ",
-      "ประสานวันพร้อมเข้าอยู่และการนัดชม"
+      "ความเป็นส่วนตัวด้วยบ้านเพียง 29 หลัง",
+      "พื้นที่ใช้สอย 382–498 ตร.ม. พร้อมลิฟต์ส่วนตัว",
+      "Tree Court เชื่อมพื้นที่บ้านกับธรรมชาติ"
     ],
-    "location": "",
-    "amenities": "",
-    "nearby": "",
-    "audience": "",
-    "images": [],
+    "location": "ตั้งอยู่ในซอยจำเนียรเสริม แขวงวังทองหลาง เขตวังทองหลาง กรุงเทพฯ เชื่อมต่อถนนประดิษฐ์มนูธรรมผ่านซอยประดิษฐ์มนูธรรม 1 และถนนพระราม 9 ผ่านซอยพระราม 9 ที่ 17 เหมาะกับการเดินทางด้วยรถยนต์สู่ย่านพระราม 9 เอกมัย และเลียบทางด่วน",
+    "amenities": "Clubhouse พร้อมสระว่ายน้ำระบบเกลือ สระเด็ก และ Jacuzzi รวมถึงฟิตเนส Welcome Lounge, Business Lounge และ Sensory Garden พร้อมระบบรักษาความปลอดภัยและ CCTV ตลอด 24 ชั่วโมง ภายในบ้านมีลิฟต์ส่วนตัว Home Automation และจุดรองรับ EV Charger ตามข้อมูลโครงการ",
+    "nearby": "ใกล้ Golden Place พระราม 9 และโรงเรียนนานาชาติ Regent’s เชื่อมต่อ Central Rama 9 และโรงพยาบาลปิยะเวท ดูระยะทางโดยประมาณและเปิดเส้นทางจริงได้จากแผนภาพด้านล่าง",
+    "audience": "ครอบครัวที่ต้องการบ้านขนาดใหญ่และความเป็นส่วนตัวในเมือง โดยมีโรงเรียนนานาชาติและสิ่งอำนวยความสะดวกในย่านพระราม 9–เอกมัย",
+    "images": [
+      "assets/project-photos/noble-terra/cover.webp",
+      "assets/project-photos/noble-terra/radix-plan.webp",
+      "assets/project-photos/noble-terra/pollinis-plan.webp",
+      "assets/project-photos/noble-terra/cortex-plan.webp",
+      "assets/project-photos/noble-terra/folium-plan.webp",
+      "assets/project-photos/noble-terra/masterplan.webp",
+      "assets/project-photos/noble-terra/dining.webp",
+      "assets/project-photos/noble-terra/living.webp",
+      "assets/project-photos/noble-terra/tree-court.webp",
+      "assets/project-photos/noble-terra/bedroom.webp",
+      "assets/project-photos/noble-terra/bathroom.webp",
+      "assets/project-photos/noble-terra/radix-exterior.webp",
+      "assets/project-photos/noble-terra/pollinis-exterior.webp",
+      "assets/project-photos/noble-terra/cortex-exterior.webp",
+      "assets/project-photos/noble-terra/folium-exterior.webp",
+      "assets/project-photos/noble-terra/balcony-and-street-exterior.webp"
+    ],
     "status": "details",
     "id": 14,
     "reference": "รายการ 14",
-    "hasProjectContent": false,
-    "searchAliases": []
-  },
-  {
-    "name": "แสนสิริ กำแพงแสน",
-    "region": "กำแพงแสน",
-    "tagline": "วางแผนที่พักในกำแพงแสน ให้ตรงกับการเรียนและการทำงาน",
-    "description": "บอกเราว่าคุณกำลังมองหาที่พักแบบไหน ทั้งงบประมาณ วันที่ต้องการเข้าอยู่ และจำนวนผู้พัก เราจะช่วยประสานรายละเอียดของรายการนี้ เพื่อให้คุณเลือกที่พักได้อย่างมั่นใจ",
-    "highlights": [
-      "สอบถามรูปและรายละเอียดห้องที่สนใจ",
-      "เปรียบเทียบราคาและเงื่อนไขก่อนตัดสินใจ",
-      "ประสานวันพร้อมเข้าอยู่และการนัดชม"
+    "hasProjectContent": true,
+    "searchAliases": [
+      "โนเบิล เทอร์รา พระราม 9 เอกมัย",
+      "โนเบิ้ล พระราม 9",
+      "Noble Terra Rama9 Ekamai",
+      "Noble Terra Rama 9 Ekkamai"
     ],
-    "location": "",
-    "amenities": "",
-    "nearby": "",
-    "audience": "",
-    "images": [],
-    "status": "details",
-    "id": 15,
-    "reference": "รายการ 15",
-    "hasProjectContent": false,
-    "searchAliases": []
+    "nearbyGuide": {
+      "status": "ready",
+      "areaLabel": "พระราม 9 · เอกมัย",
+      "sourceName": "HOMENAYOO",
+      "sourceUrl": "https://www.homenayoo.com/noble-terra-rama-9-ekamai/",
+      "checkedOn": "2026-10-17",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "Golden Place พระราม 9",
+          "kind": "shopping",
+          "description": "ซื้อของสดและของใช้ใกล้บ้าน",
+          "distanceMeters": 300,
+          "mode": "walking",
+          "mapQuery": "Golden Place Rama 9 Bangkok"
+        },
+        {
+          "name": "Regent’s International School",
+          "kind": "education",
+          "description": "โรงเรียนนานาชาติในย่านพระราม 9",
+          "distanceMeters": 550,
+          "mode": "walking",
+          "mapQuery": "The Regent’s International School Bangkok Rama 9"
+        },
+        {
+          "name": "Central Rama 9",
+          "kind": "shopping",
+          "description": "ช้อปปิ้ง ร้านอาหาร และไลฟ์สไตล์",
+          "distanceMeters": 5600,
+          "mode": "driving",
+          "mapQuery": "Central Rama 9 Bangkok"
+        },
+        {
+          "name": "โรงพยาบาลปิยะเวท",
+          "kind": "hospital",
+          "description": "โรงพยาบาลในย่านพระราม 9",
+          "distanceMeters": 4300,
+          "mode": "driving",
+          "mapQuery": "Piyavate Hospital Bangkok"
+        }
+      ]
+    },
+    "propertyType": "house",
+    "imageDetails": {
+      "assets/project-photos/noble-terra/cover.webp": {
+        "category": "building",
+        "type": "ภาพจำลองสถาปัตยกรรมโครงการ",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=7",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=7",
+        "thumbnail": "assets/project-photos/noble-terra/cover-thumb.webp",
+        "width": 2400,
+        "height": 1556
+      },
+      "assets/project-photos/noble-terra/radix-plan.webp": {
+        "category": "plan",
+        "type": "แปลนบ้าน RADIX · 382 ตร.ม. · 3 ชั้น",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=9",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=9",
+        "thumbnail": "assets/project-photos/noble-terra/radix-plan-thumb.webp",
+        "width": 2000,
+        "height": 1501
+      },
+      "assets/project-photos/noble-terra/pollinis-plan.webp": {
+        "category": "plan",
+        "type": "แปลนบ้าน POLLINIS · 409 ตร.ม. · 3 ชั้น",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=12",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=12",
+        "thumbnail": "assets/project-photos/noble-terra/pollinis-plan-thumb.webp",
+        "width": 2000,
+        "height": 1501
+      },
+      "assets/project-photos/noble-terra/cortex-plan.webp": {
+        "category": "plan",
+        "type": "แปลนบ้าน CORTEX · 457 ตร.ม. · 3 ชั้น",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=15",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=15",
+        "thumbnail": "assets/project-photos/noble-terra/cortex-plan-thumb.webp",
+        "width": 2000,
+        "height": 1501
+      },
+      "assets/project-photos/noble-terra/folium-plan.webp": {
+        "category": "plan",
+        "type": "แปลนบ้าน FOLIUM · 498 ตร.ม. · 3 ชั้น",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=18",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=18",
+        "thumbnail": "assets/project-photos/noble-terra/folium-plan-thumb.webp",
+        "width": 2000,
+        "height": 1501
+      },
+      "assets/project-photos/noble-terra/masterplan.webp": {
+        "category": "plan",
+        "type": "ผังโครงการ · 29 หลัง",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=5",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=5",
+        "thumbnail": "assets/project-photos/noble-terra/masterplan-thumb.webp",
+        "width": 1800,
+        "height": 1351
+      },
+      "assets/project-photos/noble-terra/dining.webp": {
+        "category": "interior",
+        "type": "ภาพประกอบพื้นที่รับประทานอาหาร",
+        "sourcePage": "https://www.home.co.th/home/noble-terra-rama-9-ekkamai-25267",
+        "sourceImage": "https://img.home.co.th/images/img_v/img_Directory/Gallery/img_Directory_07092023101155AM.webp",
+        "thumbnail": "assets/project-photos/noble-terra/dining-thumb.webp",
+        "width": 720,
+        "height": 360
+      },
+      "assets/project-photos/noble-terra/living.webp": {
+        "category": "interior",
+        "type": "ภาพประกอบพื้นที่นั่งเล่น",
+        "sourcePage": "https://www.home.co.th/home/noble-terra-rama-9-ekkamai-25267",
+        "sourceImage": "https://img.home.co.th/images/img_v/img_Directory/Gallery/img_Directory_07092023101157AM.webp",
+        "thumbnail": "assets/project-photos/noble-terra/living-thumb.webp",
+        "width": 720,
+        "height": 576
+      },
+      "assets/project-photos/noble-terra/tree-court.webp": {
+        "category": "interior",
+        "type": "ภาพประกอบ Tree Court ภายในบ้าน",
+        "sourcePage": "https://www.home.co.th/home/noble-terra-rama-9-ekkamai-25267",
+        "sourceImage": "https://img.home.co.th/images/img_v/img_Directory/Gallery/img_Directory_07092023101158AM.webp",
+        "thumbnail": "assets/project-photos/noble-terra/tree-court-thumb.webp",
+        "width": 720,
+        "height": 405
+      },
+      "assets/project-photos/noble-terra/bedroom.webp": {
+        "category": "interior",
+        "type": "ภาพประกอบห้องนอน",
+        "sourcePage": "https://www.home.co.th/home/noble-terra-rama-9-ekkamai-25267",
+        "sourceImage": "https://img.home.co.th/images/img_v/img_Directory/Gallery/img_Directory_07092023101200AM.webp",
+        "thumbnail": "assets/project-photos/noble-terra/bedroom-thumb.webp",
+        "width": 720,
+        "height": 480
+      },
+      "assets/project-photos/noble-terra/bathroom.webp": {
+        "category": "interior",
+        "type": "ภาพประกอบห้องน้ำ",
+        "sourcePage": "https://www.home.co.th/home/noble-terra-rama-9-ekkamai-25267",
+        "sourceImage": "https://img.home.co.th/images/img_v/img_Directory/Gallery/img_Directory_07092023101201AM.webp",
+        "thumbnail": "assets/project-photos/noble-terra/bathroom-thumb.webp",
+        "width": 720,
+        "height": 480
+      },
+      "assets/project-photos/noble-terra/radix-exterior.webp": {
+        "category": "building",
+        "type": "ภาพจำลองบ้าน RADIX",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=8",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=8",
+        "thumbnail": "assets/project-photos/noble-terra/radix-exterior-thumb.webp",
+        "width": 2223,
+        "height": 1667
+      },
+      "assets/project-photos/noble-terra/pollinis-exterior.webp": {
+        "category": "building",
+        "type": "ภาพจำลองบ้าน POLLINIS",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=11",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=11",
+        "thumbnail": "assets/project-photos/noble-terra/pollinis-exterior-thumb.webp",
+        "width": 2224,
+        "height": 1668
+      },
+      "assets/project-photos/noble-terra/cortex-exterior.webp": {
+        "category": "building",
+        "type": "ภาพจำลองบ้าน CORTEX",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=14",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=14",
+        "thumbnail": "assets/project-photos/noble-terra/cortex-exterior-thumb.webp",
+        "width": 2224,
+        "height": 1668
+      },
+      "assets/project-photos/noble-terra/folium-exterior.webp": {
+        "category": "building",
+        "type": "ภาพจำลองบ้าน FOLIUM",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=17",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=17",
+        "thumbnail": "assets/project-photos/noble-terra/folium-exterior-thumb.webp",
+        "width": 2224,
+        "height": 1668
+      },
+      "assets/project-photos/noble-terra/balcony-and-street-exterior.webp": {
+        "category": "building",
+        "type": "ภาพจำลองบ้าน BALCONY AND STREET",
+        "sourcePage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=20",
+        "sourceImage": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf#page=20",
+        "thumbnail": "assets/project-photos/noble-terra/balcony-and-street-exterior-thumb.webp",
+        "width": 2400,
+        "height": 1351
+      }
+    },
+    "mapQuery": "13.7651276,100.5973241",
+    "mapCaption": "Noble TERRA Rama 9 – Ekamai · ซอยจำเนียรเสริม วังทองหลาง",
+    "coordinates": {
+      "latitude": 13.7651276,
+      "longitude": 100.5973241
+    },
+    "sources": [
+      {
+        "name": "Noble Development",
+        "url": "https://www.noblehome.com/th/house/noble-terra-rama9-ekamai"
+      },
+      {
+        "name": "โบรชัวร์โครงการ Noble",
+        "url": "https://www.noblehome.com/cms-v2/uploads/NOBLE_TERRA_E_Factsheet_2835bcefdf_fa5f8ccaf6.pdf"
+      },
+      {
+        "name": "HOMENAYOO",
+        "url": "https://www.homenayoo.com/noble-terra-rama-9-ekamai/"
+      },
+      {
+        "name": "Home Buyers",
+        "url": "https://www.home.co.th/home/noble-terra-rama-9-ekkamai-25267"
+      }
+    ]
   },
   {
     "name": "dcondo Campus Kamphaeng Saen",
@@ -5684,7 +6311,52 @@
     },
     "imageSources": [
       "https://www.homenayoo.com/dcondo-campus-kampangsaen/"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://www.homenayoo.com/dcondo-campus-kampangsaen/",
+      "sourceName": "HOMENAYOO",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "road",
+      "places": [
+        {
+          "name": "ม.เกษตรฯ กำแพงแสน",
+          "description": "ตรวจเส้นทางเข้ามหาวิทยาลัยใน Maps",
+          "kind": "education",
+          "mode": "walking",
+          "mapQuery": "มหาวิทยาลัยเกษตรศาสตร์ กำแพงแสน ประตูมาลัยแมน"
+        },
+        {
+          "name": "Lotus’s Go Fresh",
+          "description": "ซื้ออาหารและของใช้ประจำวัน",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "Lotus Go Fresh มหาวิทยาลัยเกษตรศาสตร์ กำแพงแสน",
+          "distanceMeters": 270,
+          "sourceUrl": "https://www.dotproperty.co.th/en/condo/15337/dcondo-campus-kampangsaen",
+          "sourceName": "Dot Property"
+        },
+        {
+          "name": "ตลาด ม.เกษตรฯ",
+          "description": "ร้านค้าและอาหาร",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "KU market กำแพงแสน",
+          "distanceMeters": 390,
+          "sourceUrl": "https://www.dotproperty.co.th/en/condo/15337/dcondo-campus-kampangsaen",
+          "sourceName": "Dot Property"
+        },
+        {
+          "name": "โรงพยาบาลกำแพงแสน",
+          "description": "บริการด้านสุขภาพ",
+          "kind": "hospital",
+          "mode": "walking",
+          "mapQuery": "Kamphaeng Saen Hospital",
+          "distanceMeters": 920,
+          "sourceUrl": "https://www.dotproperty.co.th/en/condo/15337/dcondo-campus-kampangsaen",
+          "sourceName": "Dot Property"
+        }
+      ]
+    }
   },
   {
     "name": "บ้านซื่อตรง",
@@ -5705,28 +6377,338 @@
     "id": 17,
     "reference": "รายการ 17",
     "hasProjectContent": false,
-    "searchAliases": []
+    "searchAliases": [],
+    "nearbyGuide": {
+      "status": "needs-location",
+      "places": []
+    }
   },
   {
-    "name": "ที่พักปึกเตียน",
+    "name": "PUEKTIAN SEAVIEW CONDOTEL",
     "region": "บ้านและที่พักอื่น",
-    "tagline": "วางแผนวันพักผ่อนของคุณ เริ่มจากที่พักและเงื่อนไขที่ตรงใจ",
-    "description": "บอกเราว่าคุณกำลังมองหาที่พักแบบไหน ทั้งงบประมาณ วันที่ต้องการเข้าอยู่ และจำนวนผู้พัก เราจะช่วยประสานรายละเอียดของรายการนี้ เพื่อให้คุณเลือกที่พักได้อย่างมั่นใจ",
+    "tagline": "พักผ่อนริมทะเลปึกเตียน เพชรบุรี พร้อมห้องสตูดิโอและห้องครอบครัวติดสระน้ำ",
+    "description": "PUEKTIAN SEAVIEW CONDOTEL (ปึกเตียนซีวิว คอนโดเทล) ที่พักริมชายหาดปึกเตียน อำเภอท่ายาง จังหวัดเพชรบุรี ให้บริการห้องพักรายวันและรายเดือน เลือกพักได้ 4 ประเภท ทั้ง Studio, Pool Studio, Family Suite และ Pool Family Suite โดยห้องสตูดิโอมีพื้นที่ประมาณ 39–40 ตร.ม. ส่วนห้องครอบครัวมีพื้นที่ 80 ตร.ม. พร้อมตัวเลือกห้องชั้น 1 ที่มีระเบียงติดสระว่ายน้ำ เหมาะกับวันพักผ่อนแบบคู่รักและครอบครัว",
     "highlights": [
-      "สอบถามรูปและรายละเอียดห้องที่สนใจ",
-      "เปรียบเทียบราคาและเงื่อนไขก่อนตัดสินใจ",
-      "ประสานวันพร้อมเข้าอยู่และการนัดชม"
+      "ติดชายหาดปึกเตียน บรรยากาศริมทะเล",
+      "ห้องสตูดิโอและห้องครอบครัว 4 ประเภท",
+      "มีห้องระเบียงติดสระน้ำ พร้อมสระว่ายน้ำส่วนกลาง"
     ],
-    "location": "",
-    "amenities": "",
-    "nearby": "",
-    "audience": "",
-    "images": [],
+    "location": "149 หมู่ 3 ตำบลปึกเตียน อำเภอท่ายาง จังหวัดเพชรบุรี 76130 ตั้งอยู่ริมชายหาดปึกเตียน ใช้พิกัดจากลิงก์ Google Maps ของเว็บไซต์ที่พัก เช็คอิน 14:00 น. และเช็คเอาท์ 12:00 น.",
+    "amenities": "สระว่ายน้ำ พื้นที่พักผ่อนริมทะเล Wi-Fi ที่จอดรถ และระบบรักษาความปลอดภัยพร้อม CCTV ห้องพักมีเครื่องปรับอากาศ สมาร์ททีวี เครื่องทำน้ำอุ่น มินิบาร์ โซฟานั่งเล่น และโต๊ะรับประทานอาหารตามประเภทห้อง ราคาห้องพักไม่รวมอาหารเช้า",
+    "nearby": "พักใกล้ชายหาดปึกเตียน พร้อมวางแผนเที่ยวหาดหัวตาล วนอุทยานชะอำ และอุทยานประวัติศาสตร์พระนครคีรี ระยะทางในแผนภาพเป็นข้อมูลโดยประมาณจากเว็บไซต์ที่พัก",
+    "audience": "คู่รัก ครอบครัว และผู้ที่ต้องการพักผ่อนริมทะเลในเพชรบุรี ทั้งการพักรายวันและรายเดือน สอบถามจำนวนผู้เข้าพักและเงื่อนไขเด็กเพิ่มเติมได้กับผู้ดูแล",
+    "images": [
+      "assets/project-photos/puektian/cover.webp",
+      "assets/project-photos/puektian/beach.webp",
+      "assets/project-photos/puektian/gallery-01.webp",
+      "assets/project-photos/puektian/gallery-02.webp",
+      "assets/project-photos/puektian/gallery-03.webp",
+      "assets/project-photos/puektian/gallery-04.webp",
+      "assets/project-photos/puektian/gallery-06.webp",
+      "assets/project-photos/puektian/gallery-12.webp",
+      "assets/project-photos/puektian/studio-1.webp",
+      "assets/project-photos/puektian/studio-2.webp",
+      "assets/project-photos/puektian/studio-3.webp",
+      "assets/project-photos/puektian/pool-studio-1.webp",
+      "assets/project-photos/puektian/pool-studio-2.webp",
+      "assets/project-photos/puektian/pool-studio-3.webp",
+      "assets/project-photos/puektian/family-suite-1.webp",
+      "assets/project-photos/puektian/family-suite-2.webp",
+      "assets/project-photos/puektian/family-suite-3.webp",
+      "assets/project-photos/puektian/pool-family-suite-1.webp",
+      "assets/project-photos/puektian/pool-family-suite-2.webp",
+      "assets/project-photos/puektian/pool-family-suite-3.webp"
+    ],
     "status": "details",
     "id": 18,
     "reference": "รายการ 18",
-    "hasProjectContent": false,
-    "searchAliases": []
+    "hasProjectContent": true,
+    "searchAliases": [
+      "ที่พักปึกเตียน",
+      "ปึกเตียนซีวิว คอนโดเทล",
+      "Pektian Seaview Condotel",
+      "Puek Tian Seaview",
+      "เพชรบุรี"
+    ],
+    "nearbyGuide": {
+      "status": "ready",
+      "areaLabel": "ปึกเตียน · เพชรบุรี",
+      "sourceName": "เว็บไซต์ PUEKTIAN SEAVIEW CONDOTEL",
+      "sourceUrl": "https://sarayutmi.github.io/Pektian_hotel/",
+      "checkedOn": "2026-10-17",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "ชายหาดปึกเตียน",
+          "kind": "beach",
+          "description": "เดินเล่นและพักผ่อนริมทะเล",
+          "distanceMeters": 100,
+          "mode": "walking",
+          "mapQuery": "หาดปึกเตียน เพชรบุรี"
+        },
+        {
+          "name": "หาดหัวตาล",
+          "kind": "beach",
+          "description": "เที่ยวชายหาดใกล้ปึกเตียน",
+          "distanceMeters": 4300,
+          "mode": "driving",
+          "mapQuery": "หาดหัวตาล เพชรบุรี"
+        },
+        {
+          "name": "วนอุทยานชะอำ",
+          "kind": "attraction",
+          "description": "เดินเล่นท่ามกลางธรรมชาติ",
+          "distanceMeters": 22000,
+          "mode": "driving",
+          "mapQuery": "วนอุทยานชะอำ เพชรบุรี"
+        },
+        {
+          "name": "พระนครคีรี (เขาวัง)",
+          "kind": "attraction",
+          "description": "ชมประวัติศาสตร์และวิวเมืองเพชรบุรี",
+          "distanceMeters": 27000,
+          "mode": "driving",
+          "mapQuery": "อุทยานประวัติศาสตร์พระนครคีรี เพชรบุรี"
+        }
+      ]
+    },
+    "imageDetails": {
+      "assets/project-photos/puektian/cover.webp": {
+        "category": "building",
+        "type": "อาคาร PUEKTIAN SEAVIEW CONDOTEL",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/Index/PektianSeaviewCondotel.jpg",
+        "thumbnail": "assets/project-photos/puektian/cover-thumb.webp",
+        "width": 1200,
+        "height": 712
+      },
+      "assets/project-photos/puektian/beach.webp": {
+        "category": "building",
+        "type": "ชายหาดปึกเตียน",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/Index/PektianBeach.jpeg",
+        "thumbnail": "assets/project-photos/puektian/beach-thumb.webp",
+        "width": 1600,
+        "height": 1067
+      },
+      "assets/project-photos/puektian/gallery-01.webp": {
+        "category": "facilities",
+        "type": "พื้นที่พักผ่อนริมทะเล",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/Index-Gallery.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/puektianseaview_Image_Stock/image1.jpg",
+        "thumbnail": "assets/project-photos/puektian/gallery-01-thumb.webp",
+        "width": 1024,
+        "height": 1024
+      },
+      "assets/project-photos/puektian/gallery-02.webp": {
+        "category": "facilities",
+        "type": "สระว่ายน้ำ",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/Index-Gallery.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/puektianseaview_Image_Stock/image2.jpg",
+        "thumbnail": "assets/project-photos/puektian/gallery-02-thumb.webp",
+        "width": 1024,
+        "height": 1024
+      },
+      "assets/project-photos/puektian/gallery-03.webp": {
+        "category": "facilities",
+        "type": "อาคารและสระว่ายน้ำ",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/Index-Gallery.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/puektianseaview_Image_Stock/image3.jpg",
+        "thumbnail": "assets/project-photos/puektian/gallery-03-thumb.webp",
+        "width": 1024,
+        "height": 1024
+      },
+      "assets/project-photos/puektian/gallery-04.webp": {
+        "category": "building",
+        "type": "บรรยากาศชายหาด",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/Index-Gallery.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/puektianseaview_Image_Stock/image4.jpg",
+        "thumbnail": "assets/project-photos/puektian/gallery-04-thumb.webp",
+        "width": 1024,
+        "height": 1024
+      },
+      "assets/project-photos/puektian/gallery-06.webp": {
+        "category": "facilities",
+        "type": "มุมพักผ่อนริมทะเล",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/Index-Gallery.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/puektianseaview_Image_Stock/image6.jpg",
+        "thumbnail": "assets/project-photos/puektian/gallery-06-thumb.webp",
+        "width": 1600,
+        "height": 1600
+      },
+      "assets/project-photos/puektian/gallery-12.webp": {
+        "category": "building",
+        "type": "บรรยากาศหาดปึกเตียน",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/Index-Gallery.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/puektianseaview_Image_Stock/image12.jpg",
+        "thumbnail": "assets/project-photos/puektian/gallery-12-thumb.webp",
+        "width": 1600,
+        "height": 1600
+      },
+      "assets/project-photos/puektian/studio-1.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Studio · ห้อง 1101",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/STUDIOPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/STUDIO-Room/1101/1.webp",
+        "thumbnail": "assets/project-photos/puektian/studio-1-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/studio-2.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Studio · ห้อง 1101",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/STUDIOPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/STUDIO-Room/1101/2.webp",
+        "thumbnail": "assets/project-photos/puektian/studio-2-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/studio-3.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Studio · ห้อง 1101",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/STUDIOPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/STUDIO-Room/1101/3.webp",
+        "thumbnail": "assets/project-photos/puektian/studio-3-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/pool-studio-1.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Pool Studio · ห้อง 1106",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/POOLSTUDIOPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/POOLSTUDIO-Room/1106/1.webp",
+        "thumbnail": "assets/project-photos/puektian/pool-studio-1-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/pool-studio-2.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Pool Studio · ห้อง 1106",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/POOLSTUDIOPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/POOLSTUDIO-Room/1106/2.webp",
+        "thumbnail": "assets/project-photos/puektian/pool-studio-2-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/pool-studio-3.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Pool Studio · ห้อง 1106",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/POOLSTUDIOPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/POOLSTUDIO-Room/1106/3.webp",
+        "thumbnail": "assets/project-photos/puektian/pool-studio-3-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/family-suite-1.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Family Suite · ห้อง 1207–8",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/FAMILYSUITEPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/FAMILYSUITE-Room/1207-8/1.webp",
+        "thumbnail": "assets/project-photos/puektian/family-suite-1-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/family-suite-2.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Family Suite · ห้อง 1207–8",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/FAMILYSUITEPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/FAMILYSUITE-Room/1207-8/2.webp",
+        "thumbnail": "assets/project-photos/puektian/family-suite-2-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/family-suite-3.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Family Suite · ห้อง 1207–8",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/FAMILYSUITEPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/FAMILYSUITE-Room/1207-8/3.webp",
+        "thumbnail": "assets/project-photos/puektian/family-suite-3-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/pool-family-suite-1.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Pool Family Suite · ห้อง 1103–4",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/POOLFAMILYSUITEPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/POOL-FAMILY-SUITE-Room/1103-4/1.webp",
+        "thumbnail": "assets/project-photos/puektian/pool-family-suite-1-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/pool-family-suite-2.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Pool Family Suite · ห้อง 1103–4",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/POOLFAMILYSUITEPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/POOL-FAMILY-SUITE-Room/1103-4/2.webp",
+        "thumbnail": "assets/project-photos/puektian/pool-family-suite-2-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "assets/project-photos/puektian/pool-family-suite-3.webp": {
+        "category": "interior",
+        "type": "ภาพห้องพัก Pool Family Suite · ห้อง 1103–4",
+        "sourcePage": "https://sarayutmi.github.io/Pektian_hotel/POOLFAMILYSUITEPage.html",
+        "sourceImage": "https://sarayutmi.github.io/Pektian_hotel/images/POOL-FAMILY-SUITE-Room/1103-4/3.webp",
+        "thumbnail": "assets/project-photos/puektian/pool-family-suite-3-thumb.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    "mapQuery": "12.9468233,100.0336387",
+    "mapCaption": "PUEKTIAN SEAVIEW CONDOTEL · ปึกเตียน ท่ายาง เพชรบุรี",
+    "coordinates": {
+      "latitude": 12.9468233,
+      "longitude": 100.0336387
+    },
+    "websiteUrl": "https://sarayutmi.github.io/Pektian_hotel/",
+    "sources": [
+      {
+        "name": "เว็บไซต์ PUEKTIAN SEAVIEW CONDOTEL",
+        "url": "https://sarayutmi.github.io/Pektian_hotel/"
+      },
+      {
+        "name": "ประเภทและราคาห้องพัก",
+        "url": "https://sarayutmi.github.io/Pektian_hotel/RoomtypePektian.html"
+      }
+    ],
+    "roomTypes": [
+      {
+        "name": "Studio",
+        "area": "ประมาณ 40 ตร.ม.",
+        "guests": "2 ท่าน",
+        "description": "ห้องชั้น 1–4 พร้อมระเบียงและมุมนั่งเล่น",
+        "nightlyRate": 1500,
+        "image": "assets/project-photos/puektian/studio-1.webp",
+        "sourceUrl": "https://sarayutmi.github.io/Pektian_hotel/STUDIOPage.html"
+      },
+      {
+        "name": "Pool Studio",
+        "area": "ประมาณ 39–40 ตร.ม.",
+        "guests": "2 ท่าน",
+        "description": "ห้องชั้น 1 พร้อมระเบียงติดสระว่ายน้ำ",
+        "nightlyRate": 1800,
+        "image": "assets/project-photos/puektian/pool-studio-1.webp",
+        "sourceUrl": "https://sarayutmi.github.io/Pektian_hotel/POOLSTUDIOPage.html"
+      },
+      {
+        "name": "Family Suite",
+        "area": "80 ตร.ม.",
+        "guests": "4 ท่าน",
+        "description": "ห้องครอบครัว 2 ห้องนอน 2 ห้องน้ำ ชั้น 2 และ 4",
+        "nightlyRate": 2500,
+        "image": "assets/project-photos/puektian/family-suite-1.webp",
+        "sourceUrl": "https://sarayutmi.github.io/Pektian_hotel/FAMILYSUITEPage.html"
+      },
+      {
+        "name": "Pool Family Suite",
+        "area": "80 ตร.ม.",
+        "guests": "4 ท่าน",
+        "description": "ห้องครอบครัวชั้น 1 แบบ 2 ห้องนอน 2 ห้องน้ำ ระเบียงติดสระ",
+        "nightlyRate": 2800,
+        "image": "assets/project-photos/puektian/pool-family-suite-1.webp",
+        "sourceUrl": "https://sarayutmi.github.io/Pektian_hotel/POOLFAMILYSUITEPage.html"
+      }
+    ]
   },
   {
     "name": "NUE Noble Ngamwongwan",
@@ -5933,6 +6915,348 @@
     },
     "imageSources": [
       "https://www.noblehome.com/en/condominium/nue-ngamwongwan"
-    ]
+    ],
+    "nearbyGuide": {
+      "sourceUrl": "https://www.condonayoo.com/nue-noble-ngamwongwan/",
+      "sourceName": "CONDONAYOO",
+      "checkedOn": "2026-10-16",
+      "distanceBasis": "published",
+      "places": [
+        {
+          "name": "The Mall งามวงศ์วาน",
+          "description": "ศูนย์การค้าและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "The Mall Lifestore Ngamwongwan",
+          "distanceMeters": 600
+        },
+        {
+          "name": "โรงพยาบาลนนทเวช",
+          "description": "ระยะทางตามตารางสถานที่ใกล้เคียง",
+          "kind": "hospital",
+          "mode": "walking",
+          "mapQuery": "Nonthavej Hospital",
+          "distanceMeters": 800
+        },
+        {
+          "name": "พันธุ์ทิพย์ งามวงศ์วาน",
+          "description": "ร้านค้าและบริการ",
+          "kind": "shopping",
+          "mode": "walking",
+          "mapQuery": "Pantip Plaza Ngamwongwan",
+          "distanceMeters": 200
+        },
+        {
+          "name": "Esplanade แคราย",
+          "description": "ช้อปปิ้งและความบันเทิง",
+          "kind": "shopping",
+          "mode": "driving",
+          "mapQuery": "Esplanade Ngamwongwan Khae Rai",
+          "distanceMeters": 2500
+        }
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "reference": "รายการ 20",
+    "name": "Beverly Mountain Bay",
+    "tagline": "ใช้ชีวิตบนเขาพระตำหนัก พร้อมพื้นที่พักผ่อนและวิวเมืองพัทยา",
+    "description": "Beverly Mountain Bay ตั้งอยู่ในพระตำหนักซอย 5 พัทยา พัฒนาโดย JANTARAPA Co., Ltd. เป็นอาคารสูง 22 ชั้น จำนวน 199 ยูนิต ตามข้อมูลเว็บไซต์โครงการ มีห้องหลายรูปแบบตั้งแต่สตูดิโอถึงดูเพล็กซ์ พร้อมส่วนกลางสำหรับพักผ่อนและออกกำลังกาย เหมาะกับการมองหาที่พักในย่านเขาพระตำหนัก",
+    "highlights": [
+      "ทำเลพระตำหนักซอย 5 พัทยา",
+      "สระว่ายน้ำ Infinity Edge และพื้นที่พักผ่อน",
+      "ฟิตเนส ซาวน่า และล็อบบี้"
+    ],
+    "location": "พระตำหนักซอย 5 ตำบลหนองปรือ อำเภอบางละมุง จังหวัดชลบุรี อยู่ในย่านเขาพระตำหนักระหว่างพัทยาใต้กับจอมเทียน ดูตำแหน่งอาคารและวางแผนการเดินทางได้จากแผนที่ด้านล่าง",
+    "nearby": "เขาพระตำหนัก วัดพระใหญ่ และท่าเรือแหลมบาลีฮายเป็นจุดหมายในบริเวณใกล้เคียง สามารถเปิด Google Maps เพื่อดูเส้นทางไปชายหาดและจุดหมายที่ต้องการ",
+    "amenities": "เว็บไซต์โครงการระบุสระว่ายน้ำ Infinity Edge, Pool Bar, Sky Fitness, Sauna, Sky Garden, ล็อบบี้ จุดต้อนรับ ร้านอาหาร ร้านกาแฟ ที่จอดรถ และระบบ CCTV การใช้ส่วนกลางและบริการแต่ละรายการควรสอบถามผู้ดูแลก่อนนัดชม",
+    "audience": "เหมาะกับผู้ที่มองหาที่พักในย่านเขาพระตำหนัก และต้องการส่วนกลางสำหรับออกกำลังกายหรือพักผ่อนในวันว่าง",
+    "region": "พัทยา",
+    "status": "inquire",
+    "hasProjectContent": true,
+    "sectionLayout": true,
+    "searchAliases": [
+      "เบเวอร์ลี่ เมาน์เท่น เบย์",
+      "เบเวอร์ลี เมาน์เทน เบย์",
+      "Beverly Pattaya",
+      "เขาพระตำหนัก",
+      "Pratumnak"
+    ],
+    "mapQuery": "Beverly Mountain Bay Pattaya Pratumnak Soi 5",
+    "mapCaption": "Beverly Mountain Bay · พระตำหนักซอย 5 พัทยา",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.9028099978673!2d100.86377957580488!3d12.913967787396144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3102979417734ea5%3A0x1ccc049f98f4b7ab!2sBeverly%20Mountain%20Bay%2C%20Trademark%20Collection%20by%20Wyndham!5e0!3m2!1sen!2sth!4v1762497759678!5m2!1sen!2sth",
+    "informationSources": [
+      "https://beverlymountainbay.com/project-information/",
+      "https://www.beverlymountainbayhotel.com/"
+    ],
+    "images": [
+      "Beverly-Mountain-Bay/exterior-02.jpg",
+      "Beverly-Mountain-Bay/exterior-01.jpg",
+      "Beverly-Mountain-Bay/exterior-03.jpg",
+      "Beverly-Mountain-Bay/photo-project-info.jpg",
+      "Beverly-Mountain-Bay/facilities-01.jpg",
+      "Beverly-Mountain-Bay/facilities-02.jpg",
+      "Beverly-Mountain-Bay/facilities-03.jpg",
+      "Beverly-Mountain-Bay/facilities-04.jpg",
+      "Beverly-Mountain-Bay/facilities-05.jpg",
+      "Beverly-Mountain-Bay/facilities-06.jpg",
+      "Beverly-Mountain-Bay/hotel-lobby.jpg",
+      "Beverly-Mountain-Bay/S__79274070_0.jpg",
+      "Beverly-Mountain-Bay/S__79274072_0.jpg",
+      "Beverly-Mountain-Bay/S__79274073_0.jpg",
+      "Beverly-Mountain-Bay/S__79274074_0.jpg",
+      "Beverly-Mountain-Bay/S__79274075_0.jpg",
+      "Beverly-Mountain-Bay/S__79274076_0.jpg",
+      "Beverly-Mountain-Bay/S__79274077_0.jpg",
+      "Beverly-Mountain-Bay/S__79274078_0.jpg",
+      "Beverly-Mountain-Bay/S__79274079_0.jpg",
+      "Beverly-Mountain-Bay/S__79274080_0.jpg",
+      "Beverly-Mountain-Bay/S__79274081_0.jpg",
+      "Beverly-Mountain-Bay/S__79274083_0.jpg",
+      "Beverly-Mountain-Bay/S__79274084_0.jpg",
+      "Beverly-Mountain-Bay/S__79274085_0.jpg"
+    ],
+    "imageDetails": {
+      "Beverly-Mountain-Bay/exterior-02.jpg": {
+        "category": "building",
+        "type": "ภาพจำลองอาคารและบรรยากาศโครงการ",
+        "thumbnail": "assets/project-photos/beverly/exterior-02-thumb.webp",
+        "width": 1200,
+        "height": 800,
+        "sourcePage": "https://beverlymountainbay.com/project-information/",
+        "sourceImage": "https://beverlymountainbay.com/wp-content/uploads/exterior-02.jpg"
+      },
+      "Beverly-Mountain-Bay/exterior-01.jpg": {
+        "category": "building",
+        "type": "ภาพจำลองอาคารและบรรยากาศโครงการ",
+        "thumbnail": "assets/project-photos/beverly/exterior-01-thumb.webp",
+        "width": 1200,
+        "height": 800,
+        "sourcePage": "https://beverlymountainbay.com/project-information/",
+        "sourceImage": "https://beverlymountainbay.com/wp-content/uploads/exterior-01.jpg"
+      },
+      "Beverly-Mountain-Bay/exterior-03.jpg": {
+        "category": "building",
+        "type": "ภาพจำลองอาคารและบรรยากาศโครงการ",
+        "thumbnail": "assets/project-photos/beverly/exterior-03-thumb.webp",
+        "width": 1200,
+        "height": 800,
+        "sourcePage": "https://beverlymountainbay.com/project-information/",
+        "sourceImage": "https://beverlymountainbay.com/wp-content/uploads/exterior-03.jpg"
+      },
+      "Beverly-Mountain-Bay/photo-project-info.jpg": {
+        "category": "building",
+        "type": "ภาพจำลองอาคารและบรรยากาศโครงการ",
+        "thumbnail": "assets/project-photos/beverly/photo-project-info-thumb.webp",
+        "width": 600,
+        "height": 819,
+        "sourcePage": "https://beverlymountainbay.com/project-information/",
+        "sourceImage": "https://beverlymountainbay.com/wp-content/uploads/photo-project-info.jpg"
+      },
+      "Beverly-Mountain-Bay/facilities-01.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/beverly/facilities-01-thumb.webp",
+        "width": 1200,
+        "height": 800,
+        "sourcePage": "https://beverlymountainbay.com/project-information/",
+        "sourceImage": "https://beverlymountainbay.com/wp-content/uploads/facilities-01.jpg"
+      },
+      "Beverly-Mountain-Bay/facilities-02.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/beverly/facilities-02-thumb.webp",
+        "width": 1200,
+        "height": 800,
+        "sourcePage": "https://beverlymountainbay.com/project-information/",
+        "sourceImage": "https://beverlymountainbay.com/wp-content/uploads/facilities-02.jpg"
+      },
+      "Beverly-Mountain-Bay/facilities-03.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/beverly/facilities-03-thumb.webp",
+        "width": 1200,
+        "height": 800,
+        "sourcePage": "https://beverlymountainbay.com/project-information/",
+        "sourceImage": "https://beverlymountainbay.com/wp-content/uploads/facilities-03.jpg"
+      },
+      "Beverly-Mountain-Bay/facilities-04.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/beverly/facilities-04-thumb.webp",
+        "width": 1200,
+        "height": 800,
+        "sourcePage": "https://beverlymountainbay.com/project-information/",
+        "sourceImage": "https://beverlymountainbay.com/wp-content/uploads/facilities-04.jpg"
+      },
+      "Beverly-Mountain-Bay/facilities-05.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/beverly/facilities-05-thumb.webp",
+        "width": 1200,
+        "height": 800,
+        "sourcePage": "https://beverlymountainbay.com/project-information/",
+        "sourceImage": "https://beverlymountainbay.com/wp-content/uploads/facilities-05.jpg"
+      },
+      "Beverly-Mountain-Bay/facilities-06.jpg": {
+        "category": "facilities",
+        "type": "ภาพจำลองส่วนกลาง",
+        "thumbnail": "assets/project-photos/beverly/facilities-06-thumb.webp",
+        "width": 1200,
+        "height": 800,
+        "sourcePage": "https://beverlymountainbay.com/project-information/",
+        "sourceImage": "https://beverlymountainbay.com/wp-content/uploads/facilities-06.jpg"
+      },
+      "Beverly-Mountain-Bay/hotel-lobby.jpg": {
+        "category": "facilities",
+        "type": "ภาพล็อบบี้จากเว็บไซต์โรงแรม",
+        "thumbnail": "assets/project-photos/beverly/hotel-lobby-thumb.webp",
+        "width": 800,
+        "height": 600,
+        "sourcePage": "https://www.beverlymountainbayhotel.com/",
+        "sourceImage": "https://www.beverlymountainbayhotel.com/wp-content/uploads/2025/06/beverlymountainbayhotel-gallery-lobby.jpg"
+      },
+      "Beverly-Mountain-Bay/S__79274070_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274070_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274072_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274072_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274073_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274073_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274074_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274074_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274075_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274075_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274076_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274076_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274077_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274077_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274078_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274078_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274079_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274079_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274080_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274080_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274081_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274081_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274083_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274083_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274084_0.jpg": {
+        "category": "interior",
+        "type": "ภาพห้องพัก",
+        "thumbnail": "assets/project-photos/beverly/S__79274084_0-thumb.webp",
+        "width": 1567,
+        "height": 1044
+      },
+      "Beverly-Mountain-Bay/S__79274085_0.jpg": {
+        "category": "plan",
+        "type": "แปลนห้อง Beverly Mountain Bay",
+        "thumbnail": "assets/project-photos/beverly/S__79274085_0-thumb.webp",
+        "width": 1113,
+        "height": 1113
+      }
+    },
+    "nearbyGuide": {
+      "sourceUrl": "https://beverlypratumnak.com/en",
+      "sourceName": "Beverly Mountain Bay",
+      "checkedOn": "2026-10-16",
+      "places": [
+        {
+          "name": "หาดดงตาล",
+          "description": "Dongtan Beach",
+          "kind": "beach",
+          "mode": "driving",
+          "minutes": 5,
+          "mapQuery": "Dongtan Beach Pattaya",
+          "sourceUrl": "https://uk.hotels.com/ho3582396448/",
+          "sourceName": "Hotels.com"
+        },
+        {
+          "name": "Walking Street",
+          "description": "ร้านอาหารและสีสันยามค่ำคืน",
+          "kind": "nightlife",
+          "mode": "driving",
+          "minutes": 10,
+          "mapQuery": "Walking Street Pattaya"
+        },
+        {
+          "name": "Central Pattaya",
+          "description": "ช้อปปิ้งและร้านอาหาร",
+          "kind": "shopping",
+          "mode": "driving",
+          "minutes": 15,
+          "mapQuery": "Central Pattaya shopping mall"
+        },
+        {
+          "name": "โรงพยาบาลกรุงเทพพัทยา",
+          "description": "Bangkok Hospital Pattaya",
+          "kind": "hospital",
+          "mode": "driving",
+          "minutes": 15,
+          "mapQuery": "Bangkok Hospital Pattaya"
+        }
+      ],
+      "areaLabel": "พระตำหนัก · พัทยา"
+    }
   }
 ]

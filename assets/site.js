@@ -39,10 +39,12 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
   const count = gallery.querySelector('.gallery-count');
   let selectedCategory = 'all';
   let expanded = false;
-  gallery.querySelector('[data-gallery-controls]').hidden = false;
+  const controls = gallery.querySelector('[data-gallery-controls]');
+  if (controls) controls.hidden = false;
+  const previewLimit = Number(gallery.dataset.galleryLimit) || 16;
   function renderGallery() {
     const matches = photos.filter(photo => selectedCategory === 'all' || photo.dataset.photoCategory === selectedCategory);
-    const visible = expanded ? matches.length : Math.min(16, matches.length);
+    const visible = expanded ? matches.length : Math.min(previewLimit, matches.length);
     const shown = new Set(matches.slice(0, visible));
     photos.forEach(photo => { photo.hidden = !shown.has(photo); });
     gallery.dataset.selectedCategory = selectedCategory;
