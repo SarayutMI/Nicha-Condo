@@ -31,6 +31,83 @@ filters.forEach(button => button.addEventListener('click', () => {
 }));
 if (search) search.addEventListener('input', filterProperties);
 
+// A regional map remains usable as a list when JavaScript is unavailable.
+const mapAreaButtons = Array.from(document.querySelectorAll('[data-map-area]'));
+const mapProperties = Array.from(document.querySelectorAll('[data-map-property]'));
+function selectMapArea(area, label) {
+  let visible = 0;
+  mapProperties.forEach(property => {
+    property.hidden = area !== 'all' && property.dataset.mapProperty !== area;
+    if (!property.hidden) visible++;
+  });
+  mapAreaButtons.forEach(button => {
+    const active = button.dataset.mapArea === area;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  document.querySelector('[data-map-title]').textContent = area === 'all' ? 'ที่พักทุกทำเล' : label;
+  document.querySelector('[data-map-count]').textContent = `${visible} รายการ`;
+  document.querySelector('.map-property-list').scrollTop = 0;
+}
+mapAreaButtons.forEach(button => {
+  const select = event => {
+    event.preventDefault();
+    const title = button.querySelector('text');
+    const label = title ? title.textContent : button.childNodes[0].textContent.trim();
+    selectMapArea(button.dataset.mapArea, label);
+  };
+  button.addEventListener('click', select);
+  if (button.tagName.toLowerCase() === 'a') button.addEventListener('keydown', event => {
+    if (event.key === ' ' || event.key === 'Enter') select(event);
+  });
+});
+
+const slideshow = document.querySelector('[data-slideshow]');
+if (slideshow) {
+  const slides = Array.from(slideshow.querySelectorAll('[data-hero-slide]'));
+  const dots = Array.from(slideshow.querySelectorAll('[data-hero-dot]'));
+  const pauseButton = slideshow.querySelector('[data-hero-pause]');
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let index = 0, timer = null, paused = motion.matches;
+  function showSlide(next) {
+    index = (next + slides.length) % slides.length;
+    slides.forEach((slide, number) => {
+      const active = number === index;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+      slide.querySelector('a').tabIndex = active ? 0 : -1;
+      dots[number].classList.toggle('is-active', active);
+      dots[number].setAttribute('aria-pressed', String(active));
+    });
+    slideshow.querySelector('[data-hero-counter]').textContent = `${index + 1} / ${slides.length}`;
+  }
+  function schedule() {
+    clearInterval(timer);
+    if (!paused && !document.hidden && !slideshow.matches(':hover') && !slideshow.contains(document.activeElement)) {
+      timer = setInterval(() => showSlide(index + 1), 6000);
+    }
+  }
+  function renderPause() {
+    pauseButton.textContent = paused ? 'เล่นภาพ ▶' : 'หยุดภาพ Ⅱ';
+    pauseButton.setAttribute('aria-label', paused ? 'เล่นสไลด์อัตโนมัติ' : 'หยุดสไลด์อัตโนมัติ');
+    pauseButton.setAttribute('aria-pressed', String(paused));
+    schedule();
+  }
+  slideshow.querySelector('.hero-slide-controls').hidden = false;
+  slideshow.querySelector('[data-hero-prev]').addEventListener('click', () => { showSlide(index - 1); schedule(); });
+  slideshow.querySelector('[data-hero-next]').addEventListener('click', () => { showSlide(index + 1); schedule(); });
+  dots.forEach((dot, number) => dot.addEventListener('click', () => { showSlide(number); schedule(); }));
+  pauseButton.addEventListener('click', () => { paused = !paused; renderPause(); });
+  slideshow.addEventListener('mouseenter', schedule);
+  slideshow.addEventListener('mouseleave', schedule);
+  slideshow.addEventListener('focusin', schedule);
+  slideshow.addEventListener('focusout', () => setTimeout(schedule, 0));
+  document.addEventListener('visibilitychange', schedule);
+  motion.addEventListener('change', event => { paused = event.matches; renderPause(); });
+  showSlide(0);
+  renderPause();
+}
+
 // Progressive galleries expose every image without fetching every full-size original.
 document.querySelectorAll('[data-gallery]').forEach(gallery => {
   const photos = Array.from(gallery.querySelectorAll('.gallery-card'));

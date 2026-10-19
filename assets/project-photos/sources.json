@@ -7320,6 +7320,20 @@
       "sha256": "ff4966a7a6386ea8c97b750307c9cd4daffa4d4be76968e674883444a2996426",
       "included": true,
       "retrievedOn": "2026-10-17"
+    },
+    {
+      "project": "beverly",
+      "sourceName": "ภาพที่ผู้ดูแลจัดเตรียม",
+      "category": "building",
+      "type": "ภาพอาคาร Beverly Mountain Bay",
+      "path": "Beverly-Mountain-Bay/666119771.jpg",
+      "thumbnail": "assets/project-photos/beverly/666119771-thumb.webp",
+      "width": 1024,
+      "height": 687,
+      "bytes": 134406,
+      "sha256": "8642012fa92609e05a4496227cc68dd03ea043cf868aedf85ead07babf73b586",
+      "included": true,
+      "retrievedOn": "2026-10-19"
     }
   ],
   "unavailable": [
